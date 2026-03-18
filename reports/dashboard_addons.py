@@ -647,3 +647,70 @@ def get_export_html(stats: dict) -> str:
 }})();
 </script>
 """
+
+
+def get_human_review_html() -> str:
+    """Return HTML/CSS/JS for thumbs up/down human review on ad cards."""
+    return """
+<!-- Human Review — Thumbs Up/Down -->
+<style>
+.human-review { display: flex; gap: 4px; margin-left: auto; }
+.review-btn {
+  width: 28px; height: 28px; border: 1px solid #DADDE1; border-radius: 6px;
+  background: white; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: all 0.15s; font-size: 14px;
+}
+.review-btn:hover { background: #F0F2F5; }
+.review-btn.up-active { background: #E8F5E9; border-color: #31A24C; }
+.review-btn.down-active { background: #FFEBE9; border-color: #E4405F; }
+.review-count { font-size: 10px; color: #8A8D91; margin-top: 2px; text-align: center; }
+</style>
+<script>
+(function() {
+  // Load reviews from localStorage
+  const STORAGE_KEY = 'tc_ads_qa_reviews';
+  function getReviews() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { return {}; }
+  }
+  function saveReviews(reviews) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+  }
+
+  window.reviewAd = function(adKey, vote) {
+    const reviews = getReviews();
+    const current = reviews[adKey];
+    if (current === vote) {
+      delete reviews[adKey]; // Toggle off
+    } else {
+      reviews[adKey] = vote; // 'up' or 'down'
+    }
+    saveReviews(reviews);
+    updateReviewUI(adKey);
+  };
+
+  function updateReviewUI(adKey) {
+    const reviews = getReviews();
+    const vote = reviews[adKey];
+    const container = document.querySelector(`[data-review-key="${adKey}"]`);
+    if (!container) return;
+    container.querySelector('.up-btn')?.classList.toggle('up-active', vote === 'up');
+    container.querySelector('.down-btn')?.classList.toggle('down-active', vote === 'down');
+  }
+
+  // Init all review UIs on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const reviews = getReviews();
+    for (const [key, vote] of Object.entries(reviews)) {
+      updateReviewUI(key);
+    }
+    // Show review stats
+    const ups = Object.values(reviews).filter(v => v === 'up').length;
+    const downs = Object.values(reviews).filter(v => v === 'down').length;
+    const total = Object.keys(reviews).length;
+    if (total > 0) {
+      console.log(`Human reviews: ${ups} up, ${downs} down, ${total} total`);
+    }
+  });
+})();
+</script>
+"""

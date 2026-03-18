@@ -943,10 +943,15 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
                     html += f'          <div class="issue-item"><span class="issue-dot" style="background:{dc}"></span>{iss.get("issue","")[:100]}</div>\n'
                 html += '        </div>\n'
 
+            review_key = card.get("library_id") or f"{card['source']}_{card['advertiser']}_{card.get('ad_index', 0)}"
             html += f"""      </div>
       <div class="card-footer">
         <button onclick="event.stopPropagation();toggleDetail(this.closest('.ad-card'))">Details</button>
         <button class="btn-primary" onclick="event.stopPropagation();window.open('{fb_url}','_blank')">View Original</button>
+        <div class="human-review" data-review-key="{review_key}">
+          <button class="review-btn up-btn" onclick="event.stopPropagation();reviewAd('{review_key}','up')" title="Good ad">👍</button>
+          <button class="review-btn down-btn" onclick="event.stopPropagation();reviewAd('{review_key}','down')" title="Poor ad">👎</button>
+        </div>
       </div>
     </div>
 """
@@ -1061,13 +1066,14 @@ function toggleGapMatrix() {{
 
     # Inject compare + export addons
     try:
-        from reports.dashboard_addons import get_compare_html, get_export_html
+        from reports.dashboard_addons import get_compare_html, get_export_html, get_human_review_html
         html += get_compare_html()
         html += get_export_html({
             "total": len(cards),
             "trilogy": len(trilogy_cards),
             "avg_score": avg,
         })
+        html += get_human_review_html()
     except Exception as e:
         html += f"<!-- Addons failed: {{e}} -->"
 
