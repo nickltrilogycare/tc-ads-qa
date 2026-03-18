@@ -26,12 +26,14 @@ BRAND = {
         "Paula Duncan as brand ambassador",
     ],
 
-    # Brand colors
+    # Brand colors (from marketing-tom-site/index.html)
     "colors": {
-        "primary_blue": "#1B3A5C",
-        "accent_teal": "#00A5B5",
+        "primary_teal": "#007F7E",
+        "dark_blue": "#2c4c79",
+        "light_teal": "#43C0BE",
+        "light_blue": "#64BCEA",
         "warm_orange": "#F58220",
-        "heart_red": "#E4002B",
+        "dark_bg": "#0f172a",
         "cream": "#FFF8F0",
         "white": "#FFFFFF",
     },
