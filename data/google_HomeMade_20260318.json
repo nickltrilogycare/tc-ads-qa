@@ -1,0 +1,13 @@
+[
+  {
+    "source": "google",
+    "advertiser": "HomeMade",
+    "raw_text": "Ads Transparency Center\nSign in\nFAQ\nAll topics\nPolitical ads\nsearch\nclear\nAdvertisers\nBased in\n# of ads\nWebsites\nSee more results\ncheck\nAds In Australia\narrow_drop_down\nAds transparency for a safe and open internet\nFind active ads published through Google\nDiscover more on related sites\nAnalyze political ad campaigns on Google\nSee extra transparency about election ads from around the world, including who paid for them and who they were aiming to reach.\nExplore political advertising on Google\nAssess how brands use paid content on Youtube\nFind paid product placements, sponsorships and endorsements shown on YouTube.\nExplore paid promotions on YouTube\narrow_outward\nMake your ads more useful to you\nEasily customize the ads you see on Google Search, YouTube, and Discover - and control the info used to personalize them.\nGo to My Ad Center\narrow_outward\nSee how Google helps keep users safe online\nLearn about our commitments to responsible advertising and find out more about our approach to keeping the internet open, private, and safe.\nVisit the Safety Center to learn more\narrow_outward\nPrivacyTermsAds PoliciesFAQ\nPrinciplesAds Blog",
+    "extraction_method": "full_page_text",
+    "ad_format": "unknown",
+    "image_paths": [],
+    "image_urls": [],
+    "scraped_at": "2026-03-18T15:42:22.768151",
+    "ad_url": "https://adstransparency.google.com/?hl=en&region=AU"
+  }
+]

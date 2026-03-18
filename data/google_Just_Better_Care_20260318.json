@@ -1,0 +1,275 @@
+[
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 0,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/17868654243098941933"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/17868654243098941933"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad0_20260318.png",
+    "scraped_at": "2026-03-18T15:44:57.199808"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 1,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/18337954973694806488"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/18337954973694806488"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad1_20260318.png",
+    "scraped_at": "2026-03-18T15:44:57.474101"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 2,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/3412028493904768047"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/3412028493904768047"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad2_20260318.png",
+    "scraped_at": "2026-03-18T15:44:57.712688"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 3,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "text",
+    "has_video": false,
+    "has_image": false,
+    "image_paths": [],
+    "image_urls": [],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad3_20260318.png",
+    "scraped_at": "2026-03-18T15:44:57.865345"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 4,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/7798114058110524523"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/7798114058110524523"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad4_20260318.png",
+    "scraped_at": "2026-03-18T15:44:58.071093"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 5,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "text",
+    "has_video": false,
+    "has_image": false,
+    "image_paths": [],
+    "image_urls": [],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad5_20260318.png",
+    "scraped_at": "2026-03-18T15:44:58.157841"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 6,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/15197323534242980969"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/15197323534242980969"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad6_20260318.png",
+    "scraped_at": "2026-03-18T15:44:58.461700"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 7,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "text",
+    "has_video": false,
+    "has_image": false,
+    "image_paths": [],
+    "image_urls": [],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad7_20260318.png",
+    "scraped_at": "2026-03-18T15:44:58.558590"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 8,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/9590403771776536057"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/9590403771776536057"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad8_20260318.png",
+    "scraped_at": "2026-03-18T15:44:58.823805"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 9,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/8336571397285810061"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/8336571397285810061"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad9_20260318.png",
+    "scraped_at": "2026-03-18T15:44:59.043572"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 10,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/1700846708781178143"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/1700846708781178143"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad10_20260318.png",
+    "scraped_at": "2026-03-18T15:44:59.272967"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 11,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/1118256821466612222"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/1118256821466612222"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad11_20260318.png",
+    "scraped_at": "2026-03-18T15:44:59.482759"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 12,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/7234556159911586725"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/7234556159911586725"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad12_20260318.png",
+    "scraped_at": "2026-03-18T15:44:59.712406"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 13,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/1197477614360311023"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/1197477614360311023"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad13_20260318.png",
+    "scraped_at": "2026-03-18T15:44:59.919778"
+  },
+  {
+    "source": "google",
+    "advertiser": "Just_Better_Care",
+    "ad_index": 14,
+    "ad_url": "https://adstransparency.google.com/advertiser/AR04444119398382305281?hl=en&region=AU",
+    "full_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "copy_text": "JUST BETTER CARE AUSTRALIA PTY LTD",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/2705534593112032878"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/2705534593112032878"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_Just_Better_Care_ad14_20260318.png",
+    "scraped_at": "2026-03-18T15:45:00.127119"
+  }
+]

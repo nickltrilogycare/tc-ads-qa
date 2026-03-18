@@ -1,0 +1,21 @@
+[
+  {
+    "source": "google",
+    "advertiser": "KinCare_Silverchain",
+    "ad_index": 0,
+    "ad_url": "https://adstransparency.google.com/?hl=en&region=AU&domain=mkskincare.net",
+    "full_text": "Melinda dai\nVerified",
+    "copy_text": "Melinda dai\nVerified",
+    "ad_format": "image",
+    "has_video": false,
+    "has_image": true,
+    "image_paths": [
+      "https://tpc.googlesyndication.com/archive/simgad/16464952830399854347"
+    ],
+    "image_urls": [
+      "https://tpc.googlesyndication.com/archive/simgad/16464952830399854347"
+    ],
+    "element_screenshot": "/Users/nickl/trilogycare-projects/tc-ads-qa/ad_images/google_KinCare_Silverchain_ad0_20260318.png",
+    "scraped_at": "2026-03-18T15:46:42.644608"
+  }
+]

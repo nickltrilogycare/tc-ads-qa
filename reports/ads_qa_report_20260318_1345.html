@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trilogy Care — Ads QA Report — 18 Mar 2026</title>
+<style>
+  :root {
+    --red: #e74c3c; --orange: #f39c12; --green: #27ae60; --blue: #2980b9;
+    --dark: #1a1a2e; --card: #16213e; --text: #eee; --muted: #999;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         background: var(--dark); color: var(--text); padding: 2rem; line-height: 1.6; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.3rem; margin: 2rem 0 1rem; border-bottom: 2px solid var(--blue); padding-bottom: 0.3rem; }
+  h3 { font-size: 1.1rem; margin: 1rem 0 0.5rem; color: var(--blue); }
+  .meta { color: var(--muted); margin-bottom: 2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .stat { background: var(--card); border-radius: 8px; padding: 1.2rem; text-align: center; }
+  .stat .number { font-size: 2rem; font-weight: bold; }
+  .stat .label { color: var(--muted); font-size: 0.85rem; }
+  .score-red { color: var(--red); }
+  .score-orange { color: var(--orange); }
+  .score-green { color: var(--green); }
+  .card { background: var(--card); border-radius: 8px; padding: 1.2rem; margin: 0.8rem 0; }
+  .card.critical { border-left: 4px solid var(--red); }
+  .card.high { border-left: 4px solid var(--orange); }
+  .card.medium { border-left: 4px solid var(--blue); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+  .badge-critical { background: var(--red); }
+  .badge-high { background: var(--orange); color: #333; }
+  .badge-medium { background: var(--blue); }
+  .badge-low { background: #555; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  th, td { padding: 0.6rem; text-align: left; border-bottom: 1px solid #333; }
+  th { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; }
+  .rec { margin: 0.5rem 0; padding: 0.8rem; background: var(--card); border-radius: 6px; }
+  .rec-high { border-left: 3px solid var(--red); }
+  .rec-medium { border-left: 3px solid var(--orange); }
+  .rec-low { border-left: 3px solid var(--blue); }
+</style>
+</head>
+<body>
+<h1>Trilogy Care — Ads QA Report</h1>
+<p class="meta">Generated Wednesday 18 March 2026 at 13:45 AEST</p>
+
+<div class="grid">
+  <div class="stat">
+    <div class="number">51</div>
+    <div class="label">Trilogy Ads Analysed</div>
+  </div>
+  <div class="stat">
+    <div class="number score-red">50</div>
+    <div class="label">Poor Quality (&lt;50)</div>
+  </div>
+  <div class="stat">
+    <div class="number score-orange">0</div>
+    <div class="label">Needs Work (50-69)</div>
+  </div>
+  <div class="stat">
+    <div class="number score-green">1</div>
+    <div class="label">Good (70+)</div>
+  </div>
+  <div class="stat">
+    <div class="number">51</div>
+    <div class="label">Critical Issues</div>
+  </div>
+  <div class="stat">
+    <div class="number">156</div>
+    <div class="label">Competitor Ads Scraped</div>
+  </div>
+</div>
+
+<h2>Executive Summary</h2>
+<div class="card">Trilogy Care’s advertising emphasizes maximizing funding and transparent care management, leveraging both video and image creatives across Facebook and Google. While Trilogy’s messaging is clear and value-driven, competitors like Bolton Clarke and Just Better Care use richer lifestyle imagery and broader CTA strategies, potentially engaging a wider audience. Trilogy stands out for its funding efficiency message but could improve creative diversity and audience targeting.</div>
+<h2>Priority Issues</h2>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy and clear messaging.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging relevant to aged care and a strong CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy, messaging, and CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging and a strong call-to-action relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>No copy or call to action</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic copy and a clear CTA relevant to aged care/home care audience.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks meaningful copy and clear call-to-action.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a strong CTA relevant to aged care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; only brand name present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add meaningful copy that communicates value, empathy, and a clear call-to-action.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only; lacks persuasive messaging, empathy, and CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add meaningful copy that addresses audience needs, includes trust signals, and features a clear CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is extremely minimal; lacks any persuasive or informative messaging.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging and a strong CTA relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only, with no messaging or CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging and a strong call to action relevant to aged care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only; lacks messaging, CTA, and audience targeting.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive copy with empathy, trust signals, and a strong CTA relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; only brand name present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic copy and a clear CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is missing; only brand name is shown.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging and a strong CTA relevant to aged care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add informative, persuasive copy with clear CTA and trust signals.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>No actionable or informative copy; lacks CTA, empathy, or value proposition.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a clear CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add informative, persuasive copy with clear CTA and trust signals.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; only brand name is shown.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add meaningful copy that communicates value, empathy, and a clear call to action.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is extremely minimal; lacks messaging, CTA, and emotional resonance.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive messaging and a strong call to action relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy lacks any messaging beyond the brand name.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging and a strong CTA relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is extremely limited and lacks any meaningful information or call to action.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Rewrite ad copy to include empathetic messaging, clear value proposition, and a strong CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is unclear and lacks any meaningful messaging or CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Rewrite copy to clearly communicate value proposition, include empathy, trust signals, and a strong CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient and lacks clarity, emotional resonance, and a clear call to action.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Rewrite ad copy to include empathetic messaging, clear CTA, and trust signals relevant to aged care.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; only brand name present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive messaging and a strong CTA relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>No actionable copy or CTA present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a clear call to action.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; lacks persuasive messaging, empathy, and CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add meaningful copy that addresses audience needs, includes trust signals, and a clear call to action.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy and clear call to action.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a clear CTA relevant to aged care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a clear call-to-action</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is missing; only brand name is present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive messaging with empathy and a strong CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only; lacks messaging, CTA, and emotional resonance.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic copy and a clear call-to-action relevant to aged care/home care.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy and CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add informative, empathetic, and persuasive copy with a clear CTA relevant to aged care/home care audience.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is extremely limited; lacks clarity, persuasion, empathy, and CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add descriptive, empathetic messaging and a clear call-to-action.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is missing; only brand name shown.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add informative, persuasive, and empathetic copy relevant to aged care.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is missing; only brand name present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive messaging and a strong CTA that resonates with the aged care audience.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is extremely limited; lacks information, CTA, and emotional resonance.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging and a strong call to action relevant to aged care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; lacks clarity, persuasion, empathy, and CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add informative, empathetic, and persuasive copy with a clear CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; only brand name is shown.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a clear CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is extremely limited and does not communicate value or benefits.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Rewrite ad copy to include clear messaging, empathy, and a strong CTA relevant to aged care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is only the brand name with no messaging or CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic copy and a clear call to action relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks any substantive copy or call-to-action.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a clear CTA relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy and CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging and a strong call to action relevant to aged care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient and lacks any meaningful information or CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Rewrite ad copy to include clear messaging, emotional resonance, and a strong call-to-action relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>No visual elements present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add relevant imagery or video to improve engagement and professionalism.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy and clear messaging.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, empathetic messaging and strong CTA relevant to aged care audience.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks meaningful copy and context.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive copy with empathy, trust signals, and a strong CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks any informative or persuasive copy.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add messaging that communicates value proposition, empathy, and a clear CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; only brand name is shown.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a clear CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy and clear messaging.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive copy with empathy and a strong CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy and any call to action.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive messaging and a strong CTA relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad lacks substantive copy and call to action.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic messaging and a clear CTA relevant to aged care/home care audience.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is extremely minimal, consisting only of the brand name.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive messaging and a strong CTA relevant to aged care/home care audiences.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is insufficient; only brand name present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add clear, persuasive messaging with empathy and a strong CTA.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only; lacks clarity, persuasion, empathy, and CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add meaningful copy that addresses aged care needs, includes trust signals, and a strong call-to-action.</p>
+</div>
+<div class="card critical">
+  <span class="badge badge-critical">CRITICAL</span>
+  <strong>Ad copy is limited to brand name only, with no messaging or CTA.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add persuasive, empathetic copy and a clear call to action relevant to aged care audiences.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Reference older Australians, carers, or adult children in copy or visuals.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for relevant audiences.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or visuals that address older Australians, their families, or carers.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks directly to older Australians, their families, or carers.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>Visual is generic and not relevant to aged care or Trilogy Care's brand.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Use imagery that reflects aged care, empowerment, and independence, aligned with Trilogy Care's values.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks directly to older Australians, their families, or carers.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks directly to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audiences.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language that speaks directly to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that directly addresses older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals; ad does not speak to the needs of older Australians, carers, or adult children.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include messaging that addresses specific concerns or benefits for the target audience.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language that addresses older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for intended audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language relevant to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals; ad does not address relevant audience needs.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include messaging relevant to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals; ad does not address aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Tailor messaging to older Australians, their families, or carers.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals; ad does not address the needs or concerns of the intended audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks directly to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for intended audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks directly to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Add language and visuals that directly address older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>Visual lacks relevance and brand alignment.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Use imagery that reflects aged care context and aligns with Trilogy Care's brand values.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>Image is generic and not relevant to aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Use imagery that reflects older Australians, carers, or home care scenarios.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for intended audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that directly addresses older Australians, carers, or their families.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Tailor messaging to aged care audiences (older Australians, carers, adult children).</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language that speaks to older Australians, their families, or carers</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language that speaks to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for audience relevance.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery relevant to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No clear CTA present.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include a strong call-to-action (e.g., 'Learn more', 'Get started').</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals or audience relevance.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks directly to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for intended audience (older Australians, carers, adult children).</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks directly to the target demographic.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals; ad does not address the needs or concerns of the aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include messaging relevant to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for intended audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Reference older Australians, carers, or adult children in copy or visuals.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>Visual does not clearly relate to aged care or Trilogy Care's brand.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Use imagery that reflects aged care context and aligns with brand values.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for older Australians, carers, or adult children.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery that speaks directly to the intended audience.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for the intended audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, their families, or carers.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Tailor messaging to address specific needs of older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No brand positioning.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Incorporate Trilogy Care's unique value propositions (self-managed care, empowerment, independence, transparent fees).</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>Visual appears generic and not tailored for aged care.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Use imagery that resonates with older Australians and reflects Trilogy Care's values.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>Image relevance is unclear; does not visually communicate aged care or brand values.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Use images that depict older Australians in dignified, empowering contexts.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language that speaks to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>Image is generic and not relevant to aged care.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Use imagery that reflects aged care, empowerment, and the target audience.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for intended audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language that speaks directly to older Australians, carers, or family members.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for intended audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals or audience relevance.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language addressing older Australians, their families, or carers.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language that speaks directly to older Australians, their families, or carers.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals for aged care audience.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language or imagery relevant to older Australians, carers, or adult children.</p>
+</div>
+<div class="card high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>No targeting signals or audience relevance.</strong>
+  <p style="color:var(--muted);margin-top:0.3rem">Include language that speaks directly to older Australians, carers, or adult children.</p>
+</div>
+<h2>Trilogy Care Ad Scores</h2>
+<table>
+<tr><th>Ad #</th><th>Source</th><th>Score</th><th>Copy</th><th>Visual</th><th>Targeting</th><th>Compliance</th><th>Brand</th><th>Fresh</th><th>Type</th></tr>
+<tr>
+  <td>38</td>
+  <td>google</td>
+  <td class="score-red"><strong>13</strong></td>
+  <td>2</td>
+  <td>0</td>
+  <td>2</td>
+  <td>5</td>
+  <td>2</td>
+  <td>2</td>
+  <td>text</td>
+</tr><tr>
+  <td>17</td>
+  <td>google</td>
+  <td class="score-red"><strong>23</strong></td>
+  <td>2</td>
+  <td>7</td>
+  <td>2</td>
+  <td>5</td>
+  <td>3</td>
+  <td>4</td>
+  <td>image</td>
+</tr><tr>
+  <td>19</td>
+  <td>google</td>
+  <td class="score-red"><strong>23</strong></td>
+  <td>2</td>
+  <td>7</td>
+  <td>2</td>
+  <td>5</td>
+  <td>2</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>3</td>
+  <td>google</td>
+  <td class="score-red"><strong>24</strong></td>
+  <td>2</td>
+  <td>6</td>
+  <td>2</td>
+  <td>6</td>
+  <td>3</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>39</td>
+  <td>google</td>
+  <td class="score-red"><strong>26</strong></td>
+  <td>2</td>
+  <td>6</td>
+  <td>2</td>
+  <td>7</td>
+  <td>5</td>
+  <td>4</td>
+  <td>image</td>
+</tr><tr>
+  <td>43</td>
+  <td>google</td>
+  <td class="score-red"><strong>26</strong></td>
+  <td>2</td>
+  <td>6</td>
+  <td>2</td>
+  <td>6</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>1</td>
+  <td>google</td>
+  <td class="score-red"><strong>28</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>7</td>
+  <td>3</td>
+  <td>6</td>
+  <td>image</td>
+</tr><tr>
+  <td>8</td>
+  <td>google</td>
+  <td class="score-red"><strong>28</strong></td>
+  <td>2</td>
+  <td>7</td>
+  <td>2</td>
+  <td>7</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>18</td>
+  <td>google</td>
+  <td class="score-red"><strong>28</strong></td>
+  <td>2</td>
+  <td>5</td>
+  <td>2</td>
+  <td>7</td>
+  <td>6</td>
+  <td>6</td>
+  <td>image</td>
+</tr><tr>
+  <td>33</td>
+  <td>google</td>
+  <td class="score-red"><strong>28</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>7</td>
+  <td>4</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>45</td>
+  <td>google</td>
+  <td class="score-red"><strong>28</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>7</td>
+  <td>4</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>0</td>
+  <td>google</td>
+  <td class="score-red"><strong>29</strong></td>
+  <td>2</td>
+  <td>7</td>
+  <td>2</td>
+  <td>7</td>
+  <td>6</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>2</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>4</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>5</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>8</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>7</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>8</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>9</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>1</td>
+  <td>8</td>
+  <td>2</td>
+  <td>7</td>
+  <td>7</td>
+  <td>7</td>
+  <td>image</td>
+</tr><tr>
+  <td>11</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>12</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>10</td>
+  <td>2</td>
+  <td>8</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>14</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>15</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>16</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>20</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>21</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>8</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>22</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>8</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>24</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>3</td>
+  <td>7</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>25</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>29</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>7</td>
+  <td>8</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>30</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>10</td>
+  <td>2</td>
+  <td>8</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>31</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>10</td>
+  <td>2</td>
+  <td>8</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>32</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>7</td>
+  <td>3</td>
+  <td>image</td>
+</tr><tr>
+  <td>34</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>8</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>36</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>37</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>7</td>
+  <td>2</td>
+  <td>10</td>
+  <td>6</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>42</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>44</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>8</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>46</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>47</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>48</td>
+  <td>google</td>
+  <td class="score-red"><strong>32</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>5</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>6</td>
+  <td>google</td>
+  <td class="score-red"><strong>34</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>7</td>
+  <td>10</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>26</td>
+  <td>google</td>
+  <td class="score-red"><strong>34</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>6</td>
+  <td>6</td>
+  <td>image</td>
+</tr><tr>
+  <td>27</td>
+  <td>google</td>
+  <td class="score-red"><strong>34</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>28</td>
+  <td>google</td>
+  <td class="score-red"><strong>34</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>7</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>35</td>
+  <td>google</td>
+  <td class="score-red"><strong>34</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>3</td>
+  <td>7</td>
+  <td>6</td>
+  <td>8</td>
+  <td>image</td>
+</tr><tr>
+  <td>40</td>
+  <td>google</td>
+  <td class="score-red"><strong>34</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>8</td>
+  <td>6</td>
+  <td>8</td>
+  <td>image</td>
+</tr><tr>
+  <td>10</td>
+  <td>google</td>
+  <td class="score-red"><strong>36</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>3</td>
+  <td>7</td>
+  <td>6</td>
+  <td>10</td>
+  <td>image</td>
+</tr><tr>
+  <td>23</td>
+  <td>google</td>
+  <td class="score-red"><strong>36</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>3</td>
+  <td>10</td>
+  <td>8</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>13</td>
+  <td>google</td>
+  <td class="score-red"><strong>38</strong></td>
+  <td>2</td>
+  <td>10</td>
+  <td>3</td>
+  <td>10</td>
+  <td>8</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>41</td>
+  <td>google</td>
+  <td class="score-red"><strong>38</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>2</td>
+  <td>10</td>
+  <td>10</td>
+  <td>6</td>
+  <td>image</td>
+</tr><tr>
+  <td>49</td>
+  <td>google</td>
+  <td class="score-red"><strong>38</strong></td>
+  <td>2</td>
+  <td>8</td>
+  <td>3</td>
+  <td>10</td>
+  <td>10</td>
+  <td>5</td>
+  <td>image</td>
+</tr><tr>
+  <td>0</td>
+  <td>facebook</td>
+  <td class="score-green"><strong>87</strong></td>
+  <td>22</td>
+  <td>12</td>
+  <td>14</td>
+  <td>15</td>
+  <td>15</td>
+  <td>9</td>
+  <td>text</td>
+</tr></table><h2>Detailed Ad Analysis</h2>
+<div class="card">
+  <h3>Ad #0 — <span class="score-green">87/100</span></h3>
+  <p><strong>Copy:</strong> Home is where you belong. It’s where your memories live, where you feel safe and in control. At Trilogy Care, we believe no one should have to leave that behind. That’s why we offer flexible, affordab</p>
+  <p><strong>CTA:</strong> Learn More, Read the blog, Read the pricing summary</p>
+  <p><strong>Strengths:</strong> Strong emotional resonance and empathy in messaging, Clear, actionable CTAs, Transparent explanation of fees and funding, Brand voice and positioning are consistent, Timely and relevant content</p>
+  <p><span class="badge badge-medium">medium</span> No visual assets provided; text-only format may limit engagement.</p>
+  <p><span class="badge badge-low">low</span> Some copy is technical (e.g., '10% care management cap', 'service-only loading').</p>
+</div>
+<div class="card">
+  <h3>Ad #0 — <span class="score-red">29/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No misleading claims detected, Brand name is visible, Ad appears timely</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy and clear messaging.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand values (self-managed, empowerment, transparent fees) not communicated.</p>
+  <p><span class="badge badge-low">low</span> Image relevance and professionalism unclear.</p>
+</div>
+<div class="card">
+  <h3>Ad #1 — <span class="score-red">28/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> No misleading claims., Brand name is clearly presented., Ad format includes an image, which can be leveraged for visual impact.</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy, messaging, and CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for relevant audiences.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> Visual quality and relevance cannot be assessed.</p>
+</div>
+<div class="card">
+  <h3>Ad #2 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No compliance breaches, Brand name visibility, Ad is timely</p>
+  <p><span class="badge badge-critical">critical</span> No copy or call to action</p>
+  <p><span class="badge badge-high">high</span> No targeting signals</p>
+  <p><span class="badge badge-medium">medium</span> Weak brand positioning</p>
+  <p><span class="badge badge-medium">medium</span> Potentially generic imagery</p>
+</div>
+<div class="card">
+  <h3>Ad #3 — <span class="score-red">24/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No misleading claims., Brand name is present., Ad is current.</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks meaningful copy and clear call-to-action.</p>
+  <p><span class="badge badge-high">high</span> Visual is generic and not relevant to aged care or Trilogy Care's brand.</p>
+  <p><span class="badge badge-medium">medium</span> No targeting signals for the intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning is not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #4 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly displayed., Image format allows for visual engagement., No compliance issues detected.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; only brand name present.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> No CTA present.</p>
+</div>
+<div class="card">
+  <h3>Ad #5 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly displayed, No compliance violations detected, Image present (potential for visual engagement)</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only; lacks persuasive messaging, empathy, and CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> No evidence of brand positioning (self-managed, empowerment, independence, transparent fees).</p>
+</div>
+<div class="card">
+  <h3>Ad #6 — <span class="score-red">34/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented., No compliance issues detected., Visual asset included.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is extremely minimal; lacks any persuasive or informative messaging.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audiences.</p>
+  <p><span class="badge badge-medium">medium</span> No information about Trilogy Care's unique value proposition (self-managed, empowerment, transparent fees).</p>
+  <p><span class="badge badge-medium">medium</span> No CTA present.</p>
+</div>
+<div class="card">
+  <h3>Ad #7 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly visible., No compliance issues or misleading claims., Image format allows for visual branding opportunities.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only, with no messaging or CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> No brand positioning or value proposition communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #8 — <span class="score-red">28/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented., No misleading claims or inappropriate content., Ad format includes an image, which can aid recognition.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only; lacks messaging, CTA, and audience targeting.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals; ad does not speak to the needs of older Australians, carers, or adult children.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed, empowerment, independence, transparent fees) not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> Image relevance and professionalism cannot be assessed.</p>
+</div>
+<div class="card">
+  <h3>Ad #9 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> Brand name visibility, Image format suitable for Google display network, No misleading or inappropriate content</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; only brand name present.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> Compliance with ACQSC not demonstrated.</p>
+</div>
+<div class="card">
+  <h3>Ad #10 — <span class="score-red">36/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No compliance violations detected., Brand name is clearly visible., Ad is timely and current.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is missing; only brand name is shown.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand values (self-managed, empowerment, transparent fees) not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #11 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented., Ad appears compliant with basic regulations., Image format may attract visual attention.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand values (self-management, empowerment, independence, transparent fees) not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> Unable to fully assess image relevance and professionalism.</p>
+</div>
+<div class="card">
+  <h3>Ad #12 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance breaches detected</p>
+  <p><span class="badge badge-critical">critical</span> No actionable or informative copy; lacks CTA, empathy, or value proposition.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals; ad does not address relevant audience needs.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+  <p><span class="badge badge-low">low</span> Visual quality cannot be fully assessed due to lack of image description.</p>
+</div>
+<div class="card">
+  <h3>Ad #13 — <span class="score-red">38/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented., Image is included, which may aid visual recognition., No compliance risks detected.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> Image quality and relevance not assessed.</p>
+</div>
+<div class="card">
+  <h3>Ad #14 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented., No compliance violations detected.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; only brand name is shown.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals; ad does not address aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning is not conveyed.</p>
+</div>
+<div class="card">
+  <h3>Ad #15 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly displayed., No compliance issues detected., Image format allows for visual engagement.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is extremely minimal; lacks messaging, CTA, and emotional resonance.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals; ad does not address the needs or concerns of the intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning is not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #16 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance risks detected due to minimal content</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy lacks any messaging beyond the brand name.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not articulated.</p>
+  <p><span class="badge badge-medium">medium</span> Image content not described; unable to assess relevance or professionalism.</p>
+</div>
+<div class="card">
+  <h3>Ad #17 — <span class="score-red">23/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is visible, No misleading claims</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is extremely limited and lacks any meaningful information or call to action.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not evident.</p>
+  <p><span class="badge badge-medium">medium</span> Visual relevance unclear.</p>
+</div>
+<div class="card">
+  <h3>Ad #18 — <span class="score-red">28/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is visible., No obvious compliance violations.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is unclear and lacks any meaningful messaging or CTA.</p>
+  <p><span class="badge badge-high">high</span> Visual lacks relevance and brand alignment.</p>
+  <p><span class="badge badge-medium">medium</span> No targeting signals for intended audience.</p>
+</div>
+<div class="card">
+  <h3>Ad #19 — <span class="score-red">23/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No misleading claims detected, No inappropriate imagery</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient and lacks clarity, emotional resonance, and a clear call to action.</p>
+  <p><span class="badge badge-high">high</span> Image is generic and not relevant to aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning is not evident.</p>
+</div>
+<div class="card">
+  <h3>Ad #20 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance violations, Image present (not text-only)</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; only brand name present.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #21 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented., No compliance breaches or misleading claims., Ad is timely and current.</p>
+  <p><span class="badge badge-critical">critical</span> No actionable copy or CTA present.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand values (self-managed, empowerment, transparent fees) not communicated.</p>
+  <p><span class="badge badge-low">low</span> Visual content not described; potential lack of relevance.</p>
+</div>
+<div class="card">
+  <h3>Ad #22 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly displayed., No compliance risks detected., Ad format includes an image, which may aid recognition.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; lacks persuasive messaging, empathy, and CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals present.</p>
+  <p><span class="badge badge-medium">medium</span> Brand values not communicated.</p>
+  <p><span class="badge badge-low">low</span> Image quality and relevance cannot be assessed.</p>
+</div>
+<div class="card">
+  <h3>Ad #23 — <span class="score-red">36/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> No compliance risks detected, Brand name visibility, Image present (assumed basic professionalism)</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy and clear call to action.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Weak brand positioning.</p>
+</div>
+<div class="card">
+  <h3>Ad #24 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented, Image format allows for visual engagement</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience</p>
+  <p><span class="badge badge-medium">medium</span> No brand value proposition communicated</p>
+</div>
+<div class="card">
+  <h3>Ad #25 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No compliance violations detected., Brand name is clearly displayed.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is missing; only brand name is present.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+  <p><span class="badge badge-low">low</span> Visuals cannot be fully assessed without image review.</p>
+</div>
+<div class="card">
+  <h3>Ad #26 — <span class="score-red">34/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented, No compliance issues or misleading claims</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only; lacks messaging, CTA, and emotional resonance.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+  <p><span class="badge badge-low">low</span> Visual relevance unclear.</p>
+</div>
+<div class="card">
+  <h3>Ad #27 — <span class="score-red">34/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No compliance risks detected, Brand name is clearly presented</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy and CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for audience relevance.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+  <p><span class="badge badge-low">low</span> Visual quality cannot be fully assessed.</p>
+</div>
+<div class="card">
+  <h3>Ad #28 — <span class="score-red">34/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, Image asset included, No compliance issues detected</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is extremely limited; lacks clarity, persuasion, empathy, and CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed, empowerment, independence) not communicated.</p>
+  <p><span class="badge badge-low">low</span> No CTA present.</p>
+</div>
+<div class="card">
+  <h3>Ad #29 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No compliance breaches detected, Brand name is clearly displayed, Image asset present</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is missing; only brand name shown.</p>
+  <p><span class="badge badge-high">high</span> No clear CTA present.</p>
+  <p><span class="badge badge-medium">medium</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand values not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #30 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, No misleading claims, Image format supports visual engagement</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is missing; only brand name present.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals or audience relevance.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #31 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly visible., No misleading or inappropriate content detected., Ad format includes an image, which can be leveraged for visual engagement.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is extremely limited; lacks information, CTA, and emotional resonance.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for intended audience (older Australians, carers, adult children).</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed, empowerment, transparent fees) is absent.</p>
+  <p><span class="badge badge-low">low</span> Compliance cannot be fully assessed due to lack of substantive content.</p>
+</div>
+<div class="card">
+  <h3>Ad #32 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance risks or misleading claims</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; lacks clarity, persuasion, empathy, and CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals; ad does not address the needs or concerns of the aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed, empowerment, independence, transparent fees) not communicated.</p>
+  <p><span class="badge badge-low">low</span> Visual quality cannot be fully assessed due to lack of image description.</p>
+</div>
+<div class="card">
+  <h3>Ad #33 — <span class="score-red">28/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, Image asset included</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; only brand name is shown.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed, empowerment, transparent fees) not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> No CTA present.</p>
+</div>
+<div class="card">
+  <h3>Ad #34 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is visible., No obvious compliance violations., Ad is recent.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is extremely limited and does not communicate value or benefits.</p>
+  <p><span class="badge badge-high">high</span> Visual does not clearly relate to aged care or Trilogy Care's brand.</p>
+  <p><span class="badge badge-medium">medium</span> No targeting signals for relevant audiences.</p>
+  <p><span class="badge badge-medium">medium</span> No CTA present.</p>
+</div>
+<div class="card">
+  <h3>Ad #35 — <span class="score-red">34/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented., Ad includes an image, which may aid visual engagement., No apparent compliance breaches.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is only the brand name with no messaging or CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for older Australians, carers, or adult children.</p>
+  <p><span class="badge badge-medium">medium</span> No brand positioning or value proposition communicated.</p>
+  <p><span class="badge badge-low">low</span> Image content is unknown; unable to verify relevance or professionalism.</p>
+</div>
+<div class="card">
+  <h3>Ad #36 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> Brand name is clearly visible., Ad is compliant with regulations by default (no misleading claims or inappropriate imagery)., Image format is present, which may aid visual recognition.</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks any substantive copy or call-to-action.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for the intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning is not communicated.</p>
+  <p><span class="badge badge-low">low</span> Visual quality cannot be fully assessed.</p>
+</div>
+<div class="card">
+  <h3>Ad #37 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance violations detected</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy and CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #38 — <span class="score-red">13/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No misleading claims., Brand name is present.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient and lacks any meaningful information or CTA.</p>
+  <p><span class="badge badge-critical">critical</span> No visual elements present.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals.</p>
+  <p><span class="badge badge-high">high</span> No brand positioning.</p>
+</div>
+<div class="card">
+  <h3>Ad #39 — <span class="score-red">26/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is visible., No misleading claims or inappropriate imagery.</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy and clear messaging.</p>
+  <p><span class="badge badge-high">high</span> Visual appears generic and not tailored for aged care.</p>
+  <p><span class="badge badge-medium">medium</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> No evidence of ACQSC compliance or trust signals.</p>
+</div>
+<div class="card">
+  <h3>Ad #40 — <span class="score-red">34/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is present., No misleading claims or inappropriate imagery detected., Ad is recent and not outdated.</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks meaningful copy and context.</p>
+  <p><span class="badge badge-high">high</span> Image relevance is unclear; does not visually communicate aged care or brand values.</p>
+  <p><span class="badge badge-medium">medium</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed care, empowerment) not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #41 — <span class="score-red">38/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, Compliant with aged care advertising regulations, No misleading claims</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks any informative or persuasive copy.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> No CTA present.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #42 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance risks detected</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; only brand name is shown.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed, empowerment, transparent fees) not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #43 — <span class="score-red">26/100</span></h3>
+  <p><strong>Copy:</strong> videocam Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> No misleading claims., Brand name is visible., Ad is timely.</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy and clear messaging.</p>
+  <p><span class="badge badge-high">high</span> Image is generic and not relevant to aged care.</p>
+  <p><span class="badge badge-medium">medium</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning is not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #44 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance violations detected</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy and any call to action.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning is not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #45 — <span class="score-red">28/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly displayed., No compliance issues detected from limited content.</p>
+  <p><span class="badge badge-critical">critical</span> Ad lacks substantive copy and call to action.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for intended audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed, empowerment, independence, transparent fees) not communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #46 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name is clearly presented., No compliance risks detected., Ad is timely and current.</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is extremely minimal, consisting only of the brand name.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals or audience relevance.</p>
+  <p><span class="badge badge-medium">medium</span> Brand values (self-management, empowerment, transparency) are not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> Visual quality cannot be fully assessed due to lack of image description.</p>
+</div>
+<div class="card">
+  <h3>Ad #47 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> </p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance risks detected</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is insufficient; only brand name present.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> No brand positioning or value proposition communicated.</p>
+</div>
+<div class="card">
+  <h3>Ad #48 — <span class="score-red">32/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance risks or misleading claims, Simple and safe for regulatory review</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only; lacks clarity, persuasion, empathy, and CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals for aged care audience.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning is not communicated.</p>
+  <p><span class="badge badge-low">low</span> Visual quality cannot be fully assessed without seeing the image.</p>
+</div>
+<div class="card">
+  <h3>Ad #49 — <span class="score-red">38/100</span></h3>
+  <p><strong>Copy:</strong> Trilogy Care</p>
+  <p><strong>CTA:</strong> None</p>
+  <p><strong>Strengths:</strong> Brand name visibility, No compliance violations detected, Image included (potential for visual engagement)</p>
+  <p><span class="badge badge-critical">critical</span> Ad copy is limited to brand name only, with no messaging or CTA.</p>
+  <p><span class="badge badge-high">high</span> No targeting signals or audience relevance.</p>
+  <p><span class="badge badge-medium">medium</span> Brand positioning (self-managed, empowerment, transparent fees) not communicated.</p>
+  <p><span class="badge badge-medium">medium</span> Image quality and relevance cannot be assessed without viewing.</p>
+</div><h2>Competitive Intelligence</h2><h3>Trilogy Strengths vs Market</h3><ul><li>Clear value proposition around maximizing care hours and funding efficiency</li><li>Consistent branding across platforms</li><li>Use of both video and image creatives</li></ul><h3>Gaps vs Competitors</h3><ul><li style='color:var(--orange)'>Limited creative diversity (mostly static images on Google)</li><li style='color:var(--orange)'>Narrow CTA focus compared to competitors</li><li style='color:var(--orange)'>Messaging is highly functional, lacking emotional/lifestyle appeal</li><li style='color:var(--orange)'>Potential gaps in targeting broader family decision-makers</li></ul>
+<div class="card">
+  <h3>HomeMade</h3>
+  <p><strong>Notable:</strong> Minimal visible creative or messaging; unclear positioning</p>
+  <p><strong>Threats:</strong> <span style="color:var(--red)">Low threat due to lack of active, engaging ads</span></p>
+  <p><strong>Opportunities:</strong> <span style="color:var(--green)">Trilogy can maintain advantage by continuing active campaigns</span></p>
+</div>
+<div class="card">
+  <h3>Bolton Clarke</h3>
+  <p><strong>Notable:</strong> Strong lifestyle imagery, focus on quality of living and open-plan homes</p>
+  <p><strong>Threats:</strong> <span style="color:var(--red)">Emotional appeal and broader CTA options (e.g., 'Support at Home', 'Learn More')</span></p>
+  <p><strong>Opportunities:</strong> <span style="color:var(--green)">Adopt lifestyle messaging and varied CTA to drive engagement</span></p>
+</div>
+<div class="card">
+  <h3>HammondCare</h3>
+  <p><strong>Notable:</strong> Multiple versions, high creative diversity, emotional storytelling</p>
+  <p><strong>Threats:</strong> <span style="color:var(--red)">Broader targeting, higher production quality, emotional resonance</span></p>
+  <p><strong>Opportunities:</strong> <span style="color:var(--green)">Increase creative diversity and emotional storytelling in Trilogy ads</span></p>
+</div>
+<div class="card">
+  <h3>Just Better Care</h3>
+  <p><strong>Notable:</strong> Innovative solutions, multiple versions, wide CTA range</p>
+  <p><strong>Threats:</strong> <span style="color:var(--red)">Positioning as a holistic provider, engaging CTAs</span></p>
+  <p><strong>Opportunities:</strong> <span style="color:var(--green)">Expand CTA options and highlight holistic care solutions</span></p>
+</div>
+<div class="card">
+  <h3>Dovida (Home Instead)</h3>
+  <p><strong>Notable:</strong> Multiple versions, active campaigns, likely targeting families and carers</p>
+  <p><strong>Threats:</strong> <span style="color:var(--red)">Broad targeting and frequent creative refresh</span></p>
+  <p><strong>Opportunities:</strong> <span style="color:var(--green)">Increase ad volume and refresh rate to stay competitive</span></p>
+</div><h2>Recommendations</h2>
+<div class="rec rec-high">
+  <span class="badge badge-high">HIGH</span>
+  <strong>Expand creative formats (carousel, lifestyle video, testimonials)</strong>
+  <p style="color:var(--muted)">Competitors use richer visuals and storytelling, which increases engagement and emotional connection</p>
+</div>
+<div class="rec rec-medium">
+  <span class="badge badge-medium">MEDIUM</span>
+  <strong>Broaden CTA strategy to include 'Learn More', 'Support at Home', 'Book a Consultation'</strong>
+  <p style="color:var(--muted)">Competitors drive more actions and engagement through varied CTAs</p>
+</div>
+<div class="rec rec-medium">
+  <span class="badge badge-medium">MEDIUM</span>
+  <strong>Target family decision-makers and carers in messaging</strong>
+  <p style="color:var(--muted)">Competitors appear to target broader audiences, increasing reach and relevance</p>
+</div>
+<div class="rec rec-low">
+  <span class="badge badge-low">LOW</span>
+  <strong>Monitor competitor claims for regulatory compliance</strong>
+  <p style="color:var(--muted)">Ensure Trilogy’s messaging remains compliant and adopt best practices from competitors</p>
+</div><h2>Market Trends</h2><ul><li>Increasing use of video and lifestyle imagery</li><li>Broader CTA strategies to drive engagement</li><li>Frequent creative refresh and multiple ad versions</li><li>Emphasis on emotional storytelling and holistic care</li></ul>
+<hr style="margin-top:3rem;border-color:#333">
+<p class="meta">Report generated by TC Ads QA Tool. Screenshots saved in /screenshots/</p>
+</body>
+</html>

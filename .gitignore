@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+ad_images/
+screenshots/
+data/
+reports/*.html
+!docs/

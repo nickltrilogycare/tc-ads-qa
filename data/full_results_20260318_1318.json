@@ -1,0 +1,79 @@
+{
+  "run_date": "2026-03-18T13:18:08.058797",
+  "trilogy_results": [
+    {
+      "overall_score": 88,
+      "category_scores": {
+        "copy_quality": {
+          "score": 22,
+          "notes": "Copy is clear, persuasive, and emotionally resonant, especially in the third ad ('Home is where you belong...'). Strong trust signals, empathy, and dignity. Grammar is correct. CTAs ('Learn More', 'Read the blog', 'Read the pricing summary') are present and actionable. Slightly technical language in some ads may be less accessible for older audiences."
+        },
+        "visual_quality": {
+          "score": 14,
+          "notes": "No explicit visual assets provided, so scored based on text and implied professionalism. Emoji use adds warmth and visual interest. Brand alignment is strong, but lack of imagery means missed opportunity for emotional connection."
+        },
+        "targeting_signals": {
+          "score": 13,
+          "notes": "Ad copy speaks directly to older Australians and their families, referencing home, memories, and control. Technical details (funding, fees) are relevant to carers and adult children. Targeting is strong but could be more explicit for carers."
+        },
+        "compliance": {
+          "score": 15,
+          "notes": "No misleading claims, appropriate tone, and aligns with ACQSC guidelines. No inappropriate imagery. Fee transparency is highlighted, which is compliant and positive."
+        },
+        "brand_consistency": {
+          "score": 14,
+          "notes": "Messaging aligns with Trilogy Care's positioning: self-managed, empowerment, independence, transparent fees. Consistent brand voice across ads."
+        },
+        "freshness": {
+          "score": 10,
+          "notes": "Ads are recent (2025-2026), content is timely and relevant to current aged care reforms. Hashtags and blog/video links show up-to-date engagement."
+        }
+      },
+      "ad_type": "text",
+      "copy_text_extracted": "Home is where you belong. It\u2019s where your memories live, where you feel safe and in control. At Trilogy Care, we believe no one should have to leave that behind. That\u2019s why we offer flexible, affordable home care that helps you stay right where you\u2019re happiest \u2014 at home. Choose the care that keeps you where you belong, with Trilogy Care \ud83d\udc99\u2764\ufe0f\ud83d\udc9b The care to keep you home \ud83d\udc99\u2764\ufe0f\ud83d\udc9b Learn More",
+      "cta_identified": "Learn More",
+      "issues": [
+        {
+          "severity": "medium",
+          "issue": "No explicit visual imagery used.",
+          "recommendation": "Add relevant, dignified images of older Australians to strengthen emotional connection and compliance.",
+          "ad_source": {
+            "advertiser": "TrilogyCare",
+            "source": "facebook",
+            "ad_index": 0
+          }
+        },
+        {
+          "severity": "low",
+          "issue": "Some copy is technical and may be less accessible for older audiences.",
+          "recommendation": "Simplify language or provide explanatory notes for terms like 'care management cap' and 'service-only loading'.",
+          "ad_source": {
+            "advertiser": "TrilogyCare",
+            "source": "facebook",
+            "ad_index": 0
+          }
+        }
+      ],
+      "strengths": [
+        "Strong emotional resonance and empathy",
+        "Clear, actionable CTAs",
+        "Transparent fee messaging",
+        "Alignment with brand values (empowerment, independence)",
+        "Timely and relevant content",
+        "Compliance with aged care advertising standards"
+      ],
+      "competitor_relevance": "Compared to typical aged care ads, Trilogy Care stands out for its transparency, empowerment messaging, and focus on self-management. Many competitors use more generic or institutional language; Trilogy Care's copy is warmer and more personal. Visual assets would further differentiate the brand.",
+      "source_ad": {
+        "advertiser": "TrilogyCare",
+        "source": "facebook",
+        "ad_index": 0
+      }
+    }
+  ],
+  "competitor_results": {},
+  "competitive_analysis": {
+    "executive_summary": "Limited data available \u2014 competitive analysis requires both Trilogy and competitor ads.",
+    "recommendations": []
+  },
+  "poor_quality_ads": []
+}
