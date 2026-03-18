@@ -656,6 +656,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       <button onclick="toggleMarketVoice()">Market Voice</button>
       <button onclick="toggleGapMatrix()">Gap Matrix</button>
       <button onclick="openDrawer()">Insights</button>
+      <button onclick="openBoardsDrawer()">Swipe File</button>
     </div>
     <span class="header-meta">{now:%d %B %Y} · Support at Home</span>
   </div>
@@ -948,6 +949,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       <div class="card-footer">
         <button onclick="event.stopPropagation();toggleDetail(this.closest('.ad-card'))">Details</button>
         <button class="btn-primary" onclick="event.stopPropagation();window.open('{fb_url}','_blank')">View Original</button>
+        <button class="save-to-board" onclick="event.stopPropagation();saveCardToBoard(this.closest('.ad-card'))" title="Save to Swipe File">☆</button>
         <div class="human-review" data-review-key="{review_key}">
           <button class="review-btn up-btn" onclick="event.stopPropagation();reviewAd('{review_key}','up')" title="Good ad">👍</button>
           <button class="review-btn down-btn" onclick="event.stopPropagation();reviewAd('{review_key}','down')" title="Poor ad">👎</button>
@@ -1083,7 +1085,8 @@ function toggleGapMatrix() {{
 
     # Inject compare + export addons
     try:
-        from reports.dashboard_addons import get_compare_html, get_export_html, get_human_review_html
+        from reports.dashboard_addons import get_compare_html, get_export_html, get_human_review_html, get_lightbox_html
+        from reports.swipe_boards import get_swipe_boards_html
         html += get_compare_html()
         html += get_export_html({
             "total": len(cards),
@@ -1092,6 +1095,7 @@ function toggleGapMatrix() {{
         })
         html += get_human_review_html()
         html += get_lightbox_html()
+        html += get_swipe_boards_html()
     except Exception as e:
         html += f"<!-- Addons failed: {{e}} -->"
 
