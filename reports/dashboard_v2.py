@@ -654,6 +654,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       <button onclick="setTab('competitors',this)">Competitors</button>
       <button onclick="toggleScoreLogic()">Score Logic</button>
       <button onclick="toggleMarketVoice()">Market Voice</button>
+      <button onclick="toggleGapMatrix()">Gap Matrix</button>
       <button onclick="openDrawer()">Insights</button>
     </div>
     <span class="header-meta">{now:%d %B %Y} · Support at Home</span>
@@ -787,6 +788,59 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
 """
     except Exception as e:
         html += f"<!-- Market Voice Share unavailable: {e} -->\n"
+
+    # ── Messaging Gap Heatmap Panel ──
+    try:
+        gap_data = json.loads((Path(__file__).parent.parent / "data" / "messaging_gaps.json").read_text())
+        from reports.charts import messaging_gap_heatmap_svg
+
+        # Normalize advertiser names in matrix
+        raw_matrix = gap_data.get("matrix", {}).get("matrix", {})
+        norm_matrix = {}
+        for angle, advs in raw_matrix.items():
+            norm = {}
+            for adv, count in advs.items():
+                # Normalize name
+                n = adv
+                if "trilogy" in adv.lower(): n = "Trilogy Care"
+                elif "bolton" in adv.lower(): n = "Bolton Clarke"
+                elif "dovida" in adv.lower() or "home_instead" in adv.lower(): n = "Dovida"
+                elif "hammond" in adv.lower(): n = "HammondCare"
+                elif "baptist" in adv.lower(): n = "BaptistCare"
+                elif "anglicare" in adv.lower(): n = "Anglicare"
+                elif "feros" in adv.lower(): n = "Feros Care"
+                elif "prestige" in adv.lower(): n = "Prestige"
+                elif "uniting" in adv.lower(): n = "Uniting"
+                elif "catholic" in adv.lower(): n = "Catholic HC"
+                elif "benetas" in adv.lower(): n = "Benetas"
+                elif "southern" in adv.lower(): n = "Southern Cross"
+                elif "australian" in adv.lower(): n = "AU Unity"
+                norm[n] = norm.get(n, 0) + count
+            norm_matrix[angle] = norm
+
+        heatmap_svg = messaging_gap_heatmap_svg({"matrix": norm_matrix})
+
+        # Gap alerts
+        gap_alerts = gap_data.get("gaps", {}).get("gaps", [])
+        gap_html = ""
+        if gap_alerts:
+            gap_html = "<h4 style='margin-top:16px;color:var(--red);font-size:14px;'>Gap Alerts</h4><ul style='font-size:13px;'>"
+            for g in gap_alerts[:5]:
+                gap_html += f"<li><strong>{g['angle'].replace('_',' ').title()}</strong> — {g['competitor_count']} competitor ads, 0 Trilogy</li>"
+            gap_html += "</ul>"
+
+        html += f"""
+<div class="score-logic" id="gapMatrix" style="margin-top:24px;">
+  <h3>Messaging Gap Matrix — Who's Saying What</h3>
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+    Heatmap showing messaging angle coverage across advertisers. Red dots = Trilogy gaps. Darker = more ads.
+  </p>
+  {heatmap_svg}
+  {gap_html}
+</div>
+"""
+    except Exception as e:
+        html += f"<!-- Gap heatmap unavailable: {e} -->\n"
 
     # ── Advertiser Sections ──
     for adv_name in advertiser_order:
@@ -995,6 +1049,12 @@ function toggleScoreLogic() {{
 function toggleMarketVoice() {{
   document.getElementById('marketVoice')?.classList.toggle('visible');
   document.getElementById('scoreLogic')?.classList.remove('visible');
+  document.getElementById('gapMatrix')?.classList.remove('visible');
+}}
+function toggleGapMatrix() {{
+  document.getElementById('gapMatrix')?.classList.toggle('visible');
+  document.getElementById('scoreLogic')?.classList.remove('visible');
+  document.getElementById('marketVoice')?.classList.remove('visible');
 }}
 </script>
 """

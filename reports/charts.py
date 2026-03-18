@@ -159,3 +159,142 @@ def quality_gap_svg(data: dict, width: int = 600, height: int = 300) -> str:
 
     svg += '</svg>'
     return svg
+
+
+def messaging_gap_heatmap_svg(matrix: dict, width: int = 900, height: int = 500) -> str:
+    """
+    Heatmap SVG showing messaging angle coverage across advertisers.
+    matrix: {"matrix": {"empowerment_control": {"Trilogy Care": 5, "Bolton Clarke": 2, ...}, ...}}
+    Rows = messaging angles, Columns = advertisers (Trilogy Care first, rest sorted).
+    Color intensity encodes ad count; gap cells (Trilogy=0, others>0) get a red warning dot.
+    """
+    raw = matrix.get("matrix", {})
+    if not raw:
+        return '<div style="padding:20px;color:#8A8D91;font-size:14px;">Messaging matrix not yet available.</div>'
+
+    angle_labels = {
+        "empowerment_control": "Empowerment & Control",
+        "family_peace_of_mind": "Family Peace of Mind",
+        "cost_transparency": "Cost Transparency",
+        "government_transition": "Govt Transition",
+        "independence_dignity": "Independence & Dignity",
+        "testimonial_social_proof": "Testimonials",
+        "service_quality": "Service Quality",
+        "convenience_speed": "Convenience & Speed",
+        "self_managed": "Self-Managed",
+        "community_belonging": "Community",
+    }
+
+    # Collect all advertisers across every angle
+    all_advertisers: set[str] = set()
+    for counts in raw.values():
+        all_advertisers.update(counts.keys())
+
+    # Trilogy Care first, then the rest alphabetically
+    advertisers: list[str] = []
+    if "Trilogy Care" in all_advertisers:
+        advertisers.append("Trilogy Care")
+        all_advertisers.discard("Trilogy Care")
+    advertisers.extend(sorted(all_advertisers))
+
+    angles = list(raw.keys())
+
+    # Layout constants
+    row_label_width = 180
+    header_height = 120  # room for rotated column headers
+    cell_w = max(56, min(80, (width - row_label_width - 20) // max(len(advertisers), 1)))
+    cell_h = 34
+    chart_width = row_label_width + cell_w * len(advertisers) + 20
+    chart_height = header_height + cell_h * len(angles) + 40
+
+    # Colors
+    bg = "#FFFFFF"
+    empty = "#F0F2F5"
+    low = "#DBEAFE"       # 1-2
+    mid = "#93C5FD"       # 3-5
+    high = "#3B82F6"      # 6+
+    gap_bg = "#FEE2E2"
+    whitespace_bg = "#ECFDF5"
+    text_color = "#1C1E21"
+    muted = "#8A8D91"
+
+    def cell_color(count: int, is_gap: bool, is_whitespace: bool) -> str:
+        if is_gap:
+            return gap_bg
+        if is_whitespace:
+            return whitespace_bg
+        if count == 0:
+            return empty
+        if count <= 2:
+            return low
+        if count <= 5:
+            return mid
+        return high
+
+    svg = f'<svg width="{chart_width}" height="{chart_height}" viewBox="0 0 {chart_width} {chart_height}" xmlns="http://www.w3.org/2000/svg">\n'
+    svg += f'<rect width="{chart_width}" height="{chart_height}" fill="{bg}"/>\n'
+    svg += '<style>text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }</style>\n'
+
+    # Column headers (rotated 45 degrees)
+    for ci, adv in enumerate(advertisers):
+        cx = row_label_width + ci * cell_w + cell_w / 2
+        cy = header_height - 8
+        svg += f'  <text x="{cx}" y="{cy}" font-size="11" font-weight="{"700" if adv == "Trilogy Care" else "500"}" fill="{text_color}" text-anchor="start" transform="rotate(-45,{cx},{cy})">{adv}</text>\n'
+
+    # Trilogy Care column accent border (gold left edge)
+    if advertisers and advertisers[0] == "Trilogy Care":
+        tc_x = row_label_width
+        svg += f'  <rect x="{tc_x}" y="{header_height}" width="3" height="{cell_h * len(angles)}" fill="#F59E0B"/>\n'
+
+    # Grid rows
+    for ri, angle in enumerate(angles):
+        y = header_height + ri * cell_h
+        label = angle_labels.get(angle, angle.replace("_", " ").title())
+        counts = raw.get(angle, {})
+
+        # Row label
+        svg += f'  <text x="{row_label_width - 10}" y="{y + cell_h / 2 + 4}" text-anchor="end" font-size="12" font-weight="500" fill="{text_color}">{label}</text>\n'
+
+        # Check if anyone uses this angle
+        any_nonzero = any(counts.get(a, 0) > 0 for a in advertisers)
+        tc_count = counts.get("Trilogy Care", 0)
+
+        for ci, adv in enumerate(advertisers):
+            x = row_label_width + ci * cell_w
+            count = counts.get(adv, 0)
+
+            # Determine cell state
+            is_gap = (adv == "Trilogy Care" and tc_count == 0
+                      and any(counts.get(a, 0) > 0 for a in advertisers if a != "Trilogy Care"))
+            is_whitespace = (not any_nonzero)
+
+            fill = cell_color(count, is_gap, is_whitespace)
+
+            # Cell rect with thin border
+            svg += f'  <rect x="{x + 1}" y="{y + 1}" width="{cell_w - 2}" height="{cell_h - 2}" rx="3" fill="{fill}" stroke="#E4E6EB" stroke-width="0.5"/>\n'
+
+            # Count number
+            font_color = "white" if count >= 6 else text_color
+            if count > 0:
+                svg += f'  <text x="{x + cell_w / 2}" y="{y + cell_h / 2 + 4}" text-anchor="middle" font-size="12" font-weight="600" fill="{font_color}">{count}</text>\n'
+
+            # Gap warning: red dot in top-right corner
+            if is_gap:
+                dot_x = x + cell_w - 10
+                dot_y = y + 10
+                svg += f'  <circle cx="{dot_x}" cy="{dot_y}" r="4" fill="#EF4444"/>\n'
+
+    # Legend
+    ly = header_height + cell_h * len(angles) + 16
+    items = [
+        (empty, "0 ads"), (low, "1-2"), (mid, "3-5"), (high, "6+"),
+        (gap_bg, "Gap (TC=0)"), (whitespace_bg, "Whitespace"),
+    ]
+    lx = row_label_width
+    for color, label in items:
+        svg += f'  <rect x="{lx}" y="{ly}" width="14" height="14" rx="3" fill="{color}" stroke="#E4E6EB" stroke-width="0.5"/>\n'
+        svg += f'  <text x="{lx + 18}" y="{ly + 11}" font-size="11" fill="{muted}">{label}</text>\n'
+        lx += 90
+
+    svg += '</svg>'
+    return svg
