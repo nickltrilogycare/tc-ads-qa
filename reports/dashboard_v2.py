@@ -868,6 +868,139 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
                 gap_html += f"<li><strong>{g['angle'].replace('_',' ').title()}</strong> — {g['competitor_count']} competitor ads, 0 Trilogy</li>"
             gap_html += "</ul>"
 
+        # ── Fill This Gap — Pre-generated Creative Briefs ──
+        fill_gap_html = ""
+        try:
+            briefs_path = Path(__file__).parent.parent / "data" / "gap_briefs.json"
+            if briefs_path.exists():
+                gap_briefs = json.loads(briefs_path.read_text())
+                if gap_briefs:
+                    fill_gap_html = """
+<div style="margin-top:28px;">
+  <h4 style="color:#1a1a2e;font-size:15px;margin-bottom:4px;">
+    <span style="color:var(--red);font-size:18px;">&#9679;</span> Fill This Gap — Creative Brief Generator
+  </h4>
+  <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">
+    Click a gap card to expand a pre-generated creative brief. These are your biggest messaging opportunities.
+  </p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;">
+"""
+                    for idx, brief in enumerate(gap_briefs):
+                        angle_name = brief.get("gap_angle", "").replace("_", " ").title()
+                        comp_count = brief.get("competitor_count", 0)
+                        tc_count = brief.get("trilogy_count", 0)
+                        tc_share = brief.get("trilogy_share", 0)
+                        sample_copy = brief.get("sample_competitor_copy", "")
+                        brief_title = brief.get("brief_title", "Creative Brief")
+                        objective = brief.get("objective", "")
+                        key_msg = brief.get("key_message", "")
+                        supporting = brief.get("supporting_messages", [])
+                        tone = brief.get("tone", "")
+                        fmt_rec = brief.get("format_recommendation", "")
+                        headlines = brief.get("headline_options", [])
+                        body_draft = brief.get("body_copy_draft", "")
+                        cta = brief.get("cta", "")
+                        visual = brief.get("visual_direction", "")
+                        what_keep = brief.get("what_to_keep", "")
+                        what_change = brief.get("what_to_change", "")
+                        platform = brief.get("platform", "")
+
+                        supporting_html = "".join(f"<li>{s}</li>" for s in supporting)
+                        headlines_html = "".join(f"<li style='font-weight:600;'>{h}</li>" for h in headlines)
+
+                        # Urgency indicator based on share
+                        if tc_share < 5:
+                            urgency = "CRITICAL"
+                            urgency_color = "#D32F2F"
+                        elif tc_share < 15:
+                            urgency = "HIGH"
+                            urgency_color = "#E65100"
+                        else:
+                            urgency = "MEDIUM"
+                            urgency_color = "#F9A825"
+
+                        fill_gap_html += f"""
+    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+      <div onclick="document.getElementById('brief-{idx}').style.display=document.getElementById('brief-{idx}').style.display==='none'?'block':'none';this.querySelector('.chevron').textContent=document.getElementById('brief-{idx}').style.display==='none'?'&#9654;':'&#9660;'"
+           style="padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#fafafa,#f5f5f5);">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:4px;">{angle_name}</div>
+          <div style="font-size:12px;color:var(--text-secondary);">
+            <span style="background:{urgency_color};color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;margin-right:8px;">{urgency}</span>
+            {comp_count} competitor ads &middot; {tc_count} Trilogy &middot; {tc_share}% share
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="background:#1a1a2e;color:#fff;padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;">Generate Brief</span>
+          <span class="chevron" style="font-size:14px;color:#666;">&#9654;</span>
+        </div>
+      </div>
+      <div id="brief-{idx}" style="display:none;padding:0 20px 20px;">
+        <div style="padding:12px 0;border-bottom:1px solid #eee;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Competitor Sample Copy</div>
+          <div style="font-size:13px;color:#555;font-style:italic;background:#f9f9f9;padding:10px 14px;border-radius:8px;border-left:3px solid #ccc;">{sample_copy}</div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid #eee;">
+          <div style="font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:6px;">{brief_title}</div>
+          <div style="font-size:13px;color:#555;">{objective}</div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid #eee;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Key Message</div>
+          <div style="font-size:14px;font-weight:600;color:#1a1a2e;">{key_msg}</div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid #eee;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Supporting Messages</div>
+          <ul style="font-size:13px;color:#555;margin:4px 0;padding-left:18px;">{supporting_html}</ul>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid #eee;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Headline Options</div>
+          <ol style="font-size:13px;color:#1a1a2e;margin:4px 0;padding-left:18px;">{headlines_html}</ol>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid #eee;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Body Copy Draft</div>
+          <div style="font-size:13px;color:#333;background:#f0f7ff;padding:12px 14px;border-radius:8px;line-height:1.6;">{body_draft}</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #eee;">
+          <div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Tone</div>
+            <div style="font-size:13px;color:#555;">{tone}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Format</div>
+            <div style="font-size:13px;color:#555;">{fmt_rec}</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #eee;">
+          <div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">CTA</div>
+            <div style="font-size:14px;font-weight:600;color:#1a73e8;">{cta}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Platform</div>
+            <div style="font-size:13px;color:#555;text-transform:capitalize;">{platform}</div>
+          </div>
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid #eee;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#999;margin-bottom:4px;">Visual Direction</div>
+          <div style="font-size:13px;color:#555;">{visual}</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0;">
+          <div style="background:#E8F5E9;padding:10px 14px;border-radius:8px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#2E7D32;margin-bottom:4px;">What to Keep</div>
+            <div style="font-size:13px;color:#333;">{what_keep}</div>
+          </div>
+          <div style="background:#FFF3E0;padding:10px 14px;border-radius:8px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#E65100;margin-bottom:4px;">What to Change</div>
+            <div style="font-size:13px;color:#333;">{what_change}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+"""
+                    fill_gap_html += "  </div>\n</div>"
+        except Exception as e:
+            fill_gap_html = f"<!-- Fill-gap briefs unavailable: {e} -->"
+
         html += f"""
 <div class="score-logic" id="gapMatrix" style="margin-top:24px;">
   <h3>Messaging Gap Matrix — Who's Saying What</h3>
@@ -876,6 +1009,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
   </p>
   {heatmap_svg}
   {gap_html}
+  {fill_gap_html}
 </div>
 """
     except Exception as e:
