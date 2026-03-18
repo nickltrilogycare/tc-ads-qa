@@ -420,6 +420,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text);
       <button onclick="setTab('trilogy',this)">Trilogy Care</button>
       <button onclick="setTab('competitors',this)">Competitors</button>
       <button onclick="toggleScoreLogic()">Score Logic</button>
+      <button onclick="toggleMarketVoice()">Market Voice</button>
       <button onclick="openDrawer()">Insights</button>
     </div>
     <span class="header-meta">18 March 2026 · Support at Home</span>
@@ -521,6 +522,62 @@ body { font-family: var(--font); background: var(--bg); color: var(--text);
     <div><span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--yellow);margin-right:4px;vertical-align:middle;"></span> <strong>50-69</strong> Needs Work</div>
     <div><span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--red);margin-right:4px;vertical-align:middle;"></span> <strong>&lt;50</strong> Poor</div>
   </div>
+</div>
+
+<div class="score-logic" id="marketVoice" style="margin-top:24px;">
+  <h3>Market Voice Share — Messaging Intelligence</h3>
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+    Which messaging angles dominate Support at Home advertising? Coloured bars show Trilogy Care's share within each theme. Based on 30 ads analyzed.
+  </p>
+  <svg width="800" height="544" viewBox="0 0 800 544" xmlns="http://www.w3.org/2000/svg">
+<style>text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }</style>
+  <rect x="180" y="20" width="100.55172413793105" height="48" rx="6" fill="#1877F2" opacity="0.25"/>
+  <rect x="180" y="20" width="81.44689655172415" height="48" rx="6" fill="#1877F2"/>
+  <text x="172" y="49.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Independence & Dignity</text>
+  <text x="288.55172413793105" y="49.0" font-size="12" font-weight="600" fill="#606770">19%</text>
+  <text x="220.72344827586207" y="49.0" text-anchor="middle" font-size="11" font-weight="600" fill="white">TC 81%</text>
+  <rect x="180" y="76" width="96.82758620689656" height="48" rx="6" fill="#31A24C" opacity="0.25"/>
+  <rect x="180" y="76" width="89.08137931034483" height="48" rx="6" fill="#31A24C"/>
+  <text x="172" y="105.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Empowerment & Control</text>
+  <text x="284.82758620689657" y="105.0" font-size="12" font-weight="600" fill="#606770">18%</text>
+  <text x="224.5406896551724" y="105.0" text-anchor="middle" font-size="11" font-weight="600" fill="white">TC 92%</text>
+  <rect x="180" y="132" width="89.37931034482759" height="48" rx="6" fill="#F7B928" opacity="0.25"/>
+  <rect x="180" y="132" width="82.22896551724138" height="48" rx="6" fill="#F7B928"/>
+  <text x="172" y="161.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Cost Transparency</text>
+  <text x="277.37931034482756" y="161.0" font-size="12" font-weight="600" fill="#606770">17%</text>
+  <text x="221.11448275862068" y="161.0" text-anchor="middle" font-size="11" font-weight="600" fill="white">TC 92%</text>
+  <rect x="180" y="188" width="74.48275862068965" height="48" rx="6" fill="#E4405F" opacity="0.25"/>
+  <rect x="180" y="188" width="74.48275862068965" height="48" rx="6" fill="#E4405F"/>
+  <text x="172" y="217.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Self-Managed</text>
+  <text x="262.48275862068965" y="217.0" font-size="12" font-weight="600" fill="#606770">14%</text>
+  <text x="217.24137931034483" y="217.0" text-anchor="middle" font-size="11" font-weight="600" fill="white">TC 100%</text>
+  <rect x="180" y="244" width="63.310344827586206" height="48" rx="6" fill="#6366F1" opacity="0.25"/>
+  <rect x="180" y="244" width="44.95034482758621" height="48" rx="6" fill="#6366F1"/>
+  <text x="172" y="273.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Service Quality</text>
+  <text x="251.31034482758622" y="273.0" font-size="12" font-weight="600" fill="#606770">12%</text>
+  <text x="202.4751724137931" y="273.0" text-anchor="middle" font-size="11" font-weight="600" fill="white">TC 71%</text>
+  <rect x="180" y="300" width="55.86206896551724" height="48" rx="6" fill="#06B6D4" opacity="0.25"/>
+  <rect x="180" y="300" width="40.779310344827586" height="48" rx="6" fill="#06B6D4"/>
+  <text x="172" y="329.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Govt Transition</text>
+  <text x="243.86206896551724" y="329.0" font-size="12" font-weight="600" fill="#606770">10%</text>
+  <text x="200.3896551724138" y="329.0" text-anchor="middle" font-size="11" font-weight="600" fill="white">TC 73%</text>
+  <rect x="180" y="356" width="37.241379310344826" height="48" rx="6" fill="#F59E0B" opacity="0.25"/>
+  <rect x="180" y="356" width="22.344827586206893" height="48" rx="6" fill="#F59E0B"/>
+  <text x="172" y="385.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Convenience & Speed</text>
+  <text x="225.24137931034483" y="385.0" font-size="12" font-weight="600" fill="#606770">7%</text>
+  <rect x="180" y="412" width="18.620689655172413" height="48" rx="6" fill="#EC4899" opacity="0.25"/>
+  <rect x="180" y="412" width="14.89655172413793" height="48" rx="6" fill="#EC4899"/>
+  <text x="172" y="441.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Family Peace of Mind</text>
+  <text x="206.6206896551724" y="441.0" font-size="12" font-weight="600" fill="#606770">3%</text>
+  <rect x="180" y="468" width="3.7241379310344827" height="48" rx="6" fill="#8B5CF6" opacity="0.25"/>
+  <text x="172" y="497.0" text-anchor="end" font-size="13" font-weight="500" fill="#1C1E21">Testimonials</text>
+  <text x="191.72413793103448" y="497.0" font-size="12" font-weight="600" fill="#606770">1%</text>
+  <rect x="180" y="529" width="16" height="16" rx="3" fill="#1877F2"/>
+  <text x="202" y="541" font-size="12" fill="#606770">Trilogy Care share</text>
+  <rect x="340" y="529" width="16" height="16" rx="3" fill="#1877F2" opacity="0.25"/>
+  <text x="362" y="541" font-size="12" fill="#606770">Total market</text>
+</svg>
+  
 </div>
 
 <div class="advertiser-section" data-advertiser="Trilogy Care" data-type="trilogy">
@@ -5830,6 +5887,11 @@ function closeDrawer() {
 
 function toggleScoreLogic() {
   document.getElementById('scoreLogic').classList.toggle('visible');
+  document.getElementById('marketVoice')?.classList.remove('visible');
+}
+function toggleMarketVoice() {
+  document.getElementById('marketVoice')?.classList.toggle('visible');
+  document.getElementById('scoreLogic')?.classList.remove('visible');
 }
 </script>
 

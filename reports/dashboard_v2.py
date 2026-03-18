@@ -653,6 +653,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       <button onclick="setTab('trilogy',this)">Trilogy Care</button>
       <button onclick="setTab('competitors',this)">Competitors</button>
       <button onclick="toggleScoreLogic()">Score Logic</button>
+      <button onclick="toggleMarketVoice()">Market Voice</button>
       <button onclick="openDrawer()">Insights</button>
     </div>
     <span class="header-meta">{now:%d %B %Y} · Support at Home</span>
@@ -756,6 +757,36 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
   </div>
 </div>
 """
+
+    # ── Market Voice Share Panel ──
+    try:
+        msg_data = json.loads((Path(__file__).parent.parent / "data" / "messaging_analysis.json").read_text())
+        msg_dist = msg_data.get("messaging_distribution", {})
+        msg_trilogy = msg_data.get("trilogy_share", {})
+
+        from reports.charts import market_voice_share_svg
+        voice_svg = market_voice_share_svg(msg_dist, msg_trilogy)
+
+        # Find gaps — angles with low Trilogy share
+        gaps = []
+        for angle, count in sorted(msg_dist.items(), key=lambda x: -x[1]):
+            ts = msg_trilogy.get(angle, 0)
+            if ts < 30 and count >= 3:
+                label = angle.replace("_", " ").title()
+                gaps.append(f"<li><strong>{label}</strong> — {count} competitor ads, Trilogy at {ts}% share</li>")
+
+        html += f"""
+<div class="score-logic" id="marketVoice" style="margin-top:24px;">
+  <h3>Market Voice Share — Messaging Intelligence</h3>
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+    Which messaging angles dominate Support at Home advertising? Coloured bars show Trilogy Care's share within each theme. Based on {msg_data.get('sample_size', 0)} ads analyzed.
+  </p>
+  {voice_svg}
+  {"<h4 style='margin-top:20px;font-size:14px;color:var(--red);'>Messaging Gaps (Trilogy under-represented)</h4><ul style='font-size:13px;line-height:1.8;'>" + "".join(gaps) + "</ul>" if gaps else ""}
+</div>
+"""
+    except Exception as e:
+        html += f"<!-- Market Voice Share unavailable: {e} -->\n"
 
     # ── Advertiser Sections ──
     for adv_name in advertiser_order:
@@ -959,6 +990,11 @@ function closeDrawer() {{
 
 function toggleScoreLogic() {{
   document.getElementById('scoreLogic').classList.toggle('visible');
+  document.getElementById('marketVoice')?.classList.remove('visible');
+}}
+function toggleMarketVoice() {{
+  document.getElementById('marketVoice')?.classList.toggle('visible');
+  document.getElementById('scoreLogic')?.classList.remove('visible');
 }}
 </script>
 """
