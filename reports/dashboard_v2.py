@@ -641,6 +641,23 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
   opacity: 1;
 }}
 
+/* ── Dark Mode ── */
+body.dark-mode {{
+  --bg: #1a1a2e; --white: #16213e; --card: #1a1d2e; --border: #2d3148;
+  --border-light: #2d3148; --text: #e4e6f0; --text-secondary: #8b8fa3;
+  --text-tertiary: #6b7080; --accent: #6366f1;
+}}
+body.dark-mode .header {{ background: #16213e; border-color: #2d3148; }}
+body.dark-mode .toolbar {{ background: #16213e; border-color: #2d3148; }}
+body.dark-mode .ad-card {{ background: #1a1d2e; border-color: #2d3148; }}
+body.dark-mode .ad-card:hover {{ box-shadow: 0 8px 24px rgba(0,0,0,0.4); }}
+body.dark-mode .card-creative {{ background: #232736; }}
+body.dark-mode .stat-card {{ background: #1a1d2e; border-color: #2d3148; }}
+body.dark-mode .score-logic {{ background: #1a1d2e; border-color: #2d3148; }}
+body.dark-mode .drawer {{ background: #16213e; }}
+body.dark-mode .filter-chip {{ background: #1a1d2e; border-color: #2d3148; color: #e4e6f0; }}
+body.dark-mode .search-input {{ background: #1a1d2e; border-color: #2d3148; color: #e4e6f0; }}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {{
   .ad-grid {{ grid-template-columns: 1fr; }}
@@ -673,6 +690,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       <button onclick="toggleExecView()" style="background:#1877F2;color:white;border-radius:6px;">CMO Brief</button>
     </div>
     <span class="header-meta">{now:%d %B %Y} · Support at Home</span>
+    <button onclick="toggleDarkMode()" style="width:32px;height:32px;border:1px solid var(--border);border-radius:6px;background:var(--white);cursor:pointer;font-size:16px;" title="Toggle dark mode" id="darkModeBtn">🌙</button>
   </div>
 </div>
 
@@ -1273,6 +1291,18 @@ function toggleMarketVoice() {{
   document.getElementById('scoreLogic')?.classList.remove('visible');
   document.getElementById('gapMatrix')?.classList.remove('visible');
 }}
+function toggleDarkMode() {{
+  document.body.classList.toggle('dark-mode');
+  const btn = document.getElementById('darkModeBtn');
+  btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  localStorage.setItem('tc_ads_dark', document.body.classList.contains('dark-mode'));
+}}
+// Auto-apply saved dark mode preference
+if (localStorage.getItem('tc_ads_dark') === 'true') {{
+  document.body.classList.add('dark-mode');
+  document.getElementById('darkModeBtn').textContent = '☀️';
+}}
+
 function toggleExecView() {{
   document.getElementById('execView')?.classList.toggle('visible');
 }}
