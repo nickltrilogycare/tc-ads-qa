@@ -961,6 +961,21 @@ function toggleScoreLogic() {{
   document.getElementById('scoreLogic').classList.toggle('visible');
 }}
 </script>
+"""
+
+    # Inject compare + export addons
+    try:
+        from reports.dashboard_addons import get_compare_html, get_export_html
+        html += get_compare_html()
+        html += get_export_html({
+            "total": len(cards),
+            "trilogy": len(trilogy_cards),
+            "avg_score": avg,
+        })
+    except Exception as e:
+        html += f"<!-- Addons failed: {{e}} -->"
+
+    html += """
 </body>
 </html>"""
 
