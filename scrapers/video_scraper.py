@@ -1,4 +1,5 @@
 """Video scraper - downloads ad videos from Facebook Ad Library using Playwright network interception."""
+import ssl
 import time
 import urllib.request
 from pathlib import Path
@@ -101,7 +102,16 @@ def download_fb_video(library_id: str, label: str = "") -> dict:
                 best_url = video_urls[-1]
                 result["video_url"] = best_url
                 try:
-                    urllib.request.urlretrieve(best_url, str(video_path))
+                    # FB CDN requires SSL context bypass
+                    ctx = ssl.create_default_context()
+                    ctx.check_hostname = False
+                    ctx.verify_mode = ssl.CERT_NONE
+                    opener = urllib.request.build_opener(
+                        urllib.request.HTTPSHandler(context=ctx)
+                    )
+                    resp = opener.open(best_url)
+                    with open(str(video_path), "wb") as vf:
+                        vf.write(resp.read())
                     result["video_path"] = str(video_path)
                 except Exception as e:
                     result["video_download_error"] = str(e)
