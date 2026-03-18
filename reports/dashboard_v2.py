@@ -667,6 +667,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       <button onclick="toggleScoreLogic()">Score Logic</button>
       <button onclick="toggleMarketVoice()">Market Voice</button>
       <button onclick="toggleGapMatrix()">Gap Matrix</button>
+      <button onclick="toggleVolumeTracker()">Volume</button>
       <button onclick="openDrawer()">Insights</button>
       <button onclick="openBoardsDrawer()">Swipe File</button>
       <button onclick="toggleExecView()" style="background:#1877F2;color:white;border-radius:6px;">CMO Brief</button>
@@ -879,6 +880,13 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
 """
     except Exception as e:
         html += f"<!-- Gap heatmap unavailable: {e} -->\n"
+
+    # ── Volume Tracker ──
+    try:
+        from reports.volume_tracker import get_volume_tracker_html
+        html += get_volume_tracker_html(cards)
+    except Exception as e:
+        html += f"<!-- Volume tracker unavailable: {e} -->\n"
 
     # ── Advertiser Sections ──
     for adv_name in advertiser_order:
@@ -1133,6 +1141,14 @@ function toggleMarketVoice() {{
 }}
 function toggleExecView() {{
   document.getElementById('execView')?.classList.toggle('visible');
+}}
+function toggleVolumeTracker() {{
+  const panels = ['scoreLogic','marketVoice','gapMatrix','volumeTracker','execView'];
+  panels.forEach(id => {{
+    const el = document.getElementById(id);
+    if (el && id !== 'volumeTracker') el.classList.remove('visible');
+  }});
+  document.getElementById('volumeTracker')?.classList.toggle('visible');
 }}
 function toggleGapMatrix() {{
   document.getElementById('gapMatrix')?.classList.toggle('visible');
