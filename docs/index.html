@@ -424,6 +424,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text);
       <button onclick="toggleGapMatrix()">Gap Matrix</button>
       <button onclick="openDrawer()">Insights</button>
       <button onclick="openBoardsDrawer()">Swipe File</button>
+      <button onclick="toggleExecView()" style="background:#1877F2;color:white;border-radius:6px;">CMO Brief</button>
     </div>
     <span class="header-meta">18 March 2026 · Support at Home</span>
   </div>
@@ -505,6 +506,75 @@ body { font-family: var(--font); background: var(--bg); color: var(--text);
 
 <!-- Score Logic Panel -->
 <div class="content">
+<style>
+.exec-view {
+  background: var(--white); border: 2px solid var(--accent);
+  border-radius: var(--radius-lg); padding: 24px; margin-top: 24px;
+  display: none;
+}
+.exec-view.visible { display: block; }
+.exec-header { margin-bottom: 16px; }
+.exec-header h2 { font-size: 18px; color: var(--accent); }
+.exec-numbers {
+  display: flex; gap: 12px; margin-bottom: 20px;
+}
+.exec-num {
+  flex: 1; text-align: center; padding: 12px;
+  background: var(--bg); border-radius: var(--radius);
+}
+.exec-val { font-size: 28px; font-weight: 700; }
+.exec-label { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+.exec-actions { }
+.exec-action {
+  display: flex; align-items: start; gap: 10px; padding: 10px 0;
+  border-bottom: 1px solid var(--border-light); font-size: 14px;
+}
+.exec-action:last-child { border: none; }
+.exec-action-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--accent); color: white; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .exec-numbers { flex-direction: column; }
+}
+</style>
+<div class="exec-view" id="execView">
+  <div class="exec-header">
+    <h2>Executive Brief — 18 Mar 2026</h2>
+    <p style="font-size:13px;color:var(--text-tertiary);margin-top:2px;">30-second overview for the leadership team</p>
+  </div>
+
+  <div class="exec-numbers">
+    <div class="exec-num">
+      <div class="exec-val" style="color:var(--accent)">30</div>
+      <div class="exec-label">Our Active Ads</div>
+    </div>
+    <div class="exec-num">
+      <div class="exec-val">25</div>
+      <div class="exec-label">Competitors Tracked</div>
+    </div>
+    <div class="exec-num">
+      <div class="exec-val" style="color:var(--green)">87.0</div>
+      <div class="exec-label">Our Avg Score</div>
+    </div>
+    <div class="exec-num">
+      <div class="exec-val" style="color:var(--green)">↑ 4.0</div>
+      <div class="exec-label">vs Competitor Avg</div>
+    </div>
+    <div class="exec-num">
+      <div class="exec-val">1/30</div>
+      <div class="exec-label">Video / Total</div>
+    </div>
+  </div>
+
+  <div class="exec-actions">
+    <h3 style="font-size:14px;color:var(--text-secondary);margin-bottom:8px;">This Week's Actions</h3>
+    <div class="exec-action"><span class="exec-action-num">1</span>Expand creative formats (carousel, lifestyle video, testimonials)</div><div class="exec-action"><span class="exec-action-num">2</span>Broaden CTA strategy to include 'Learn More', 'Support at Home', 'Book a Consultation'</div><div class="exec-action"><span class="exec-action-num">3</span>Continue weekly monitoring</div>
+  </div>
+</div>
+
 <div class="score-logic" id="scoreLogic">
   <h3>Quality Score Methodology</h3>
   <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
@@ -8321,6 +8391,9 @@ function toggleMarketVoice() {
   document.getElementById('marketVoice')?.classList.toggle('visible');
   document.getElementById('scoreLogic')?.classList.remove('visible');
   document.getElementById('gapMatrix')?.classList.remove('visible');
+}
+function toggleExecView() {
+  document.getElementById('execView')?.classList.toggle('visible');
 }
 function toggleGapMatrix() {
   document.getElementById('gapMatrix')?.classList.toggle('visible');

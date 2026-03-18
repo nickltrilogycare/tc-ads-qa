@@ -657,6 +657,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       <button onclick="toggleGapMatrix()">Gap Matrix</button>
       <button onclick="openDrawer()">Insights</button>
       <button onclick="openBoardsDrawer()">Swipe File</button>
+      <button onclick="toggleExecView()" style="background:#1877F2;color:white;border-radius:6px;">CMO Brief</button>
     </div>
     <span class="header-meta">{now:%d %B %Y} · Support at Home</span>
   </div>
@@ -738,6 +739,22 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
 
 <!-- Score Logic Panel -->
 <div class="content">
+"""
+
+    # ── Executive View ──
+    try:
+        from reports.executive_view import get_executive_view_html, get_executive_view_css
+        # Load gaps if available
+        try:
+            msg_gaps = json.loads((Path(__file__).parent.parent / "data" / "messaging_gaps.json").read_text())
+        except Exception:
+            msg_gaps = None
+        html += f"<style>{get_executive_view_css()}</style>"
+        html += get_executive_view_html(cards, competitive_analysis, msg_gaps)
+    except Exception as e:
+        html += f"<!-- Exec view failed: {e} -->"
+
+    html += """
 <div class="score-logic" id="scoreLogic">
   <h3>Quality Score Methodology</h3>
   <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
@@ -1074,6 +1091,9 @@ function toggleMarketVoice() {{
   document.getElementById('marketVoice')?.classList.toggle('visible');
   document.getElementById('scoreLogic')?.classList.remove('visible');
   document.getElementById('gapMatrix')?.classList.remove('visible');
+}}
+function toggleExecView() {{
+  document.getElementById('execView')?.classList.toggle('visible');
 }}
 function toggleGapMatrix() {{
   document.getElementById('gapMatrix')?.classList.toggle('visible');
