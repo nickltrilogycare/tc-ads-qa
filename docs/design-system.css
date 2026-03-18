@@ -1,0 +1,1099 @@
+/* ==========================================================================
+   ADS QA DASHBOARD — Design System
+   ==========================================================================
+   Synthesised from research on:
+   - Meta Ad Library (facebook.com/ads/library)
+   - MagicBrief (magicbrief.com)
+   - Foreplay.co
+
+   Principles: Meta's clean white aesthetic + MagicBrief's card structure +
+   Foreplay's organisational hierarchy.  Prioritises whitespace, legibility,
+   and visual scanning of ad creatives.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. CSS CUSTOM PROPERTIES  (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* ---- Colour palette ---- */
+  --color-bg-page:         #F0F2F5;   /* Meta's signature light-gray page bg  */
+  --color-bg-card:         #FFFFFF;
+  --color-bg-sidebar:      #FFFFFF;
+  --color-bg-hover:        #F5F6F8;   /* Subtle hover lift on rows/cards      */
+  --color-bg-active:       #EBF5FF;   /* Selected/active item highlight       */
+  --color-bg-section:      #FAFBFC;   /* Alternating section backgrounds      */
+
+  --color-text-primary:    #1C1E21;   /* Near-black, high contrast            */
+  --color-text-secondary:  #606770;   /* Meta's muted gray for meta text      */
+  --color-text-tertiary:   #8A8D91;   /* Even lighter — timestamps, captions  */
+  --color-text-inverse:    #FFFFFF;
+
+  --color-border:          #DADDE1;   /* Meta's standard divider gray         */
+  --color-border-light:    #E4E6EB;   /* Lighter variant for card edges       */
+  --color-border-focus:    #1877F2;   /* Facebook blue for focus rings        */
+
+  --color-accent:          #1877F2;   /* Meta blue — primary accent           */
+  --color-accent-hover:    #166FE5;
+  --color-accent-light:    #E7F3FF;   /* Tinted bg for accent badges          */
+
+  --color-success:         #31A24C;   /* Green — good scores, active status   */
+  --color-success-bg:      #E6F7EC;
+  --color-warning:         #F7B928;   /* Amber — needs-work scores            */
+  --color-warning-bg:      #FFF8E1;
+  --color-danger:          #E4002B;   /* Red — critical scores, errors        */
+  --color-danger-bg:       #FFEBE9;
+
+  --color-score-excellent: #31A24C;
+  --color-score-good:      #31A24C;
+  --color-score-ok:        #F7B928;
+  --color-score-poor:      #E4002B;
+  --color-score-critical:  #C20A1A;
+
+  /* ---- Typography ---- */
+  --font-family:           -apple-system, BlinkMacSystemFont, "Segoe UI",
+                           Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono:      "SF Mono", SFMono-Regular, Consolas, "Liberation Mono",
+                           Menlo, monospace;
+
+  --font-size-xs:          11px;      /* Tiny labels, badges                  */
+  --font-size-sm:          12px;      /* Card meta, timestamps                */
+  --font-size-base:        14px;      /* Body text, ad copy                   */
+  --font-size-md:          15px;      /* Slightly larger body                 */
+  --font-size-lg:          17px;      /* Card titles, advertiser names        */
+  --font-size-xl:          20px;      /* Section headings                     */
+  --font-size-2xl:         24px;      /* Page headings                        */
+  --font-size-3xl:         28px;      /* Hero / report title                  */
+
+  --font-weight-normal:    400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+
+  --line-height-tight:     1.2;       /* Headings                             */
+  --line-height-normal:    1.4;       /* Body text                            */
+  --line-height-relaxed:   1.6;       /* Ad copy for readability              */
+
+  --letter-spacing-tight:  -0.02em;   /* Headings                             */
+  --letter-spacing-normal: 0;
+
+  /* ---- Spacing (8px grid) ---- */
+  --space-1:               4px;
+  --space-2:               8px;
+  --space-3:               12px;
+  --space-4:               16px;
+  --space-5:               20px;
+  --space-6:               24px;
+  --space-8:               32px;
+  --space-10:              40px;
+  --space-12:              48px;
+  --space-16:              64px;
+
+  /* ---- Borders & Radii ---- */
+  --radius-sm:             4px;       /* Badges, chips                        */
+  --radius-md:             8px;       /* Cards, buttons (Meta standard)       */
+  --radius-lg:             12px;      /* Larger cards, modals                 */
+  --radius-xl:             16px;      /* Feature cards                        */
+  --radius-full:           9999px;    /* Pills, avatars                       */
+
+  /* ---- Shadows ---- */
+  --shadow-xs:             0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm:             0 1px 3px rgba(0, 0, 0, 0.08),
+                           0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md:             0 4px 6px rgba(0, 0, 0, 0.07),
+                           0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg:             0 10px 25px rgba(0, 0, 0, 0.08),
+                           0 4px 10px rgba(0, 0, 0, 0.04);
+  --shadow-xl:             0 20px 40px rgba(0, 0, 0, 0.1),
+                           0 8px 16px rgba(0, 0, 0, 0.06);
+  /* Meta's popup shadow (extracted from Facebook CSS) */
+  --shadow-popup:          0 12px 28px 0 rgba(0, 0, 0, 0.2),
+                           0 2px 4px 0 rgba(0, 0, 0, 0.1),
+                           inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+
+  /* ---- Transitions ---- */
+  --transition-fast:       120ms ease;
+  --transition-normal:     200ms ease;
+  --transition-slow:       300ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Z-index scale ---- */
+  --z-sticky:              100;
+  --z-dropdown:            200;
+  --z-overlay:             300;
+  --z-modal:               400;
+  --z-toast:               500;
+
+  /* ---- Layout ---- */
+  --sidebar-width:         260px;
+  --header-height:         56px;
+  --grid-gap:              20px;      /* Card grid gutter                     */
+  --card-min-width:        300px;     /* Minimum card width in grid           */
+  --card-max-width:        420px;     /* Maximum card width                   */
+  --content-max-width:     1440px;    /* Max content area                     */
+}
+
+
+/* --------------------------------------------------------------------------
+   2. BASE / RESET
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. LAYOUT — Page Shell
+   --------------------------------------------------------------------------
+   ┌──────────────────────────────────────────────┐
+   │  HEADER  (fixed, 56px)                       │
+   ├────────┬─────────────────────────────────────┤
+   │        │                                     │
+   │  SIDE  │   MAIN CONTENT                      │
+   │  BAR   │   (scrollable, padded)              │
+   │ 260px  │                                     │
+   │        │                                     │
+   └────────┴─────────────────────────────────────┘
+   -------------------------------------------------------------------------- */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-6);
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-xs);
+}
+
+.app-header__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.app-header__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-left: var(--space-3);
+}
+
+.app-sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--color-bg-sidebar);
+  border-right: 1px solid var(--color-border-light);
+  overflow-y: auto;
+  padding: var(--space-4) 0;
+  z-index: var(--z-sticky);
+}
+
+.app-main {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: var(--space-6) var(--space-8);
+  flex: 1;
+  max-width: var(--content-max-width);
+}
+
+
+/* --------------------------------------------------------------------------
+   4. SIDEBAR — Advertiser Navigation
+   --------------------------------------------------------------------------
+   Modelled on Meta Ad Library's left-hand advertiser list.
+   Each advertiser is a nav item; clicking selects it and scrolls
+   the main content to that advertiser's section.
+   -------------------------------------------------------------------------- */
+.sidebar-section {
+  padding: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.sidebar-section__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-2) var(--space-4);
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+
+.sidebar-nav-item:hover {
+  background: var(--color-bg-hover);
+}
+
+.sidebar-nav-item--active {
+  background: var(--color-bg-active);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+}
+
+.sidebar-nav-item__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 1px solid var(--color-border-light);
+}
+
+.sidebar-nav-item__name {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-nav-item__count {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  background: var(--color-bg-page);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-medium);
+}
+
+
+/* --------------------------------------------------------------------------
+   5. FILTER BAR
+   --------------------------------------------------------------------------
+   Horizontal bar at the top of main content, sticky below header.
+   Chips for active filters, search input, view toggle.
+   Modelled on Meta Ad Library's filter row.
+   -------------------------------------------------------------------------- */
+.filter-bar {
+  position: sticky;
+  top: var(--header-height);
+  background: var(--color-bg-page);
+  padding: var(--space-3) 0 var(--space-4) 0;
+  z-index: calc(var(--z-sticky) - 1);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--color-border-light);
+  margin-bottom: var(--space-6);
+}
+
+.filter-bar__search {
+  flex: 0 1 320px;
+  height: 36px;
+  padding: 0 var(--space-3) 0 36px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+  /* Search icon positioned via ::before on parent wrapper */
+}
+
+.filter-bar__search:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: 32px;
+  padding: 0 var(--space-3);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.filter-chip:hover {
+  background: var(--color-bg-hover);
+  border-color: var(--color-border);
+}
+
+.filter-chip--active {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.filter-chip__remove {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+}
+
+.filter-chip__remove:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--color-text-primary);
+}
+
+/* View toggle: Grid | Detail */
+.view-toggle {
+  display: inline-flex;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-left: auto;
+}
+
+.view-toggle__btn {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.view-toggle__btn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-hover);
+}
+
+.view-toggle__btn--active {
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+
+/* --------------------------------------------------------------------------
+   6. ADVERTISER SECTION
+   --------------------------------------------------------------------------
+   Groups ads by advertiser (like Foreplay's boards).
+   Each section has a header with the advertiser name + stats,
+   then a grid of ad cards below.
+   -------------------------------------------------------------------------- */
+.advertiser-section {
+  margin-bottom: var(--space-10);
+}
+
+.advertiser-section__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+  margin-bottom: var(--space-5);
+}
+
+.advertiser-section__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 1px solid var(--color-border-light);
+}
+
+.advertiser-section__name {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.advertiser-section__meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.advertiser-section__stats {
+  display: flex;
+  gap: var(--space-4);
+  margin-left: auto;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-bg-page);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   7. AD CARD GRID  (Grid View)
+   --------------------------------------------------------------------------
+   Responsive auto-fit grid. 3-4 columns at desktop, 2 at tablet, 1 at mobile.
+   Cards are uniform width (not masonry) for clean alignment — Meta style.
+   -------------------------------------------------------------------------- */
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
+  gap: var(--grid-gap);
+}
+
+/* Force specific column counts at breakpoints for predictable layout */
+@media (min-width: 1400px) {
+  .ad-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1000px) and (max-width: 1399px) {
+  .ad-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 700px) and (max-width: 999px) {
+  .ad-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 699px) {
+  .ad-grid { grid-template-columns: 1fr; }
+}
+
+
+/* --------------------------------------------------------------------------
+   8. AD CARD  — Anatomy
+   --------------------------------------------------------------------------
+   Card Structure (top to bottom):
+   ┌─────────────────────────────────────┐
+   │  CREATIVE AREA                      │  <- Image/video, aspect-ratio 4:5
+   │  (with play button overlay if video)│     or natural ratio with max-height
+   │                                     │
+   ├─────────────────────────────────────┤
+   │  SCORE BADGE (absolute, top-right)  │  <- Coloured pill
+   ├─────────────────────────────────────┤
+   │  AD COPY (primary text)             │  <- 3-line clamp
+   │  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  │
+   │  HEADLINE               CTA BUTTON  │  <- Single line
+   ├─────────────────────────────────────┤
+   │  META ROW:  format · platform · date│  <- Tiny muted text
+   └─────────────────────────────────────┘
+   -------------------------------------------------------------------------- */
+.ad-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  overflow: hidden;
+  transition: box-shadow var(--transition-normal),
+              transform var(--transition-normal);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.ad-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* -- Creative area -- */
+.ad-card__creative {
+  position: relative;
+  width: 100%;
+  background: var(--color-bg-page);
+  overflow: hidden;
+  /* Constrain height: show enough creative to scan, not so much it dominates */
+  max-height: 400px;
+}
+
+.ad-card__creative img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Video play button overlay */
+.ad-card__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast),
+              transform var(--transition-fast);
+  pointer-events: none;
+}
+
+.ad-card__play-btn::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #FFFFFF;
+  margin-left: 3px;  /* Visual centering of play triangle */
+}
+
+.ad-card:hover .ad-card__play-btn {
+  background: rgba(0, 0, 0, 0.75);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* Video duration badge */
+.ad-card__duration {
+  position: absolute;
+  bottom: var(--space-2);
+  right: var(--space-2);
+  background: rgba(0, 0, 0, 0.7);
+  color: #FFFFFF;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+/* Format badge (top-left: "VIDEO", "IMAGE", "CAROUSEL") */
+.ad-card__format-badge {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* -- Score badge (top-right, overlaying creative) -- */
+.ad-card__score {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  min-width: 40px;
+  height: 28px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: #FFFFFF;
+  /* bg-color set inline via score_color() */
+}
+
+/* -- Card body -- */
+.ad-card__body {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Primary text / ad copy */
+.ad-card__copy {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  /* 3-line clamp */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Headline + CTA row (mimics the Meta ad preview card) */
+.ad-card__headline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.ad-card__headline {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ad-card__cta {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-page);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  border: 1px solid var(--color-border);
+}
+
+/* Meta row: format icon · platform · date */
+.ad-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.ad-card__meta-dot::before {
+  content: "·";
+  margin: 0 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   9. DETAIL VIEW  (Single-ad expanded view)
+   --------------------------------------------------------------------------
+   Full-width, one ad at a time. Creative on left, analysis on right.
+   Inspired by MagicBrief's expanded ad breakdown view.
+   -------------------------------------------------------------------------- */
+.detail-view {
+  display: none; /* toggled via JS */
+}
+
+.detail-view--active {
+  display: block;
+}
+
+.detail-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 900px) {
+  .detail-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left panel: creative */
+.detail-card__creative {
+  background: var(--color-bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  min-height: 400px;
+}
+
+.detail-card__creative img,
+.detail-card__creative video {
+  max-width: 100%;
+  max-height: 600px;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+}
+
+/* Inline video player */
+.detail-card__creative video {
+  width: 100%;
+  border-radius: var(--radius-md);
+  background: #000;
+}
+
+/* Right panel: analysis */
+.detail-card__analysis {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  overflow-y: auto;
+  max-height: 700px;
+}
+
+.detail-card__section-title {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-2);
+}
+
+.detail-card__ad-copy {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+}
+
+/* Score breakdown in detail view */
+.score-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-3);
+}
+
+.score-breakdown__item {
+  background: var(--color-bg-page);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+}
+
+.score-breakdown__label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-1);
+}
+
+.score-breakdown__value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Issue list */
+.issue-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.issue-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-page);
+}
+
+.issue-list__item--error {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.issue-list__item--warning {
+  background: var(--color-warning-bg);
+  color: #8B6914;
+}
+
+.issue-list__item--pass {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+
+/* --------------------------------------------------------------------------
+   10. NAVIGATION BETWEEN ADS  (Detail View)
+   -------------------------------------------------------------------------- */
+.detail-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.detail-nav__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.detail-nav__btn:hover {
+  background: var(--color-bg-hover);
+  border-color: var(--color-border);
+}
+
+.detail-nav__counter {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+
+/* --------------------------------------------------------------------------
+   11. SCORE RING  (Circular progress for overall score)
+   -------------------------------------------------------------------------- */
+.score-ring {
+  width: 48px;
+  height: 48px;
+  position: relative;
+}
+
+.score-ring__circle {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.score-ring__bg {
+  stroke: var(--color-border-light);
+}
+
+.score-ring__fill {
+  /* stroke-dasharray and stroke set dynamically */
+  transition: stroke-dasharray var(--transition-slow);
+}
+
+.score-ring__text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+
+/* --------------------------------------------------------------------------
+   12. BUTTONS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 36px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn--secondary {
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn--secondary:hover {
+  background: var(--color-bg-hover);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.btn--ghost:hover {
+  background: var(--color-accent-light);
+}
+
+
+/* --------------------------------------------------------------------------
+   13. SUMMARY STATS BAR
+   --------------------------------------------------------------------------
+   Horizontal row of KPI cards above the ad grid.
+   -------------------------------------------------------------------------- */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.stats-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+}
+
+.stats-card__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-1);
+}
+
+.stats-card__value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+}
+
+.stats-card__delta {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-1);
+}
+
+.stats-card__delta--up   { color: var(--color-success); }
+.stats-card__delta--down { color: var(--color-danger); }
+
+
+/* --------------------------------------------------------------------------
+   14. EMPTY / LOADING STATES
+   -------------------------------------------------------------------------- */
+.empty-state {
+  text-align: center;
+  padding: var(--space-16) var(--space-8);
+  color: var(--color-text-tertiary);
+}
+
+.empty-state__icon {
+  font-size: 48px;
+  margin-bottom: var(--space-4);
+  opacity: 0.4;
+}
+
+.empty-state__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--color-bg-page) 25%,
+    var(--color-border-light) 50%,
+    var(--color-bg-page) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+@keyframes skeleton-pulse {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+
+/* --------------------------------------------------------------------------
+   15. UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-muted  { color: var(--color-text-secondary); }
+.text-tiny   { color: var(--color-text-tertiary); font-size: var(--font-size-xs); }
+.fw-medium   { font-weight: var(--font-weight-medium); }
+.fw-semibold { font-weight: var(--font-weight-semibold); }
+.fw-bold     { font-weight: var(--font-weight-bold); }

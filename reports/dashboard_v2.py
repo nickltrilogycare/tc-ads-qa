@@ -12,21 +12,50 @@ from config import REPORTS_DIR
 
 AD_IMAGES_DIR = Path(__file__).parent.parent / "ad_images"
 
-# Support at Home keyword filter
-SAH_KEYWORDS = [
-    "support at home", "home care package", "home care", "aged care at home",
-    "self-managed", "hcp", "care at home", "living at home", "stay at home",
-    "independent at home", "care hours", "home support", "in-home care",
-    "care management", "care package", "funding", "trilogy care",
-    "aged care", "home care provider", "support at home program",
-    "care coordination", "more care hours", "24/7 care",
+# Support at Home keyword filter — from research agent analysis
+SAH_PRIMARY = [
+    "support at home", "support at home program", "support at home funding",
+    "support at home classification", "replaced home care packages",
+    "new aged care program",
+]
+SAH_SECONDARY = [
+    "home care package", "self-managed home care", "self-managed aged care",
+    "government-funded home care", "government-funded aged care",
+    "stay at home longer", "live independently at home",
+    "choose your own workers", "choose your own carers",
+    "more hours of care", "aged care funding", "my aged care",
+    "aged care assessment", "care management cap",
+]
+SAH_TERTIARY = [
+    "home care", "aged care at home", "care at home", "in-home care",
+    "home support", "independent living", "care in the home",
+    "care hours", "care package", "funding", "self-managed",
+    "home care provider", "care coordination",
+]
+SAH_EXCLUDE = [
+    "residential aged care", "nursing home", "retirement village",
+    "retirement living", "ndis", "disability",
 ]
 
 
 def is_sah_relevant(ad: dict) -> bool:
-    """Check if an ad is relevant to Support at Home."""
+    """Check if an ad is relevant to Support at Home using tiered keyword matching."""
     text = (ad.get("copy_text", "") + " " + ad.get("full_text", "")).lower()
-    return any(kw in text for kw in SAH_KEYWORDS)
+
+    # Exclude residential/NDIS unless also mentioning home care
+    if any(ex in text for ex in SAH_EXCLUDE):
+        if not any(kw in text for kw in SAH_PRIMARY + SAH_SECONDARY):
+            return False
+
+    # Primary keywords = definite match
+    if any(kw in text for kw in SAH_PRIMARY):
+        return True
+    # Secondary = strong match
+    if any(kw in text for kw in SAH_SECONDARY):
+        return True
+    # Tertiary = need at least 2 matches
+    matches = sum(1 for kw in SAH_TERTIARY if kw in text)
+    return matches >= 2
 
 
 def image_to_base64(path: str) -> str:

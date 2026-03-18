@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ads QA Dashboard — Design Spec Reference</title>
+<style>
+  :root {
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); font-size: 14px; line-height: 1.6; color: #1C1E21; background: #F0F2F5; padding: 40px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  h2 { font-size: 20px; font-weight: 700; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #DADDE1; }
+  h3 { font-size: 16px; font-weight: 600; margin: 24px 0 8px; color: #606770; }
+  p, li { margin-bottom: 8px; }
+  ul { padding-left: 20px; }
+  code { background: #E4E6EB; padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  .card { background: #fff; border-radius: 12px; border: 1px solid #E4E6EB; padding: 24px; margin-bottom: 24px; }
+  .swatch-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .swatch { width: 80px; text-align: center; }
+  .swatch-box { width: 80px; height: 48px; border-radius: 8px; border: 1px solid #DADDE1; margin-bottom: 4px; }
+  .swatch-label { font-size: 11px; color: #606770; }
+  .swatch-hex { font-size: 11px; font-weight: 600; font-family: monospace; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #E4E6EB; font-size: 13px; }
+  th { font-weight: 600; color: #606770; text-transform: uppercase; font-size: 11px; letter-spacing: 0.04em; }
+  .note { background: #E7F3FF; border-left: 3px solid #1877F2; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Ads QA Dashboard — Design Specification</h1>
+<p style="color:#606770; margin-bottom: 32px;">
+  Research synthesis from Meta Ad Library, MagicBrief, and Foreplay.co.<br>
+  Companion file: <code>design-system.css</code> contains the full implementable CSS.
+</p>
+
+<!-- ============================================================ -->
+<h2>1. Research Findings by Platform</h2>
+
+<div class="card">
+<h3>Meta Ad Library — The Gold Standard</h3>
+<ul>
+  <li><strong>Page background:</strong> Light gray (<code>#F0F2F5</code>) — the signature Facebook canvas</li>
+  <li><strong>Cards:</strong> Pure white (<code>#FFFFFF</code>) with <code>1px solid #E4E6EB</code> border, <code>border-radius: 8px</code></li>
+  <li><strong>Font stack:</strong> <code>-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif</code></li>
+  <li><strong>Text colours:</strong> Primary <code>#1C1E21</code>, secondary <code>#606770</code>, tertiary <code>#8A8D91</code></li>
+  <li><strong>Accent:</strong> Facebook Blue <code>#1877F2</code></li>
+  <li><strong>Card anatomy:</strong> Advertiser avatar+name top, creative in middle, primary text below, headline+CTA row, then meta (dates, platforms)</li>
+  <li><strong>Shadows:</strong> Minimal — cards rely on border, not shadow. Popups use multi-layer: <code>0 12px 28px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.1)</code></li>
+  <li><strong>Filter bar:</strong> Horizontal, pill-shaped search input + dropdown chips. Active filters get blue tint background</li>
+  <li><strong>Video:</strong> Thumbnail with centred play button (dark semi-transparent circle). No autoplay.</li>
+  <li><strong>320+ CSS custom properties</strong> on <code>:root</code>; dark mode via <code>.__fb-dark-mode</code> class swap</li>
+  <li><strong>What makes it clean:</strong> Massive whitespace, muted borders not shadows, uniform card widths, minimal colour — only blue accent</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>MagicBrief — Best-in-Class Competitor Browsing</h3>
+<ul>
+  <li><strong>Font:</strong> Inter (400-700) for UI, Manrope (600-800) for headings</li>
+  <li><strong>Theme:</strong> Light purple tint — border <code>#E3DBFF</code>, shadow <code>#290E830F</code>, bg <code>#F7F5FF</code></li>
+  <li><strong>Card radius:</strong> 14px (larger, more rounded than Meta)</li>
+  <li><strong>Grid:</strong> Multi-column responsive grid with 23-30px gaps; 992px desktop breakpoint</li>
+  <li><strong>Card anatomy:</strong> Creative thumbnail top, AI score badge (1-4 scale), ad status indicator, script/transcript info below</li>
+  <li><strong>Organisation:</strong> Folder/board hierarchy (like Foreplay). Kanban view for brief status tracking</li>
+  <li><strong>Filtering:</strong> 15+ filter types. Stackable filter dropdown. Tags, brand, platform, theme, industry</li>
+  <li><strong>Grid customisation:</strong> Toggle visibility of ad copy, brand details, headline+CTA on cards</li>
+  <li><strong>What makes it work:</strong> Clean concept boards, generous card radius, purple-tinted neutrals feel modern</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Foreplay.co — Creative Swipe File</h3>
+<ul>
+  <li><strong>Font:</strong> "Inter Display" for headings, "Inter" for body. Sizes: H2=28px, H3=24px, body=16px</li>
+  <li><strong>Theme:</strong> Dark mode default. White text on dark backgrounds. Muted: <code>#CACACE</code></li>
+  <li><strong>Card radius:</strong> 20px (very rounded, premium feel)</li>
+  <li><strong>Spacing:</strong> 12px grid gap (tighter than Meta), 16-24px padding</li>
+  <li><strong>Transitions:</strong> 300-500ms with <code>cubic-bezier(0.16, 1, 0.3, 1)</code> (spring easing)</li>
+  <li><strong>Organisation:</strong> Pinterest-style boards inside folders. Boards by competitor/product/campaign</li>
+  <li><strong>Hover:</strong> Opacity changes, chevron rotation (180deg) on expanded states</li>
+  <li><strong>Filtering:</strong> Brand, platform, language, ad status, niche. Stackable filters</li>
+  <li><strong>What makes it work:</strong> Board metaphor, spring animations, generous radius, dark theme contrast</li>
+</ul>
+</div>
+
+
+<!-- ============================================================ -->
+<h2>2. Colour Palette</h2>
+
+<h3>Backgrounds</h3>
+<div class="swatch-row">
+  <div class="swatch"><div class="swatch-box" style="background:#F0F2F5;"></div><div class="swatch-label">Page</div><div class="swatch-hex">#F0F2F5</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#FFFFFF;"></div><div class="swatch-label">Card</div><div class="swatch-hex">#FFFFFF</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#F5F6F8;"></div><div class="swatch-label">Hover</div><div class="swatch-hex">#F5F6F8</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#EBF5FF;"></div><div class="swatch-label">Active</div><div class="swatch-hex">#EBF5FF</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#FAFBFC;"></div><div class="swatch-label">Section</div><div class="swatch-hex">#FAFBFC</div></div>
+</div>
+
+<h3>Text</h3>
+<div class="swatch-row">
+  <div class="swatch"><div class="swatch-box" style="background:#1C1E21;"></div><div class="swatch-label">Primary</div><div class="swatch-hex">#1C1E21</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#606770;"></div><div class="swatch-label">Secondary</div><div class="swatch-hex">#606770</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#8A8D91;"></div><div class="swatch-label">Tertiary</div><div class="swatch-hex">#8A8D91</div></div>
+</div>
+
+<h3>Borders</h3>
+<div class="swatch-row">
+  <div class="swatch"><div class="swatch-box" style="background:#DADDE1;"></div><div class="swatch-label">Default</div><div class="swatch-hex">#DADDE1</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#E4E6EB;"></div><div class="swatch-label">Light</div><div class="swatch-hex">#E4E6EB</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#1877F2;"></div><div class="swatch-label">Focus</div><div class="swatch-hex">#1877F2</div></div>
+</div>
+
+<h3>Accent &amp; Status</h3>
+<div class="swatch-row">
+  <div class="swatch"><div class="swatch-box" style="background:#1877F2;"></div><div class="swatch-label">Accent</div><div class="swatch-hex">#1877F2</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#E7F3FF;"></div><div class="swatch-label">Accent Light</div><div class="swatch-hex">#E7F3FF</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#31A24C;"></div><div class="swatch-label">Success</div><div class="swatch-hex">#31A24C</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#F7B928;"></div><div class="swatch-label">Warning</div><div class="swatch-hex">#F7B928</div></div>
+  <div class="swatch"><div class="swatch-box" style="background:#E4002B;"></div><div class="swatch-label">Danger</div><div class="swatch-hex">#E4002B</div></div>
+</div>
+
+
+<!-- ============================================================ -->
+<h2>3. Typography Scale</h2>
+
+<table>
+<tr><th>Role</th><th>Size</th><th>Weight</th><th>Line-height</th><th>Colour</th></tr>
+<tr><td>Page title</td><td>28px</td><td>700</td><td>1.2</td><td>#1C1E21</td></tr>
+<tr><td>Section heading</td><td>20px</td><td>700</td><td>1.2</td><td>#1C1E21</td></tr>
+<tr><td>Card title / Advertiser</td><td>17px</td><td>700</td><td>1.2</td><td>#1C1E21</td></tr>
+<tr><td>Body / Ad copy</td><td>14px</td><td>400</td><td>1.6</td><td>#1C1E21</td></tr>
+<tr><td>Body emphasis</td><td>15px</td><td>500</td><td>1.4</td><td>#1C1E21</td></tr>
+<tr><td>Card meta</td><td>12px</td><td>500</td><td>1.4</td><td>#606770</td></tr>
+<tr><td>Tiny label / badge</td><td>11px</td><td>600</td><td>1.2</td><td>#8A8D91</td></tr>
+<tr><td>Monospace (IDs, URLs)</td><td>13px</td><td>400</td><td>1.4</td><td>#606770</td></tr>
+</table>
+
+<div class="note">
+  <strong>Font stack:</strong> <code>-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif</code><br>
+  This is Meta's production font stack. It renders as San Francisco on macOS, Segoe on Windows, Roboto on Android — zero font loading overhead.
+</div>
+
+
+<!-- ============================================================ -->
+<h2>4. Spacing &amp; Layout</h2>
+
+<table>
+<tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+<tr><td><code>--space-1</code></td><td>4px</td><td>Tight gaps (badge padding)</td></tr>
+<tr><td><code>--space-2</code></td><td>8px</td><td>Inner card gaps, icon margins</td></tr>
+<tr><td><code>--space-3</code></td><td>12px</td><td>Card body line spacing</td></tr>
+<tr><td><code>--space-4</code></td><td>16px</td><td>Card body padding</td></tr>
+<tr><td><code>--space-5</code></td><td>20px</td><td>Grid gap (between cards)</td></tr>
+<tr><td><code>--space-6</code></td><td>24px</td><td>Section padding, main content pad</td></tr>
+<tr><td><code>--space-8</code></td><td>32px</td><td>Main content horizontal pad</td></tr>
+<tr><td><code>--space-10</code></td><td>40px</td><td>Between advertiser sections</td></tr>
+</table>
+
+<h3>Grid Columns</h3>
+<table>
+<tr><th>Viewport</th><th>Columns</th><th>Card min-width</th></tr>
+<tr><td>1400px+</td><td>4</td><td>~300px</td></tr>
+<tr><td>1000-1399px</td><td>3</td><td>~300px</td></tr>
+<tr><td>700-999px</td><td>2</td><td>~300px</td></tr>
+<tr><td>&lt;700px</td><td>1</td><td>full width</td></tr>
+</table>
+
+<div class="note">
+  Grid uses <code>auto-fill</code> with <code>minmax(300px, 1fr)</code> as the base, with explicit breakpoint overrides for predictable column counts. Gap is 20px (like Meta) not 12px (like Foreplay — too tight for a QA dashboard where you need breathing room).
+</div>
+
+
+<!-- ============================================================ -->
+<h2>5. Ad Card Anatomy</h2>
+
+<div class="card" style="max-width: 380px;">
+  <div style="background:#F0F2F5; border-radius:8px; height:240px; display:flex; align-items:center; justify-content:center; position:relative; margin-bottom: 12px;">
+    <span style="color:#8A8D91;">[ Creative Image / Video ]</span>
+    <span style="position:absolute; top:8px; left:8px; background:rgba(0,0,0,0.6); color:#fff; font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px;">VIDEO</span>
+    <span style="position:absolute; top:8px; right:8px; background:#31A24C; color:#fff; font-size:12px; font-weight:700; padding:2px 10px; border-radius:999px;">82</span>
+    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:48px; height:48px; background:rgba(0,0,0,0.5); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+      <div style="width:0; height:0; border-style:solid; border-width:8px 0 8px 14px; border-color:transparent transparent transparent #fff; margin-left:2px;"></div>
+    </div>
+  </div>
+  <div style="padding: 0 4px;">
+    <p style="font-size:14px; line-height:1.6; margin-bottom:8px; color:#1C1E21;">
+      Your home care deserves expert management. See how our team delivers better outcomes for NDIS participants...
+    </p>
+    <div style="display:flex; align-items:center; justify-content:space-between; padding-top:8px; border-top:1px solid #E4E6EB; margin-bottom:8px;">
+      <span style="font-size:14px; font-weight:600; color:#1C1E21;">Expert Home Care</span>
+      <span style="font-size:11px; font-weight:600; color:#606770; background:#F0F2F5; padding:2px 10px; border-radius:4px; border:1px solid #DADDE1;">Learn More</span>
+    </div>
+    <div style="display:flex; gap:6px; font-size:11px; color:#8A8D91; align-items:center;">
+      <span>Video</span>
+      <span>&middot;</span>
+      <span>Facebook, Instagram</span>
+      <span>&middot;</span>
+      <span>Active since 15 Mar</span>
+    </div>
+  </div>
+</div>
+
+<h3>Card Layers (top to bottom)</h3>
+<ol>
+  <li><strong>Creative area</strong> — image or video thumbnail, <code>max-height: 400px</code>, <code>object-fit: cover</code></li>
+  <li><strong>Format badge</strong> (top-left) — dark pill: VIDEO / IMAGE / CAROUSEL</li>
+  <li><strong>Score badge</strong> (top-right) — coloured pill with numeric score (green/amber/red)</li>
+  <li><strong>Play button</strong> (centre, video only) — 56px circle, <code>rgba(0,0,0,0.6)</code>, white triangle</li>
+  <li><strong>Ad copy</strong> — 14px, 1.6 line-height, 3-line clamp</li>
+  <li><strong>Headline + CTA row</strong> — separated by top border, headline left, CTA button right</li>
+  <li><strong>Meta row</strong> — 11px, tertiary colour: format, platforms, date</li>
+</ol>
+
+
+<!-- ============================================================ -->
+<h2>6. Video Handling</h2>
+
+<table>
+<tr><th>Context</th><th>Behaviour</th></tr>
+<tr><td>Grid view thumbnail</td><td>Static thumbnail from first frame or <code>poster</code> attribute. Play button overlay centred. No autoplay.</td></tr>
+<tr><td>Grid view hover</td><td>Play button scales up 8% (<code>scale(1.08)</code>), darkens to <code>rgba(0,0,0,0.75)</code></td></tr>
+<tr><td>Grid view click</td><td>Opens detail view (does NOT play inline in grid — keeps grid stable)</td></tr>
+<tr><td>Detail view</td><td>Full HTML5 <code>&lt;video&gt;</code> with native controls. <code>max-height: 600px</code>, <code>object-fit: contain</code>, dark background</td></tr>
+<tr><td>Duration badge</td><td>Bottom-right of thumbnail: dark pill with time (e.g., "0:30")</td></tr>
+</table>
+
+
+<!-- ============================================================ -->
+<h2>7. View Modes</h2>
+
+<h3>Grid View (default)</h3>
+<ul>
+  <li>Multi-column card grid for rapid visual scanning</li>
+  <li>Cards show creative prominently, copy truncated to 3 lines</li>
+  <li>Score badge overlaid on creative for at-a-glance quality signal</li>
+  <li>Grouped by advertiser with section headers</li>
+</ul>
+
+<h3>Detail View</h3>
+<ul>
+  <li>One ad at a time, split layout: creative left (50%), analysis right (50%)</li>
+  <li>Full ad copy shown (no truncation)</li>
+  <li>Score breakdown grid showing sub-scores</li>
+  <li>Issue list with colour-coded severity (red/amber/green backgrounds)</li>
+  <li>Prev/Next navigation between ads</li>
+  <li>Videos play inline with native controls</li>
+</ul>
+
+
+<!-- ============================================================ -->
+<h2>8. Hover &amp; Interaction States</h2>
+
+<table>
+<tr><th>Element</th><th>Default</th><th>Hover</th><th>Active/Selected</th></tr>
+<tr><td>Ad card</td><td>border: 1px solid #E4E6EB</td><td>shadow-md + translateY(-2px)</td><td>border-color: #1877F2</td></tr>
+<tr><td>Sidebar item</td><td>transparent bg</td><td>bg: #F5F6F8</td><td>bg: #EBF5FF, color: #1877F2</td></tr>
+<tr><td>Filter chip</td><td>white bg, gray border</td><td>bg: #F5F6F8</td><td>bg: #E7F3FF, border: #1877F2</td></tr>
+<tr><td>Button (primary)</td><td>bg: #1877F2</td><td>bg: #166FE5</td><td>—</td></tr>
+<tr><td>Button (secondary)</td><td>white bg, gray border</td><td>bg: #F5F6F8</td><td>—</td></tr>
+<tr><td>Play button</td><td>rgba(0,0,0,0.6), 56px</td><td>rgba(0,0,0,0.75), scale(1.08)</td><td>—</td></tr>
+</table>
+
+<div class="note">
+  <strong>Transition timing:</strong> 120ms ease for hover states (fast, responsive), 200ms ease for UI changes, 300ms <code>cubic-bezier(0.16, 1, 0.3, 1)</code> for animations (Foreplay's spring easing — feels premium).
+</div>
+
+
+<!-- ============================================================ -->
+<h2>9. What Makes It Feel Clean (White Space Rules)</h2>
+
+<ol>
+  <li><strong>Page-level padding:</strong> 24px vertical, 32px horizontal on main content area. Never less than 24px.</li>
+  <li><strong>Card-to-card gap:</strong> 20px. Not 8 (too tight), not 32 (too loose). 20px is Meta's sweet spot.</li>
+  <li><strong>Section-to-section gap:</strong> 40px between advertiser groups. This is what separates "clean" from "cluttered."</li>
+  <li><strong>Card internal padding:</strong> 12-16px in the text body. Creative bleeds edge-to-edge (no internal padding on images).</li>
+  <li><strong>Border, not shadow:</strong> Cards use a 1px light border (#E4E6EB), NOT a visible shadow at rest. Shadow only appears on hover. This is the single biggest difference between Meta's aesthetic and generic dashboards.</li>
+  <li><strong>One accent colour:</strong> Only #1877F2 blue. No gradients, no secondary accent. Score colours (green/amber/red) are functional, not decorative.</li>
+  <li><strong>Muted meta text:</strong> Dates, platforms, formats use 11px tertiary grey (#8A8D91). They exist for scanning, not reading.</li>
+  <li><strong>Uniform card width:</strong> All cards in a row are equal width (CSS Grid, not masonry). This creates visual rhythm that masonry breaks.</li>
+</ol>
+
+
+<!-- ============================================================ -->
+<h2>10. Implementation Checklist</h2>
+
+<ul>
+  <li>Import <code>design-system.css</code> — all tokens and components are defined there</li>
+  <li>Page structure: <code>.app-header</code> &rarr; <code>.app-shell</code> &rarr; <code>.app-sidebar</code> + <code>.app-main</code></li>
+  <li>Advertiser sections: <code>.advertiser-section</code> with <code>.ad-grid</code> inside</li>
+  <li>Ad cards: <code>.ad-card</code> with creative/body/meta structure</li>
+  <li>Filter bar: <code>.filter-bar</code> with search + chips + view toggle</li>
+  <li>View toggle: JS swaps <code>.ad-grid</code> (grid view) and <code>.detail-view</code></li>
+  <li>Score colours: Use <code>score_color()</code> to set <code>.ad-card__score</code> background inline</li>
+  <li>Videos: Poster thumbnail in grid, native <code>&lt;video&gt;</code> in detail view</li>
+</ul>
+
+</div>
+</body>
+</html>
