@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TC Ad Creator — Review Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F0F2F5; --white: #FFFFFF; --card: #FFFFFF;
+  --border: #DADDE1; --text: #1C1E21; --muted: #65676B; --light: #8A8D91;
+  --accent: #007F7E; --accent2: #43C0BE; --blue: #2c4c79;
+  --green: #31A24C; --yellow: #F7B928; --red: #E4405F; --orange: #F58220;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); }
+
+.header {
+  background: var(--blue); color: white; padding: 20px 32px;
+}
+.header h1 { font-size: 22px; font-weight: 700; }
+.header p { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+
+.stats {
+  display: flex; gap: 16px; padding: 20px 32px; flex-wrap: wrap;
+}
+.stat {
+  background: var(--white); border-radius: 10px; padding: 16px 24px;
+  flex: 1; min-width: 140px; text-align: center;
+  border: 1px solid var(--border);
+}
+.stat .n { font-size: 28px; font-weight: 700; }
+.stat .l { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.campaign {
+  background: var(--white); margin: 16px 32px; border-radius: 12px;
+  border: 1px solid var(--border); overflow: hidden;
+}
+.campaign-header {
+  padding: 20px 24px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 16px;
+}
+.campaign-header h2 { font-size: 18px; font-weight: 700; flex: 1; }
+.badge { padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.badge-approved { background: #E8F5E9; color: var(--green); }
+.badge-revision { background: #FFF3E0; color: var(--orange); }
+.badge-rejected { background: #FFEBE9; color: var(--red); }
+
+.campaign-body { padding: 24px; }
+.section { margin-bottom: 24px; }
+.section h3 {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--muted); margin-bottom: 8px; font-weight: 600;
+}
+
+.hook-card {
+  background: var(--bg); border-radius: 8px; padding: 12px 16px;
+  margin-bottom: 8px; border-left: 3px solid var(--accent);
+}
+.hook-card .type { font-size: 11px; color: var(--accent); font-weight: 600; text-transform: uppercase; }
+.hook-card .text { font-size: 15px; font-weight: 600; margin-top: 4px; line-height: 1.5; }
+.hook-card .score { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.copy-variant {
+  background: var(--bg); border-radius: 8px; padding: 16px; margin-bottom: 12px;
+}
+.copy-variant .label { font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.copy-variant .headline { font-size: 16px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+.copy-variant .primary { font-size: 14px; line-height: 1.6; margin-bottom: 8px; }
+.copy-variant .cta { display: inline-block; background: var(--accent); color: white; padding: 6px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+
+.visual-brief {
+  background: linear-gradient(135deg, #f0f7f7, #eef5ff); border-radius: 8px;
+  padding: 16px; margin-bottom: 12px;
+}
+.visual-brief .prompt { font-size: 14px; line-height: 1.6; font-style: italic; color: var(--blue); }
+.visual-brief .details { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+.qa-result { display: flex; gap: 16px; flex-wrap: wrap; }
+.qa-score {
+  width: 80px; height: 80px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 24px;
+  font-weight: 700; color: white; flex-shrink: 0;
+}
+.qa-flags { flex: 1; }
+.qa-flag {
+  display: flex; gap: 8px; padding: 6px 0; font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+.qa-flag:last-child { border: none; }
+.flag-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+
+.meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.meta-item { background: var(--bg); padding: 10px 14px; border-radius: 6px; }
+.meta-item .label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+.meta-item .value { font-size: 14px; font-weight: 500; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>TC Ad Creator — Review Dashboard</h1>
+  <p>19 March 2026 · 5 campaigns generated · Review and approve before production</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">5</div><div class="l">Campaigns</div></div>
+  <div class="stat"><div class="n" style="color:var(--green)">0</div><div class="l">Approved</div></div>
+  <div class="stat"><div class="n" style="color:var(--orange)">5</div><div class="l">Need Revision</div></div>
+  <div class="stat"><div class="n">77</div><div class="l">Avg QA Score</div></div>
+</div>
+
+<div class="campaign">
+  <div class="campaign-header">
+    <h2>Peace of Mind for Families</h2>
+    <span class="badge badge-revision">NEEDS_REVISION</span>
+  </div>
+  <div class="campaign-body">
+
+    <div class="section">
+      <h3>Campaign Details</h3>
+      <div class="meta-grid">
+        <div class="meta-item"><div class="label">Platform</div><div class="value">facebook</div></div>
+        <div class="meta-item"><div class="label">Format</div><div class="value">video_15s</div></div>
+        <div class="meta-item"><div class="label">Objective</div><div class="value">consideration</div></div>
+        <div class="meta-item"><div class="label">Messaging Angle</div><div class="value">family_peace_of_mind</div></div>
+        <div class="meta-item"><div class="label">Target</div><div class="value">secondary</div></div>
+        <div class="meta-item"><div class="label">Framework</div><div class="value">AIDA</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Hooks (Top 3)</h3>
+      <div class="hook-card">
+        <div class="type">story_open</div>
+        <div class="text">When Dad was approved for home care, I worried every night—until we found Trilogy Care.</div>
+        <div class="score">Strength: 10/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">question</div>
+        <div class="text">Worried Mum or Dad isn’t getting the care they deserve? Discover real peace of mind today.</div>
+        <div class="score">Strength: 9/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">direct_address</div>
+        <div class="text">Imagine knowing Mum is safe, respected, and still in control—Trilogy Care makes it possible.</div>
+        <div class="score">Strength: 9/10</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Ad Copy Variants</h3>
+      <div class="copy-variant">
+        <div class="label">Variant A · AIDA</div>
+        <div class="headline">Confidence & Choice for Your Family</div>
+        <div class="primary">You want your loved ones to feel safe, respected, and in control. With Trilogy Care, families know exactly where their funding goes—no hidden fees, just real support for your family. Hear from families like ours.</div>
+        <span class="cta">Learn More</span>
+      </div>
+      <div class="copy-variant">
+        <div class="label">Variant B · AIDA</div>
+        <div class="headline">More Care, Less Worry</div>
+        <div class="primary">You deserve the freedom to choose care that suits your family. Trilogy Care’s flat 26% fee means more funding goes to Mum’s wellbeing, not admin. Real stories, real independence. See how it works.</div>
+        <span class="cta">Learn More</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Visual Brief (Higgsfield)</h3>
+      <div class="visual-brief">
+        <div class="prompt">Warm, natural footage of a real, diverse older Australian man (aged 70s, silver hair, relaxed casual clothing) and his adult daughter (40s, mixed heritage, smart-casual), sharing a moment of joyful connection in a bright suburban Australian living room. They are sitting together on a comfortable cream sofa, smiling and laughing, holding hands. The environment is cozy with family photos, indoor plants, and soft throws. Sunlight streams through windows, casting a soft, golden glow. The mood is reassuring, uplifting, and empowering. Avoid clinical or institutional cues. Include subtle multicultural cues (e.g., home decor, family photos). Brand colors subtly incorporated in cushions, books, or decor.</div>
+        <div class="details">
+          Setting: A cozy, well-lit suburban Australian living room with cream walls, family photos, indoor plants, and hints of multicultural decor. Comfortable, inviting, and lived-in. ·
+          People: A real, older Australian man (70s, silver hair, casual polo shirt and slacks) and his adult daughter (40s, mixed heritage, smart-casual blouse and jeans). Both are smiling, making eye contact, and holding hands, showing genuine connection and happiness. ·
+          Mood: warmth, family connection, confidence, Australian home, multicultural
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>QA Review</h3>
+      <div class="qa-result">
+        <div class="qa-score" style="background:var(--green)">78</div>
+        <div class="qa-flags">
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Rephrase the hook to reduce fear-based language, e.g., 'I used to worry about Dad’s care—until we found Trilogy Care.'</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Soften or substantiate 'no hidden fees' claim, e.g., 'Clear, simple fees—so you always know where your funding goes.'</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--orange)"></span>Avoid language that could be interpreted as guaranteeing specific outcomes (e.g., 'confidence & choice' could be reframed as 'support & options').</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--orange)"></span>Double-check casting and set design to ensure authentic, non-stock representation and subtle multicultural cues.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="campaign">
+  <div class="campaign-header">
+    <h2>Real Stories, Real Independence</h2>
+    <span class="badge badge-revision">NEEDS_REVISION</span>
+  </div>
+  <div class="campaign-body">
+
+    <div class="section">
+      <h3>Campaign Details</h3>
+      <div class="meta-grid">
+        <div class="meta-item"><div class="label">Platform</div><div class="value">instagram</div></div>
+        <div class="meta-item"><div class="label">Format</div><div class="value">carousel</div></div>
+        <div class="meta-item"><div class="label">Objective</div><div class="value">awareness</div></div>
+        <div class="meta-item"><div class="label">Messaging Angle</div><div class="value">testimonial_social_proof</div></div>
+        <div class="meta-item"><div class="label">Target</div><div class="value">both</div></div>
+        <div class="meta-item"><div class="label">Framework</div><div class="value">BAB</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Hooks (Top 3)</h3>
+      <div class="hook-card">
+        <div class="type">direct_address</div>
+        <div class="text">If you've been approved for home care, your journey to real independence starts here.</div>
+        <div class="score">Strength: 10/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">question</div>
+        <div class="text">What if Mum could choose her own carer—and stay independent at home?</div>
+        <div class="score">Strength: 9/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">comparison</div>
+        <div class="text">Same care, more choices: See how Trilogy Care clients thrive where it matters most.</div>
+        <div class="score">Strength: 9/10</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Ad Copy Variants</h3>
+      <div class="copy-variant">
+        <div class="label">Variant A · BAB</div>
+        <div class="headline">Hear Real Clients. Find Real Choice.</div>
+        <div class="primary">Navigating aged care left you feeling lost? Hear how real people like you found freedom and dignity with Trilogy Care's self-managed support—just a 26% flat fee, no surprises.</div>
+        <span class="cta">See Their Stories</span>
+      </div>
+      <div class="copy-variant">
+        <div class="label">Variant B · BAB</div>
+        <div class="headline">Independence Starts With You</div>
+        <div class="primary">Tired of feeling like just a number? Discover how Australians regained control, choice, and peace of mind with Trilogy Care—transparent 26% fee, no hidden costs. Your story of independence could start today.</div>
+        <span class="cta">See Their Stories</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Visual Brief (Higgsfield)</h3>
+      <div class="visual-brief">
+        <div class="prompt">A carousel of authentic, diverse older Australians in their own suburban homes and gardens, captured in warm, natural lighting. Each slide features a different real client: an older Australian woman tending her native garden with her daughter; a smiling older man cooking in a sunlit kitchen with his grandson; a multicultural couple enjoying tea at a bright patio table; an older woman painting in her living room surrounded by family photos. All scenes are candid, active, and empowering, with no clinical elements. Each image includes a short, handwritten-style testimonial quote and a warm endorsement from Paula Duncan. Visuals use a color palette of teal, blue, orange, and cream. Scenes are cozy, uplifting, and distinctly Australian.</div>
+        <div class="details">
+          Setting: Suburban Australian homes, including tidy gardens with native plants, bright living rooms with personal touches, modern family kitchens, and welcoming patios. All spaces feel lived-in, comfortable, and personal. ·
+          People: Diverse, real older Australians (women and men, various backgrounds) aged 65+, actively engaged with family or hobbies. Casual, comfortable clothing in soft, natural fabrics. Family members (adult children, grandchildren) included where relevant, all interacting naturally. ·
+          Mood: authentic, empowering, multicultural, warm, Australian suburban
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>QA Review</h3>
+      <div class="qa-result">
+        <div class="qa-score" style="background:var(--green)">78</div>
+        <div class="qa-flags">
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Add a brief disclaimer such as 'Individual experiences may vary' to avoid implying guaranteed outcomes.</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Clarify the 26% flat fee claim and reference where full pricing details can be found (e.g., 'See website for details').</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="campaign">
+  <div class="campaign-header">
+    <h2>Join the Trilogy Community</h2>
+    <span class="badge badge-revision">NEEDS_REVISION</span>
+  </div>
+  <div class="campaign-body">
+
+    <div class="section">
+      <h3>Campaign Details</h3>
+      <div class="meta-grid">
+        <div class="meta-item"><div class="label">Platform</div><div class="value">google_display</div></div>
+        <div class="meta-item"><div class="label">Format</div><div class="value">static_image</div></div>
+        <div class="meta-item"><div class="label">Objective</div><div class="value">awareness</div></div>
+        <div class="meta-item"><div class="label">Messaging Angle</div><div class="value">community_belonging</div></div>
+        <div class="meta-item"><div class="label">Target</div><div class="value">primary</div></div>
+        <div class="meta-item"><div class="label">Framework</div><div class="value">PAS</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Hooks (Top 3)</h3>
+      <div class="hook-card">
+        <div class="type">question</div>
+        <div class="text">Feel like you're facing aged care alone? Discover a community that truly cares.</div>
+        <div class="score">Strength: 9/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">direct_address</div>
+        <div class="text">If you’re feeling isolated, Trilogy is your place to belong.</div>
+        <div class="score">Strength: 9/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">story_open</div>
+        <div class="text">When Margaret joined Trilogy, she found friends—not just carers.</div>
+        <div class="score">Strength: 8/10</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Ad Copy Variants</h3>
+      <div class="copy-variant">
+        <div class="label">Variant A · PAS</div>
+        <div class="headline">Aged Care, Backed By Community</div>
+        <div class="primary">It’s hard doing aged care on your own. Without support, it can feel isolating and overwhelming. With Trilogy Care, you’re welcomed into a vibrant community where your independence matters — and you’re never just a number. Our flat 26% management fee means more of your funds go to real care, not hidden costs. Call 1300 459 190 or visit trilogycare.com.au to hear real stories from people like you.</div>
+        <span class="cta">Find Out More</span>
+      </div>
+      <div class="copy-variant">
+        <div class="label">Variant B · PAS</div>
+        <div class="headline">You’re Not Alone in Aged Care</div>
+        <div class="primary">Worried about making aged care decisions by yourself? It’s easy to feel lost and unheard. Trilogy Care brings you into a warm, supportive group where your voice counts — and your choices matter. With a simple 26% flat fee and no hidden extras, you stay in control of your care and your budget. Hear how others found confidence with Trilogy at trilogycare.com.au.</div>
+        <span class="cta">Find Out More</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Visual Brief (Higgsfield)</h3>
+      <div class="visual-brief">
+        <div class="prompt">A warm, vibrant scene featuring a diverse group of real older Australians (men and women, various cultural backgrounds) actively participating in a relaxed community activity—such as a group gardening session or shared outdoor afternoon tea—in a lush suburban Australian backyard. The group is smiling, engaged, and interacting naturally, with subtle family presence (e.g., an adult daughter or grandchild joining in). Paula Duncan, friendly and approachable, is present, chatting warmly with a participant. Everyone is dressed casually and comfortably. The setting is a welcoming home environment, with Trilogy branding visible on a mug or cushion. The color palette is dominated by teal, light blue, and cream, with pops of warm orange. The mood is reassuring, empowering, and joyful, illuminated by soft, natural sunlight. No clinical or institutional cues.</div>
+        <div class="details">
+          Setting: A suburban Australian backyard or patio, with green grass, flowering plants, comfortable outdoor furniture, and personal homey touches. ·
+          People: A group of 5-6 older Australians, including men and women of diverse backgrounds, with at least one family member (younger adult or child), and Paula Duncan as a friendly ambassador. They are actively engaged in community activity—chatting, pouring tea, passing food, gardening. Clothing is casual, light, and seasonally appropriate. ·
+          Mood: warmth, community, diversity, Australian home, joyful
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>QA Review</h3>
+      <div class="qa-result">
+        <div class="qa-score" style="background:var(--green)">78</div>
+        <div class="qa-flags">
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Rephrase the opening to avoid emphasizing isolation or fear (e.g., focus on positive community benefits rather than the negatives of being alone).</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--orange)"></span>Substantiate the 'transparent fees' claim with a clear reference or link to fee comparison or more detailed breakdown.</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--orange)"></span>Ensure all visuals use real, diverse Australians and not stock imagery; confirm Paula Duncan’s involvement is authentic.</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--light)"></span>Shorten the primary text for better fit on Google Display placements.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="campaign">
+  <div class="campaign-header">
+    <h2>Switch & Save Instantly</h2>
+    <span class="badge badge-revision">NEEDS_REVISION</span>
+  </div>
+  <div class="campaign-body">
+
+    <div class="section">
+      <h3>Campaign Details</h3>
+      <div class="meta-grid">
+        <div class="meta-item"><div class="label">Platform</div><div class="value">google_search</div></div>
+        <div class="meta-item"><div class="label">Format</div><div class="value">static_image</div></div>
+        <div class="meta-item"><div class="label">Objective</div><div class="value">conversion</div></div>
+        <div class="meta-item"><div class="label">Messaging Angle</div><div class="value">convenience_speed</div></div>
+        <div class="meta-item"><div class="label">Target</div><div class="value">both</div></div>
+        <div class="meta-item"><div class="label">Framework</div><div class="value">4Ps</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Hooks (Top 3)</h3>
+      <div class="hook-card">
+        <div class="type">comparison</div>
+        <div class="text">Still waiting weeks for a provider switch? Trilogy moves you in days—no hidden fees.</div>
+        <div class="score">Strength: 9/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">direct_address</div>
+        <div class="text">If you’re overwhelmed by changing home care rules, Trilogy makes switching simple—and fast.</div>
+        <div class="score">Strength: 8/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">stat_shock</div>
+        <div class="text">Did you know most providers take weeks to transition your care? Trilogy does it in days.</div>
+        <div class="score">Strength: 8/10</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Ad Copy Variants</h3>
+      <div class="copy-variant">
+        <div class="label">Variant ? · ?</div>
+        <div class="headline">N/A</div>
+        <div class="primary">N/A</div>
+        <span class="cta">Learn More</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Visual Brief (Higgsfield)</h3>
+      <div class="visual-brief">
+        <div class="prompt">A diverse group of real older Australians, including men and women of different ethnic backgrounds, smiling and active in a bright, warm suburban Australian home setting. The scene features a dynamic, bold graphic of a calendar flipping rapidly, symbolizing a fast and easy transition. Trilogy’s 26% flat fee is clearly highlighted in a large, warm orange font. The environment is cozy, with natural sunlight streaming through windows, and subtle interactions with family members (adult children or grandchildren) in the background. The overall style is simple, bold, and empowering, with a warm, friendly atmosphere. No clinical or institutional elements, no hospital beds or wheelchairs as the focus. Brand ambassador Paula Duncan is present, warmly engaging with others.</div>
+        <div class="details">
+          Setting: A well-lit, contemporary suburban Australian living room with a view of a garden through the windows. Decor is homey and personal, not overly stylized. ·
+          People: Paula Duncan (brand ambassador), two older Australians of different ethnic backgrounds (one Asian, one Indigenous), all casually and comfortably dressed in light, cheerful colors. A grandchild (around 10 years old) is present, interacting naturally with an elder. ·
+          Mood: diversity, warmth, speed, empowerment, simplicity
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>QA Review</h3>
+      <div class="qa-result">
+        <div class="qa-score" style="background:var(--orange)">74</div>
+        <div class="qa-flags">
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Add explicit substantiation for savings and fee claims (e.g., '26% flat fee—verified on our website').</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Avoid language that guarantees specific speed; use 'typically in days' or 'most clients switch in days'.</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--orange)"></span>Complete all hooks and descriptions; avoid cut-off text.</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--orange)"></span>Add a real testimonial or story to reinforce empathy and trust.</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--orange)"></span>Double-check that all imagery is of real, diverse Australians and not generic stock photos.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="campaign">
+  <div class="campaign-header">
+    <h2>Quality Care, Your Way</h2>
+    <span class="badge badge-revision">NEEDS_REVISION</span>
+  </div>
+  <div class="campaign-body">
+
+    <div class="section">
+      <h3>Campaign Details</h3>
+      <div class="meta-grid">
+        <div class="meta-item"><div class="label">Platform</div><div class="value">youtube</div></div>
+        <div class="meta-item"><div class="label">Format</div><div class="value">video_30s</div></div>
+        <div class="meta-item"><div class="label">Objective</div><div class="value">consideration</div></div>
+        <div class="meta-item"><div class="label">Messaging Angle</div><div class="value">service_quality</div></div>
+        <div class="meta-item"><div class="label">Target</div><div class="value">primary</div></div>
+        <div class="meta-item"><div class="label">Framework</div><div class="value">AIDA</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Hooks (Top 3)</h3>
+      <div class="hook-card">
+        <div class="type">story_open</div>
+        <div class="text">When Dad needed care, we were terrified he'd lose his independence—but Trilogy changed everything.</div>
+        <div class="score">Strength: 10/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">comparison</div>
+        <div class="text">Same funding, but with Trilogy you get more care hours—and you choose who helps you.</div>
+        <div class="score">Strength: 10/10</div>
+      </div>
+      <div class="hook-card">
+        <div class="type">question</div>
+        <div class="text">What if your home care provider worked for you—not the other way around?</div>
+        <div class="score">Strength: 9/10</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Ad Copy Variants</h3>
+      <div class="copy-variant">
+        <div class="label">Variant A · AIDA</div>
+        <div class="headline">Quality Care, Your Way</div>
+        <div class="primary">You want the best for your family—and you want them to stay in control. At Trilogy, you choose the support that fits your life. Our 26% flat fee means more of your funding goes to real care, not paperwork. No hidden costs, no exit fees. Just genuine help, tailored for you. Hear from families who've found freedom and confidence with Trilogy. Watch now and see how quality care puts you in charge.</div>
+        <span class="cta">Watch Now</span>
+      </div>
+      <div class="copy-variant">
+        <div class="label">Variant B · AIDA</div>
+        <div class="headline">Tailored Care, Real Independence</div>
+        <div class="primary">Your loved ones deserve support that respects their wishes. With Trilogy, you decide what matters most—whether it's daily help or a friendly face. We keep things simple: a 26% flat fee, no hidden extras, so your funding goes further. Families tell us Trilogy gave them peace of mind and more freedom. Discover how personalised care makes independence possible. Watch now to learn more.</div>
+        <span class="cta">Watch Now</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Visual Brief (Higgsfield)</h3>
+      <div class="visual-brief">
+        <div class="prompt">A warm, authentic Australian suburban home environment. Paula Duncan (warm, approachable Australian woman in her 60s) introduces real, diverse older Australians and caring Trilogy support workers. Scenes show genuine moments of personal attention and empowerment: a daughter and her elderly father laughing together in a sunlit living room; a multicultural group of seniors chatting over tea in a leafy backyard; a care worker (mid-30s, South Asian) helping an older woman (Indigenous Australian) with gardening, both smiling. Lighting is natural and inviting, with soft shadows and sunbeams. Everyone is dressed casually in comfortable, everyday clothes. The atmosphere is uplifting, empowering, and reassuring. Brand colors appear subtly in cushions, mugs, and clothing accents. No hospital or institutional cues.</div>
+        <div class="details">
+          Setting: Suburban Australian homes: living room with family photos and soft furnishings, leafy backyard with native plants, sunlit kitchen table. All spaces are personal, inviting, and lived-in. ·
+          People: Paula Duncan (brand ambassador) introduces diverse older Australians (men and women, various ethnic backgrounds, aged 70-85), their adult children, and friendly care workers (30s-50s, multicultural). All wear comfortable, everyday clothing with subtle brand color accents. They interact naturally: chatting, gardening, sharing tea, laughing. ·
+          Mood: authentic, empowering, multicultural, family, natural light
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>QA Review</h3>
+      <div class="qa-result">
+        <div class="qa-score" style="background:var(--green)">78</div>
+        <div class="qa-flags">
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Reframe opening hook to avoid undue fear; focus on positive transformation rather than initial terror.</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--red)"></span>Add a brief disclaimer or link to substantiation for claims about fee structure and care hours.</div>
+          <div class="qa-flag"><span class="flag-dot" style="background:var(--orange)"></span>Ensure all pricing claims are easily verifiable on landing page.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:32px;color:var(--muted);font-size:13px;">
+  Generated by TC Ad Creator · 19 March 2026 08:21 · 5 campaigns
+</div>
+</body>
+</html>

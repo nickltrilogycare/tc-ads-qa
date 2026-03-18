@@ -1,0 +1,1158 @@
+[
+  {
+    "campaign_name": "Peace of Mind for Families",
+    "strategy": {
+      "campaign_name": "Peace of Mind for Families",
+      "objective": "consideration",
+      "messaging_angle": "family_peace_of_mind",
+      "target_audience": "secondary",
+      "platform": "facebook",
+      "format": "video_15s",
+      "copy_framework": "AIDA",
+      "hook_brief": "Worried about Mum or Dad\u2019s care? Discover true peace of mind.",
+      "key_message": "Trilogy Care gives families confidence their loved ones are supported, respected, and in control.",
+      "cta": "Learn More",
+      "visual_direction": "Warm footage of an older Australian enjoying time with their adult child, both smiling and relaxed at home.",
+      "rationale": "Family peace of mind is under-leveraged in market messaging and Trilogy\u2019s share of voice; targeting adult children can drive new conversions.",
+      "priority": "high"
+    },
+    "hooks": [
+      {
+        "hook_text": "When Dad was approved for home care, I worried every night\u2014until we found Trilogy Care.",
+        "hook_type": "story_open",
+        "target": "secondary",
+        "platform_fit": "Personal stories grab attention on Facebook, making viewers relate emotionally and stop scrolling.",
+        "video_visual": "Soft-focus flashback: daughter looking anxious, then smiling as she sits with her father and Trilogy Care carer.",
+        "estimated_strength": 10
+      },
+      {
+        "hook_text": "Worried Mum or Dad isn\u2019t getting the care they deserve? Discover real peace of mind today.",
+        "hook_type": "question",
+        "target": "secondary",
+        "platform_fit": "Questions spark instant engagement on Facebook, especially for family-focused audiences who are scrolling rapidly.",
+        "video_visual": "Split screen: stressed daughter glancing at her phone, quick cut to smiling elderly parent being supported at home.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "Imagine knowing Mum is safe, respected, and still in control\u2014Trilogy Care makes it possible.",
+        "hook_type": "direct_address",
+        "target": "secondary",
+        "platform_fit": "Directly addressing the viewer\u2019s main worry is highly effective in Facebook\u2019s feed, prompting immediate action.",
+        "video_visual": "Warm, reassuring visuals: elderly woman enjoying tea at home, smiling at her carer.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "Over 5,000 Australian families trust Trilogy Care to keep loved ones safe and empowered\u2014will you?",
+        "hook_type": "social_proof",
+        "target": "secondary",
+        "platform_fit": "Social proof builds instant credibility and leverages Facebook's community feel to reassure skeptical viewers.",
+        "video_visual": "On-screen testimonial montage: real families sharing how Trilogy Care helped their parents.",
+        "estimated_strength": 8
+      },
+      {
+        "hook_text": "Most families pay more\u2014but get less care. Find out how Trilogy Care gives you more support for your loved ones.",
+        "hook_type": "comparison",
+        "target": "secondary",
+        "platform_fit": "Comparisons create curiosity and urgency on Facebook, especially for viewers frustrated by provider fees.",
+        "video_visual": "Animated comparison chart: \u2018Other Providers\u2019 vs \u2018Trilogy Care\u2019 highlighting hours of support and cost.",
+        "estimated_strength": 8
+      }
+    ],
+    "best_hook": {
+      "hook_text": "When Dad was approved for home care, I worried every night\u2014until we found Trilogy Care.",
+      "hook_type": "story_open",
+      "target": "secondary",
+      "platform_fit": "Personal stories grab attention on Facebook, making viewers relate emotionally and stop scrolling.",
+      "video_visual": "Soft-focus flashback: daughter looking anxious, then smiling as she sits with her father and Trilogy Care carer.",
+      "estimated_strength": 10
+    },
+    "ad_copy": [
+      {
+        "platform": "facebook",
+        "hook": "When Dad was approved for home care, I worried every night\u2014until we found Trilogy Care.",
+        "primary_text": "You want your loved ones to feel safe, respected, and in control. With Trilogy Care, families know exactly where their funding goes\u2014no hidden fees, just real support for your family. Hear from families like ours.",
+        "headline": "Confidence & Choice for Your Family",
+        "description": "Flat 26% fee. No surprises.",
+        "cta_button": "Learn More",
+        "hashtags": [
+          "#AgedCare",
+          "#FamilySupport",
+          "#TrilogyCare",
+          "#HomeCareAU"
+        ],
+        "url": "trilogycare.com.au/peace-of-mind",
+        "copy_framework_used": "AIDA",
+        "ab_variant": "A",
+        "word_count": 40,
+        "character_count": 207
+      },
+      {
+        "platform": "facebook",
+        "hook": "Mum\u2019s smile returned when she could choose her own carers with Trilogy Care.",
+        "primary_text": "You deserve the freedom to choose care that suits your family. Trilogy Care\u2019s flat 26% fee means more funding goes to Mum\u2019s wellbeing, not admin. Real stories, real independence. See how it works.",
+        "headline": "More Care, Less Worry",
+        "description": "Transparent fees. True support.",
+        "cta_button": "Learn More",
+        "hashtags": [
+          "#AgedCare",
+          "#Independence",
+          "#TrilogyCare",
+          "#HomeCareAU"
+        ],
+        "url": "trilogycare.com.au/peace-of-mind",
+        "copy_framework_used": "AIDA",
+        "ab_variant": "B",
+        "word_count": 43,
+        "character_count": 212
+      }
+    ],
+    "visual_brief": {
+      "format": "video_15s",
+      "aspect_ratio": "1:1 for feed, 9:16 for stories, 16:9 for YouTube",
+      "higgsfield_prompt": "Warm, natural footage of a real, diverse older Australian man (aged 70s, silver hair, relaxed casual clothing) and his adult daughter (40s, mixed heritage, smart-casual), sharing a moment of joyful connection in a bright suburban Australian living room. They are sitting together on a comfortable cream sofa, smiling and laughing, holding hands. The environment is cozy with family photos, indoor plants, and soft throws. Sunlight streams through windows, casting a soft, golden glow. The mood is reassuring, uplifting, and empowering. Avoid clinical or institutional cues. Include subtle multicultural cues (e.g., home decor, family photos). Brand colors subtly incorporated in cushions, books, or decor.",
+      "scene_description": "The video opens with a gentle pan across a sunlit living room in a suburban Australian home. An older Australian man and his adult daughter sit together on a cream sofa, both smiling warmly, holding hands and sharing a laugh. Family photos and plants decorate the background, and there are subtle hints of multicultural identity in the decor. The lighting is soft and golden, enhancing the sense of warmth and peace. Throughout, both appear relaxed, engaged, and confident, embodying trust and connection.",
+      "color_palette": [
+        "#007F7E",
+        "#FFF8F0",
+        "#F58220"
+      ],
+      "text_overlay": {
+        "headline": "Peace of Mind for Families",
+        "position": "top",
+        "font_style": "bold, 36pt"
+      },
+      "mood_board_keywords": [
+        "warmth",
+        "family connection",
+        "confidence",
+        "Australian home",
+        "multicultural"
+      ],
+      "lighting": "Warm, natural daylight streaming through windows, creating a soft, inviting glow with gentle highlights and natural shadows. No harsh or clinical lighting.",
+      "setting": "A cozy, well-lit suburban Australian living room with cream walls, family photos, indoor plants, and hints of multicultural decor. Comfortable, inviting, and lived-in.",
+      "people": "A real, older Australian man (70s, silver hair, casual polo shirt and slacks) and his adult daughter (40s, mixed heritage, smart-casual blouse and jeans). Both are smiling, making eye contact, and holding hands, showing genuine connection and happiness.",
+      "props": "Cream sofa, colorful cushions (teal and orange), family photo frames, indoor plants, a warm throw blanket, books on a coffee table.",
+      "storyboard": [
+        {
+          "scene": 1,
+          "duration": "3s",
+          "visual": "Establishing shot of the sunlit living room with family photos and plants. The older man and his daughter are seen entering and sitting together.",
+          "audio": "Soft, gentle piano music begins.",
+          "text_overlay": "When Dad was approved for home care, I worried every night\u2014until we found Trilogy Care."
+        },
+        {
+          "scene": 2,
+          "duration": "7s",
+          "visual": "Close-up of the daughter taking her father's hand, both smiling and laughing. The camera lingers on their faces, capturing genuine warmth and connection.",
+          "audio": "Voiceover (Paula Duncan, warm and reassuring): 'Trilogy Care gives families confidence their loved ones are supported, respected, and in control.'",
+          "text_overlay": ""
+        },
+        {
+          "scene": 3,
+          "duration": "5s",
+          "visual": "Wide shot of the pair relaxing together, with brand colors visible in cushions and decor. Logo appears bottom-right, and a CTA button appears: 'Learn More'.",
+          "audio": "Music swells softly. Ambient sounds of home.",
+          "text_overlay": "Peace of Mind for Families"
+        }
+      ],
+      "brand_elements": {
+        "logo_placement": "bottom-right corner",
+        "color_usage": "Primary teal and warm orange in cushions, books, and subtle decor. Cream and white as dominant background and furniture colors.",
+        "cta_button": "Rounded rectangle in primary teal (#007F7E) with white text 'Learn More', placed above the logo."
+      },
+      "do_not_include": [
+        "Stock photo models",
+        "Hospital beds",
+        "Wheelchairs as primary focus",
+        "Institutional or clinical settings",
+        "Fluorescent or harsh lighting",
+        "Passive or vulnerable body language",
+        "Sterile or empty environments"
+      ]
+    },
+    "qa_review": {
+      "overall_verdict": "NEEDS_REVISION",
+      "overall_score": 78,
+      "compliance_check": {
+        "passed": false,
+        "issues": [
+          "Potentially creates undue fear with the phrase 'I worried every night' in the hook.",
+          "The claim 'families know exactly where their funding goes\u2014no hidden fees' is strong; while the 26% fee is disclosed, the 'no hidden fees' claim should be substantiated or softened.",
+          "The phrase 'Confidence & Choice for Your Family' could be interpreted as guaranteeing specific outcomes."
+        ],
+        "severity": "minor"
+      },
+      "brand_voice_check": {
+        "passed": true,
+        "issues": [
+          "The opening hook risks bordering on a fear-based appeal ('I worried every night').",
+          "Some language could be softened to avoid any perception of exploiting vulnerability."
+        ],
+        "tone_alignment": 8
+      },
+      "copy_quality_check": {
+        "passed": true,
+        "issues": [
+          "The hook could be reframed to reduce the sense of fear and focus more on positive transformation.",
+          "The phrase 'Hear from families like ours.' is a little vague without a clear testimonial or story follow-through."
+        ],
+        "hook_strength": 8,
+        "cta_strength": 9,
+        "clarity": 9
+      },
+      "visual_check": {
+        "passed": true,
+        "issues": [
+          "Ensure all talent and home environments reflect real, diverse Australians as described; avoid any stock or staged feel."
+        ],
+        "appropriateness": 9
+      },
+      "platform_fit_check": {
+        "passed": true,
+        "issues": []
+      },
+      "revision_suggestions": [
+        {
+          "component": "hook",
+          "suggestion": "Rephrase the hook to reduce fear-based language, e.g., 'I used to worry about Dad\u2019s care\u2014until we found Trilogy Care.'",
+          "priority": "high"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Soften or substantiate 'no hidden fees' claim, e.g., 'Clear, simple fees\u2014so you always know where your funding goes.'",
+          "priority": "high"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Avoid language that could be interpreted as guaranteeing specific outcomes (e.g., 'confidence & choice' could be reframed as 'support & options').",
+          "priority": "medium"
+        },
+        {
+          "component": "visual",
+          "suggestion": "Double-check casting and set design to ensure authentic, non-stock representation and subtle multicultural cues.",
+          "priority": "medium"
+        }
+      ],
+      "strongest_element": "Warm, relatable visual direction and clear, empowering messaging for families.",
+      "weakest_element": "The hook\u2019s risk of fear-based appeal and the need for more precise language around fees and outcomes."
+    },
+    "created_at": "2026-03-19T08:19:04.306252"
+  },
+  {
+    "campaign_name": "Real Stories, Real Independence",
+    "strategy": {
+      "campaign_name": "Real Stories, Real Independence",
+      "objective": "awareness",
+      "messaging_angle": "testimonial_social_proof",
+      "target_audience": "both",
+      "platform": "instagram",
+      "format": "carousel",
+      "copy_framework": "BAB",
+      "hook_brief": "See how Australians are thriving with Trilogy Care.",
+      "key_message": "Hear from real clients who regained independence and dignity through self-managed support.",
+      "cta": "See Their Stories",
+      "visual_direction": "Carousel of authentic client portraits with short testimonial quotes and Paula Duncan\u2019s endorsement.",
+      "rationale": "Testimonial/social proof is almost absent in the market; this builds trust and leverages Paula Duncan\u2019s ambassador role.",
+      "priority": "high"
+    },
+    "hooks": [
+      {
+        "hook_text": "If you've been approved for home care, your journey to real independence starts here.",
+        "hook_type": "direct_address",
+        "target": "primary",
+        "platform_fit": "Directly addresses scrollers who fit the criteria, making it personal and relevant in seconds.",
+        "video_visual": "Text overlay with a confident older person opening their front door, sunlight streaming in.",
+        "estimated_strength": 10
+      },
+      {
+        "hook_text": "What if Mum could choose her own carer\u2014and stay independent at home?",
+        "hook_type": "question",
+        "target": "secondary",
+        "platform_fit": "Instagram users scroll fast\u2014posing a direct, emotional question stops them, especially with a family focus.",
+        "video_visual": "A warm, candid photo of an older woman smiling at home with her daughter.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "Same care, more choices: See how Trilogy Care clients thrive where it matters most.",
+        "hook_type": "comparison",
+        "target": "both",
+        "platform_fit": "Comparisons are quick to process visually and spark curiosity, perfect for carousel swipes.",
+        "video_visual": "Split-screen: one side a generic care home, other side vibrant at-home scene with Trilogy client.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "\"I never thought I could feel this independent again.\" \u2014 Helen, 74",
+        "hook_type": "social_proof",
+        "target": "primary",
+        "platform_fit": "Real testimonials build instant trust and relatability on Instagram's visually-driven platform.",
+        "video_visual": "Close-up of Helen, a real client, looking joyful and empowered in her living room.",
+        "estimated_strength": 8
+      },
+      {
+        "hook_text": "When Dad switched to self-managed care, his smile came back.",
+        "hook_type": "story_open",
+        "target": "secondary",
+        "platform_fit": "Short story opens create emotional connection and curiosity in the first carousel panel.",
+        "video_visual": "Before-and-after images: Dad looking withdrawn, then happy and active at home.",
+        "estimated_strength": 8
+      }
+    ],
+    "best_hook": {
+      "hook_text": "If you've been approved for home care, your journey to real independence starts here.",
+      "hook_type": "direct_address",
+      "target": "primary",
+      "platform_fit": "Directly addresses scrollers who fit the criteria, making it personal and relevant in seconds.",
+      "video_visual": "Text overlay with a confident older person opening their front door, sunlight streaming in.",
+      "estimated_strength": 10
+    },
+    "ad_copy": [
+      {
+        "platform": "instagram",
+        "hook": "If you've been approved for home care, your journey to real independence starts here.",
+        "primary_text": "Navigating aged care left you feeling lost? Hear how real people like you found freedom and dignity with Trilogy Care's self-managed support\u2014just a 26% flat fee, no surprises.",
+        "headline": "Hear Real Clients. Find Real Choice.",
+        "description": "See how others took control with Trilogy Care.",
+        "cta_button": "See Their Stories",
+        "hashtags": [
+          "#AgedCareAustralia",
+          "#Independence",
+          "#RealStories",
+          "#TrilogyCare"
+        ],
+        "url": "trilogycare.com.au/real-stories",
+        "copy_framework_used": "BAB",
+        "ab_variant": "A",
+        "word_count": 44,
+        "character_count": 178
+      },
+      {
+        "platform": "instagram",
+        "hook": "If you've been approved for home care, your journey to real independence starts here.",
+        "primary_text": "Tired of feeling like just a number? Discover how Australians regained control, choice, and peace of mind with Trilogy Care\u2014transparent 26% fee, no hidden costs. Your story of independence could start today.",
+        "headline": "Independence Starts With You",
+        "description": "Real voices. Real results. See how self-management empowers you.",
+        "cta_button": "See Their Stories",
+        "hashtags": [
+          "#AgedCare",
+          "#ChooseIndependence",
+          "#TrilogyCare",
+          "#HomeCareSuccess"
+        ],
+        "url": "trilogycare.com.au/real-stories",
+        "copy_framework_used": "BAB",
+        "ab_variant": "B",
+        "word_count": 44,
+        "character_count": 185
+      }
+    ],
+    "visual_brief": {
+      "format": "carousel",
+      "aspect_ratio": "1:1 for feed, 9:16 for stories, 16:9 for YouTube",
+      "higgsfield_prompt": "A carousel of authentic, diverse older Australians in their own suburban homes and gardens, captured in warm, natural lighting. Each slide features a different real client: an older Australian woman tending her native garden with her daughter; a smiling older man cooking in a sunlit kitchen with his grandson; a multicultural couple enjoying tea at a bright patio table; an older woman painting in her living room surrounded by family photos. All scenes are candid, active, and empowering, with no clinical elements. Each image includes a short, handwritten-style testimonial quote and a warm endorsement from Paula Duncan. Visuals use a color palette of teal, blue, orange, and cream. Scenes are cozy, uplifting, and distinctly Australian.",
+      "scene_description": "Each carousel slide shows a real, diverse older Australian in an everyday home setting: a joyful grandmother gardening with her daughter among native plants; a cheerful older man cooking with his grandson in a bright, modern kitchen; a multicultural couple sharing tea on a sunlit patio; an older woman painting at an easel in a family-filled living room. All scenes are filled with natural light and subtle touches of brand colors, creating a warm, inviting atmosphere. Each person is engaged and active, with visible family connection and dignity.",
+      "color_palette": [
+        "#007F7E",
+        "#2c4c79",
+        "#F58220",
+        "#FFF8F0",
+        "#43C0BE"
+      ],
+      "text_overlay": {
+        "headline": "\u2018Real Stories, Real Independence\u2019",
+        "position": "bottom",
+        "font_style": "bold, large, handwritten-style (suggested size: 48pt for 1:1, scaled for other ratios)"
+      },
+      "mood_board_keywords": [
+        "authentic",
+        "empowering",
+        "multicultural",
+        "warm",
+        "Australian suburban",
+        "active",
+        "family"
+      ],
+      "lighting": "Warm, natural sunlight streaming through windows or outdoors, creating soft highlights and gentle shadows. No artificial or harsh lighting.",
+      "setting": "Suburban Australian homes, including tidy gardens with native plants, bright living rooms with personal touches, modern family kitchens, and welcoming patios. All spaces feel lived-in, comfortable, and personal.",
+      "people": "Diverse, real older Australians (women and men, various backgrounds) aged 65+, actively engaged with family or hobbies. Casual, comfortable clothing in soft, natural fabrics. Family members (adult children, grandchildren) included where relevant, all interacting naturally.",
+      "props": "Gardening tools, native plants, kitchen utensils, tea sets, painting supplies, family photos, subtle touches of brand-colored cushions or mugs. No medical or institutional props.",
+      "brand_elements": {
+        "logo_placement": "bottom-right corner",
+        "color_usage": "Teal and blue accents in props, clothing, or decor; cream and orange for backgrounds or highlight elements; all overlays and buttons use brand colors for consistency.",
+        "cta_button": "Rounded rectangle in warm orange (#F58220) with white text, placed just above the logo: \u2018Start Your Journey\u2019"
+      },
+      "do_not_include": [
+        "stock photo models",
+        "clinical or hospital settings",
+        "passive or vulnerable poses",
+        "hospital beds",
+        "wheelchairs as the primary focus",
+        "fluorescent lighting",
+        "institutional decor"
+      ]
+    },
+    "qa_review": {
+      "overall_verdict": "NEEDS_REVISION",
+      "overall_score": 78,
+      "compliance_check": {
+        "passed": false,
+        "issues": [
+          "Pricing claim ('just a 26% flat fee, no surprises') is not substantiated or explained in the ad copy or visual; must provide clear context or reference to where details can be verified.",
+          "The phrase 'found freedom and dignity' may be interpreted as guaranteeing specific outcomes; should clarify that experiences may vary."
+        ],
+        "severity": "minor"
+      },
+      "brand_voice_check": {
+        "passed": true,
+        "issues": [],
+        "tone_alignment": 9
+      },
+      "copy_quality_check": {
+        "passed": true,
+        "issues": [
+          "Pricing reference could be clearer and more transparent (e.g., 'Find out how our 26% flat fee works').",
+          "Some testimonials may need to include a disclaimer that results vary."
+        ],
+        "hook_strength": 9,
+        "cta_strength": 8,
+        "clarity": 8
+      },
+      "visual_check": {
+        "passed": true,
+        "issues": [],
+        "appropriateness": 10
+      },
+      "platform_fit_check": {
+        "passed": true,
+        "issues": []
+      },
+      "revision_suggestions": [
+        {
+          "component": "copy",
+          "suggestion": "Add a brief disclaimer such as 'Individual experiences may vary' to avoid implying guaranteed outcomes.",
+          "priority": "high"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Clarify the 26% flat fee claim and reference where full pricing details can be found (e.g., 'See website for details').",
+          "priority": "high"
+        }
+      ],
+      "strongest_element": "Authentic, empowering visual direction and strong testimonial-based messaging that builds trust.",
+      "weakest_element": "Pricing transparency and potential implication of guaranteed outcomes in copy."
+    },
+    "created_at": "2026-03-19T08:19:04.306252"
+  },
+  {
+    "campaign_name": "Join the Trilogy Community",
+    "strategy": {
+      "campaign_name": "Join the Trilogy Community",
+      "objective": "awareness",
+      "messaging_angle": "community_belonging",
+      "target_audience": "primary",
+      "platform": "google_display",
+      "format": "static_image",
+      "copy_framework": "PAS",
+      "hook_brief": "You\u2019re not alone\u2014become part of a caring community.",
+      "key_message": "With Trilogy, you\u2019re supported by a vibrant community\u2014not just a provider.",
+      "cta": "Find Out More",
+      "visual_direction": "Friendly group of older Australians engaging in a community activity, with Trilogy branding.",
+      "rationale": "Community belonging is almost absent in competitor messaging and Trilogy\u2019s own; this differentiates Trilogy as more than just a service.",
+      "priority": "medium"
+    },
+    "hooks": [
+      {
+        "hook_text": "Feel like you're facing aged care alone? Discover a community that truly cares.",
+        "hook_type": "question",
+        "target": "primary",
+        "platform_fit": "Questions grab attention fast in static Google Display ads, making viewers pause and reflect.",
+        "video_visual": "A warm, inviting photo of older Australians laughing together over tea.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "If you\u2019re feeling isolated, Trilogy is your place to belong.",
+        "hook_type": "direct_address",
+        "target": "primary",
+        "platform_fit": "Direct address instantly personalizes the message, grabbing attention in a busy ad space.",
+        "video_visual": "A caring staff member greeting an older person at their front door.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "When Margaret joined Trilogy, she found friends\u2014not just carers.",
+        "hook_type": "story_open",
+        "target": "primary",
+        "platform_fit": "Opening a story instantly creates emotional connection, perfect for quick, scroll-stopping impact.",
+        "video_visual": "A smiling older woman welcomed into a group, with gentle hands on her shoulder.",
+        "estimated_strength": 8
+      },
+      {
+        "hook_text": "Over 3,000 Australians have found their sense of belonging with Trilogy.",
+        "hook_type": "social_proof",
+        "target": "primary",
+        "platform_fit": "Numbers and social proof quickly build trust and credibility in image ads.",
+        "video_visual": "A collage of happy community moments and group gatherings.",
+        "estimated_strength": 8
+      },
+      {
+        "hook_text": "You\u2019re not just a client here\u2014you\u2019re family.",
+        "hook_type": "comparison",
+        "target": "primary",
+        "platform_fit": "Comparing the usual experience with Trilogy\u2019s promise is powerful in brief, image-led ads.",
+        "video_visual": "A close-knit group sharing a meal, with a warm, homelike backdrop.",
+        "estimated_strength": 8
+      }
+    ],
+    "best_hook": {
+      "hook_text": "Feel like you're facing aged care alone? Discover a community that truly cares.",
+      "hook_type": "question",
+      "target": "primary",
+      "platform_fit": "Questions grab attention fast in static Google Display ads, making viewers pause and reflect.",
+      "video_visual": "A warm, inviting photo of older Australians laughing together over tea.",
+      "estimated_strength": 9
+    },
+    "ad_copy": [
+      {
+        "platform": "google_display",
+        "hook": "Feel like you're facing aged care alone? Discover a community that truly cares.",
+        "primary_text": "It\u2019s hard doing aged care on your own. Without support, it can feel isolating and overwhelming. With Trilogy Care, you\u2019re welcomed into a vibrant community where your independence matters \u2014 and you\u2019re never just a number. Our flat 26% management fee means more of your funds go to real care, not hidden costs. Call 1300 459 190 or visit trilogycare.com.au to hear real stories from people like you.",
+        "headline": "Aged Care, Backed By Community",
+        "description": "Choose support, not just a provider. Transparent fees. Real choice. Find Out More.",
+        "cta_button": "Find Out More",
+        "hashtags": [],
+        "url": "trilogycare.com.au/join-community",
+        "copy_framework_used": "PAS",
+        "ab_variant": "A",
+        "word_count": 87,
+        "character_count": 489
+      },
+      {
+        "platform": "google_display",
+        "hook": "Feel like you're facing aged care alone? Discover a community that truly cares.",
+        "primary_text": "Worried about making aged care decisions by yourself? It\u2019s easy to feel lost and unheard. Trilogy Care brings you into a warm, supportive group where your voice counts \u2014 and your choices matter. With a simple 26% flat fee and no hidden extras, you stay in control of your care and your budget. Hear how others found confidence with Trilogy at trilogycare.com.au.",
+        "headline": "You\u2019re Not Alone in Aged Care",
+        "description": "Join a caring community with clear fees and real support. Take the first step today.",
+        "cta_button": "Find Out More",
+        "hashtags": [],
+        "url": "trilogycare.com.au/join-community",
+        "copy_framework_used": "PAS",
+        "ab_variant": "B",
+        "word_count": 90,
+        "character_count": 479
+      }
+    ],
+    "visual_brief": {
+      "format": "static_image",
+      "aspect_ratio": "1:1 for feed, 9:16 for stories, 16:9 for YouTube",
+      "higgsfield_prompt": "A warm, vibrant scene featuring a diverse group of real older Australians (men and women, various cultural backgrounds) actively participating in a relaxed community activity\u2014such as a group gardening session or shared outdoor afternoon tea\u2014in a lush suburban Australian backyard. The group is smiling, engaged, and interacting naturally, with subtle family presence (e.g., an adult daughter or grandchild joining in). Paula Duncan, friendly and approachable, is present, chatting warmly with a participant. Everyone is dressed casually and comfortably. The setting is a welcoming home environment, with Trilogy branding visible on a mug or cushion. The color palette is dominated by teal, light blue, and cream, with pops of warm orange. The mood is reassuring, empowering, and joyful, illuminated by soft, natural sunlight. No clinical or institutional cues.",
+      "scene_description": "A sunlit suburban Australian backyard with a small group of older Australians (diverse in ethnicity and style) gathered around a garden table, sharing afternoon tea and laughter. Paula Duncan is sitting with them, engaged warmly in conversation. Family members are present, perhaps a granddaughter passing a plate of scones. The group is casually dressed in light, comfortable clothing. Plants, flowers, and a well-kept garden create a homely backdrop. Trilogy branding is subtly present on a mug and a cushion. The overall atmosphere is vibrant, welcoming, and authentically Australian.",
+      "color_palette": [
+        "#007F7E",
+        "#43C0BE",
+        "#64BCEA",
+        "#F58220",
+        "#FFF8F0"
+      ],
+      "text_overlay": {
+        "headline": "Feel like you're facing aged care alone? Discover a community that truly cares.",
+        "position": "top",
+        "font_style": "bold, large"
+      },
+      "mood_board_keywords": [
+        "warmth",
+        "community",
+        "diversity",
+        "Australian home",
+        "joyful",
+        "natural"
+      ],
+      "lighting": "Soft, warm, natural sunlight\u2014early afternoon, with gentle highlights and subtle shadows to enhance a welcoming mood.",
+      "setting": "A suburban Australian backyard or patio, with green grass, flowering plants, comfortable outdoor furniture, and personal homey touches.",
+      "people": "A group of 5-6 older Australians, including men and women of diverse backgrounds, with at least one family member (younger adult or child), and Paula Duncan as a friendly ambassador. They are actively engaged in community activity\u2014chatting, pouring tea, passing food, gardening. Clothing is casual, light, and seasonally appropriate.",
+      "props": "Teapot, cups, plates with scones or fruit, gardening tools, flowering plants, outdoor table, Trilogy-branded mug and cushion, comfortable chairs.",
+      "brand_elements": {
+        "logo_placement": "bottom-right corner",
+        "color_usage": "Primary teal and light blue dominate background and props, warm orange accents in details (flowers, napkins), cream or white for text overlays for clarity.",
+        "cta_button": "Rounded rectangle in primary teal (#007F7E) with white text: 'Join the Trilogy Community'"
+      },
+      "do_not_include": [
+        "stock photo models",
+        "clinical or hospital settings",
+        "wheelchairs as main focus",
+        "institutional furniture",
+        "fluorescent lighting",
+        "passive or vulnerable poses",
+        "hospital beds",
+        "cold or sterile color schemes"
+      ]
+    },
+    "qa_review": {
+      "overall_verdict": "NEEDS_REVISION",
+      "overall_score": 78,
+      "compliance_check": {
+        "passed": false,
+        "issues": [
+          "The claim 'Our flat 26% management fee means more of your funds go to real care, not hidden costs' implies savings and transparency but does not provide direct substantiation or clear comparison to competitors.",
+          "The phrase 'hear real stories from people like you' suggests testimonials, but these must be available and verifiable per advertising standards.",
+          "The copy risks creating a sense of isolation ('It\u2019s hard doing aged care on your own. Without support, it can feel isolating and overwhelming.') which could be interpreted as exploiting vulnerability or creating undue fear."
+        ],
+        "severity": "minor"
+      },
+      "brand_voice_check": {
+        "passed": true,
+        "issues": [
+          "The opening lines border on fear-based appeal by emphasizing isolation and overwhelm.",
+          "The copy could further highlight independence and choice."
+        ],
+        "tone_alignment": 8
+      },
+      "copy_quality_check": {
+        "passed": true,
+        "issues": [
+          "The copy is slightly long for Google Display and could be more concise.",
+          "The CTA is clear but could be more action-oriented (e.g., 'Join the Community' instead of 'Find Out More')."
+        ],
+        "hook_strength": 9,
+        "cta_strength": 7,
+        "clarity": 9
+      },
+      "visual_check": {
+        "passed": true,
+        "issues": [
+          "Ensure all depicted individuals are real and not stock models, as per brief.",
+          "Paula Duncan\u2019s presence must be confirmed as an actual brand ambassador and not a stock likeness."
+        ],
+        "appropriateness": 9
+      },
+      "platform_fit_check": {
+        "passed": true,
+        "issues": [
+          "Copy length is at the upper end for Google Display; consider shortening for better readability.",
+          "No hashtags present, which is appropriate for Google Display."
+        ]
+      },
+      "revision_suggestions": [
+        {
+          "component": "copy",
+          "suggestion": "Rephrase the opening to avoid emphasizing isolation or fear (e.g., focus on positive community benefits rather than the negatives of being alone).",
+          "priority": "high"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Substantiate the 'transparent fees' claim with a clear reference or link to fee comparison or more detailed breakdown.",
+          "priority": "medium"
+        },
+        {
+          "component": "visual",
+          "suggestion": "Ensure all visuals use real, diverse Australians and not stock imagery; confirm Paula Duncan\u2019s involvement is authentic.",
+          "priority": "medium"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Shorten the primary text for better fit on Google Display placements.",
+          "priority": "low"
+        }
+      ],
+      "strongest_element": "The community-focused messaging and warm, inclusive visual direction strongly differentiate Trilogy from competitors and align with the campaign objective.",
+      "weakest_element": "The opening copy risks exploiting vulnerability and lacks substantiation for savings/fee claims, which could raise compliance concerns."
+    },
+    "created_at": "2026-03-19T08:19:04.306252"
+  },
+  {
+    "campaign_name": "Switch & Save Instantly",
+    "strategy": {
+      "campaign_name": "Switch & Save Instantly",
+      "objective": "conversion",
+      "messaging_angle": "convenience_speed",
+      "target_audience": "both",
+      "platform": "google_search",
+      "format": "static_image",
+      "copy_framework": "4Ps",
+      "hook_brief": "Switch to Trilogy in days, not weeks.",
+      "key_message": "Get more value from your Home Care Package\u2014fast, simple transitions with no hidden fees.",
+      "cta": "Start Now",
+      "visual_direction": "Simple, bold graphics emphasizing speed (e.g., calendar flipping quickly), with Trilogy\u2019s 26% flat fee highlighted.",
+      "rationale": "Convenience/speed is under-leveraged by Trilogy; this campaign addresses urgency and friction in switching providers.",
+      "priority": "high"
+    },
+    "hooks": [
+      {
+        "hook_text": "Still waiting weeks for a provider switch? Trilogy moves you in days\u2014no hidden fees.",
+        "hook_type": "comparison",
+        "target": "primary",
+        "platform_fit": "Google Search users are actively seeking faster, better options for Home Care\u2014this contrast grabs attention and clearly signals a superior solution.",
+        "video_visual": "Split-screen: stressed senior with clock vs. relaxed senior at home with smiling carer.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "If you\u2019re overwhelmed by changing home care rules, Trilogy makes switching simple\u2014and fast.",
+        "hook_type": "direct_address",
+        "target": "secondary",
+        "platform_fit": "Google Search rewards direct, relevant answers to user pain points\u2014this hook acknowledges confusion and offers instant relief.",
+        "video_visual": "Adult child comforting parent at kitchen table, both look relieved as paperwork disappears.",
+        "estimated_strength": 8
+      },
+      {
+        "hook_text": "Did you know most providers take weeks to transition your care? Trilogy does it in days.",
+        "hook_type": "stat_shock",
+        "target": "primary",
+        "platform_fit": "On Google Search, surprising facts in headlines stand out and drive clicks from users researching alternatives.",
+        "video_visual": "Calendar pages flipping quickly, then stopping brightly on '3 Days'.",
+        "estimated_strength": 8
+      },
+      {
+        "hook_text": "Worried switching will be a hassle? With Trilogy, it\u2019s done before you know it.",
+        "hook_type": "fear_reversal",
+        "target": "primary",
+        "platform_fit": "This hook flips a common fear of time-consuming change, ideal for searchers seeking reassurance.",
+        "video_visual": "Animated stopwatch dissolves into a calm home scene with happy family.",
+        "estimated_strength": 8
+      },
+      {
+        "hook_text": "\u2018I switched to Trilogy and got more care hours\u2014no confusion, no delays!\u2019",
+        "hook_type": "social_proof",
+        "target": "secondary",
+        "platform_fit": "Testimonial hooks perform well on Google for building trust with families comparing providers.",
+        "video_visual": "Smiling daughter and elderly mum at home, thumbs up with clear text overlay.",
+        "estimated_strength": 7
+      }
+    ],
+    "best_hook": {
+      "hook_text": "Still waiting weeks for a provider switch? Trilogy moves you in days\u2014no hidden fees.",
+      "hook_type": "comparison",
+      "target": "primary",
+      "platform_fit": "Google Search users are actively seeking faster, better options for Home Care\u2014this contrast grabs attention and clearly signals a superior solution.",
+      "video_visual": "Split-screen: stressed senior with clock vs. relaxed senior at home with smiling carer.",
+      "estimated_strength": 9
+    },
+    "ad_copy": [
+      {
+        "headlines": [
+          "Switch & Save Instantly",
+          "No Hidden Fees Ever",
+          "Fast Home Care Switch",
+          "26% Flat Fee Home Care",
+          "Trilogy Care Experts",
+          "More Value, Less Fees",
+          "Simple Care Transitions",
+          "Maximise Your Funding",
+          "No Exit Fees, Ever",
+          "Get More Home Care",
+          "Self-Managed Packages",
+          "Call 1300 459 190 Now",
+          "Easy Care Package Switch",
+          "Trilogy Care Savings",
+          "Home Care, No Surprises"
+        ],
+        "descriptions": [
+          "Switch to Trilogy Care & save\u2014no hidden or exit fees. Call now for fast setup!",
+          "Enjoy a 26% flat fee. More funding goes to your care. Switch today!",
+          "Fast, simple transition to better value. Start your care with Trilogy now.",
+          "Maximise your Home Care Package. No surprises. More care for you!"
+        ],
+        "final_url": "https://trilogycare.com.au/relevant-page",
+        "display_url_path": [
+          "support-at-home",
+          "self-managed"
+        ],
+        "sitelinks": [
+          {
+            "headline": "Compare Our Fees",
+            "description": "See how much you save with Trilogy Care's flat 26% fee.",
+            "url": "https://trilogycare.com.au/fees"
+          },
+          {
+            "headline": "How to Switch",
+            "description": "Step-by-step guide to switching your Home Care Package.",
+            "url": "https://trilogycare.com.au/switch"
+          },
+          {
+            "headline": "Why Trilogy Care?",
+            "description": "Discover our transparent pricing and dedicated support.",
+            "url": "https://trilogycare.com.au/about"
+          },
+          {
+            "headline": "Get Started Today",
+            "description": "Book a free consultation and maximise your care funding.",
+            "url": "https://trilogycare.com.au/contact"
+          }
+        ]
+      }
+    ],
+    "visual_brief": {
+      "format": "static_image",
+      "aspect_ratio": "1:1 for feed, 9:16 for stories, 16:9 for YouTube",
+      "higgsfield_prompt": "A diverse group of real older Australians, including men and women of different ethnic backgrounds, smiling and active in a bright, warm suburban Australian home setting. The scene features a dynamic, bold graphic of a calendar flipping rapidly, symbolizing a fast and easy transition. Trilogy\u2019s 26% flat fee is clearly highlighted in a large, warm orange font. The environment is cozy, with natural sunlight streaming through windows, and subtle interactions with family members (adult children or grandchildren) in the background. The overall style is simple, bold, and empowering, with a warm, friendly atmosphere. No clinical or institutional elements, no hospital beds or wheelchairs as the focus. Brand ambassador Paula Duncan is present, warmly engaging with others.",
+      "scene_description": "Viewers see a bright, inviting living room in a typical Australian suburban home. In the foreground, Paula Duncan stands confidently with a warm smile, alongside two older Australians\u2014one of Asian descent, one of Indigenous background\u2014engaged in friendly conversation. In the background, a grandchild hands a cup of tea to an older man, reinforcing family connection. To the left, a bold, animated-style calendar graphic appears to flip quickly, visually emphasizing speed. Trilogy\u2019s 26% flat fee is displayed in a large, warm orange circle overlay. The room is filled with soft, natural light, houseplants, and personal touches like family photos and cozy cushions.",
+      "color_palette": [
+        "#007F7E",
+        "#F58220",
+        "#FFF8F0"
+      ],
+      "text_overlay": {
+        "headline": "Switch & Save Instantly",
+        "position": "top",
+        "font_style": "bold, large (approx. 48pt for 1:1 aspect)"
+      },
+      "mood_board_keywords": [
+        "diversity",
+        "warmth",
+        "speed",
+        "empowerment",
+        "simplicity"
+      ],
+      "lighting": "Warm, natural sunlight streaming through windows, creating a soft and inviting atmosphere. No harsh shadows; overall lighting is even and gentle.",
+      "setting": "A well-lit, contemporary suburban Australian living room with a view of a garden through the windows. Decor is homey and personal, not overly stylized.",
+      "people": "Paula Duncan (brand ambassador), two older Australians of different ethnic backgrounds (one Asian, one Indigenous), all casually and comfortably dressed in light, cheerful colors. A grandchild (around 10 years old) is present, interacting naturally with an elder.",
+      "props": "Animated-style calendar graphic flipping rapidly, cup of tea, family photos on shelves, houseplants, cozy cushions, Trilogy\u2019s 26% flat fee highlighted in a warm orange circle overlay.",
+      "brand_elements": {
+        "logo_placement": "bottom-right corner",
+        "color_usage": "Primary teal (#007F7E) and warm orange (#F58220) used for key graphics and text; cream (#FFF8F0) and white (#FFFFFF) for background and overlays; accent details in light teal and light blue.",
+        "cta_button": "Simple, rounded rectangle in primary teal (#007F7E) with white bold text: 'Get Started Now', placed bottom-center above the logo."
+      },
+      "do_not_include": [
+        "Stock photo models",
+        "Hospital beds",
+        "Wheelchairs as main focus",
+        "Clinical or institutional settings",
+        "Fluorescent lighting",
+        "Passive or vulnerable depictions"
+      ]
+    },
+    "qa_review": {
+      "overall_verdict": "NEEDS_REVISION",
+      "overall_score": 74,
+      "compliance_check": {
+        "passed": false,
+        "issues": [
+          "Claims about 'saving' and 'no hidden fees' are strong but lack explicit substantiation or clear reference to verifiable pricing.",
+          "Messaging implies guaranteed speed ('Switch in days, not weeks') which may be interpreted as a promise of specific outcomes.",
+          "Comparative hook ('Still waiting weeks for a provider switch? Trilogy moves you in days') risks exploiting perceived vulnerability and urgency."
+        ],
+        "severity": "minor"
+      },
+      "brand_voice_check": {
+        "passed": true,
+        "issues": [
+          "Some headlines (e.g., 'Switch & Save Instantly') verge on transactional/corporate tone.",
+          "Lack of real stories or testimonials in the copy.",
+          "Some copy could be more empathetic and less focused on fees."
+        ],
+        "tone_alignment": 7
+      },
+      "copy_quality_check": {
+        "passed": true,
+        "issues": [
+          "Hooks and descriptions are clear but some are incomplete or cut off (e.g., second hook).",
+          "Some headlines are repetitive and lack emotional resonance.",
+          "CTA is strong but could be more personalized."
+        ],
+        "hook_strength": 8,
+        "cta_strength": 8,
+        "clarity": 8
+      },
+      "visual_check": {
+        "passed": true,
+        "issues": [
+          "No major issues, but ensure all visuals use real, diverse Australians (not stock imagery).",
+          "Calendar flipping graphic must not overemphasize speed to the point of implying guaranteed outcomes."
+        ],
+        "appropriateness": 9
+      },
+      "platform_fit_check": {
+        "passed": false,
+        "issues": [
+          "Some copy elements are incomplete or cut off (e.g., second hook, ad copy descriptions).",
+          "Ensure all headlines and descriptions fit Google Search character limits (headlines: 30 chars, descriptions: 90 chars)."
+        ]
+      },
+      "revision_suggestions": [
+        {
+          "component": "compliance",
+          "suggestion": "Add explicit substantiation for savings and fee claims (e.g., '26% flat fee\u2014verified on our website').",
+          "priority": "high"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Avoid language that guarantees specific speed; use 'typically in days' or 'most clients switch in days'.",
+          "priority": "high"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Complete all hooks and descriptions; avoid cut-off text.",
+          "priority": "medium"
+        },
+        {
+          "component": "brand_voice",
+          "suggestion": "Add a real testimonial or story to reinforce empathy and trust.",
+          "priority": "medium"
+        },
+        {
+          "component": "visual",
+          "suggestion": "Double-check that all imagery is of real, diverse Australians and not generic stock photos.",
+          "priority": "medium"
+        },
+        {
+          "component": "platform",
+          "suggestion": "Ensure all headlines and descriptions meet Google Search character limits.",
+          "priority": "high"
+        }
+      ],
+      "strongest_element": "Visual direction\u2014warm, empowering, diverse representation and clear fee highlight.",
+      "weakest_element": "Compliance substantiation and copy completeness\u2014claims need clearer evidence and some text is incomplete."
+    },
+    "created_at": "2026-03-19T08:19:04.306252"
+  },
+  {
+    "campaign_name": "Quality Care, Your Way",
+    "strategy": {
+      "campaign_name": "Quality Care, Your Way",
+      "objective": "consideration",
+      "messaging_angle": "service_quality",
+      "target_audience": "primary",
+      "platform": "youtube",
+      "format": "video_30s",
+      "copy_framework": "AIDA",
+      "hook_brief": "Discover a higher standard of home care.",
+      "key_message": "Trilogy puts you in charge of top-quality support, tailored to your needs.",
+      "cta": "Watch Now",
+      "visual_direction": "Paula Duncan introduces real Trilogy clients and care workers, showing moments of personal attention and empowerment.",
+      "rationale": "Service quality is a key market driver but under-indexed in Trilogy\u2019s messaging; this deepens trust and highlights the USP.",
+      "priority": "medium"
+    },
+    "hooks": [
+      {
+        "hook_text": "When Dad needed care, we were terrified he'd lose his independence\u2014but Trilogy changed everything.",
+        "hook_type": "story_open",
+        "target": "secondary",
+        "platform_fit": "Personal stories build emotional connection in the first seconds, perfect for YouTube\u2019s video format.",
+        "video_visual": "Soft-focus footage of an elderly man at home with his daughter, then a warm handshake with a Trilogy carer.",
+        "estimated_strength": 10
+      },
+      {
+        "hook_text": "Same funding, but with Trilogy you get more care hours\u2014and you choose who helps you.",
+        "hook_type": "comparison",
+        "target": "primary",
+        "platform_fit": "Clear comparisons quickly highlight benefits, ideal for YouTube\u2019s fast-paced ad environment.",
+        "video_visual": "Split screen: left shows stressed elderly person with fewer hours, right shows smiling client with ample care and choice.",
+        "estimated_strength": 10
+      },
+      {
+        "hook_text": "What if your home care provider worked for you\u2014not the other way around?",
+        "hook_type": "question",
+        "target": "primary",
+        "platform_fit": "YouTube viewers pause for questions that challenge their assumptions, grabbing attention immediately.",
+        "video_visual": "Close-up of an older person comfortably at home, looking directly at the camera with a gentle smile.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "If you've been approved for home care, Trilogy empowers you to make every hour count.",
+        "hook_type": "direct_address",
+        "target": "primary",
+        "platform_fit": "Direct address feels personal and relevant, stopping scroll for older viewers searching for solutions.",
+        "video_visual": "Text overlay and gentle music; older woman reviewing her care plan with a supportive Trilogy staff member.",
+        "estimated_strength": 9
+      },
+      {
+        "hook_text": "Did you know most Australians lose up to 20% of their care funding to hidden provider fees?",
+        "hook_type": "stat_shock",
+        "target": "secondary",
+        "platform_fit": "Surprising stats quickly engage YouTube viewers, especially family members seeking value and transparency.",
+        "video_visual": "Animated numbers drop into a piggy bank, then dissolve to show worried family faces.",
+        "estimated_strength": 8
+      }
+    ],
+    "best_hook": {
+      "hook_text": "When Dad needed care, we were terrified he'd lose his independence\u2014but Trilogy changed everything.",
+      "hook_type": "story_open",
+      "target": "secondary",
+      "platform_fit": "Personal stories build emotional connection in the first seconds, perfect for YouTube\u2019s video format.",
+      "video_visual": "Soft-focus footage of an elderly man at home with his daughter, then a warm handshake with a Trilogy carer.",
+      "estimated_strength": 10
+    },
+    "ad_copy": [
+      {
+        "platform": "youtube",
+        "hook": "When Dad needed care, we were terrified he'd lose his independence\u2014but Trilogy changed everything.",
+        "primary_text": "You want the best for your family\u2014and you want them to stay in control. At Trilogy, you choose the support that fits your life. Our 26% flat fee means more of your funding goes to real care, not paperwork. No hidden costs, no exit fees. Just genuine help, tailored for you. Hear from families who've found freedom and confidence with Trilogy. Watch now and see how quality care puts you in charge.",
+        "headline": "Quality Care, Your Way",
+        "description": "Regain independence and choice with Trilogy Care. Transparent fees, real stories.",
+        "cta_button": "Watch Now",
+        "hashtags": [
+          "#AgedCare",
+          "#Independence",
+          "#TrilogyCare",
+          "#ChoiceMatters",
+          "#TransparentCare"
+        ],
+        "url": "trilogycare.com.au/quality-care-your-way",
+        "copy_framework_used": "AIDA",
+        "ab_variant": "A",
+        "word_count": 91,
+        "character_count": 498
+      },
+      {
+        "platform": "youtube",
+        "hook": "Mum wanted to stay in her own home, surrounded by what she loves. Trilogy made it possible.",
+        "primary_text": "Your loved ones deserve support that respects their wishes. With Trilogy, you decide what matters most\u2014whether it's daily help or a friendly face. We keep things simple: a 26% flat fee, no hidden extras, so your funding goes further. Families tell us Trilogy gave them peace of mind and more freedom. Discover how personalised care makes independence possible. Watch now to learn more.",
+        "headline": "Tailored Care, Real Independence",
+        "description": "Stay at home, stay in charge. Flat fees, no surprises. Trilogy Care puts you first.",
+        "cta_button": "Watch Now",
+        "hashtags": [
+          "#AgedCare",
+          "#HomeCare",
+          "#TrilogyCare",
+          "#Empowerment",
+          "#NoHiddenFees"
+        ],
+        "url": "trilogycare.com.au/tailored-care-independence",
+        "copy_framework_used": "AIDA",
+        "ab_variant": "B",
+        "word_count": 87,
+        "character_count": 468
+      }
+    ],
+    "visual_brief": {
+      "format": "video_30s",
+      "aspect_ratio": "16:9 for YouTube, 1:1 for feed, 9:16 for stories",
+      "higgsfield_prompt": "A warm, authentic Australian suburban home environment. Paula Duncan (warm, approachable Australian woman in her 60s) introduces real, diverse older Australians and caring Trilogy support workers. Scenes show genuine moments of personal attention and empowerment: a daughter and her elderly father laughing together in a sunlit living room; a multicultural group of seniors chatting over tea in a leafy backyard; a care worker (mid-30s, South Asian) helping an older woman (Indigenous Australian) with gardening, both smiling. Lighting is natural and inviting, with soft shadows and sunbeams. Everyone is dressed casually in comfortable, everyday clothes. The atmosphere is uplifting, empowering, and reassuring. Brand colors appear subtly in cushions, mugs, and clothing accents. No hospital or institutional cues.",
+      "scene_description": "The video opens with Paula Duncan in a cozy Australian living room, warmly introducing Trilogy. Cut to vignettes of real, multicultural older Australians and their families: a father and daughter share a laugh on the couch; a care worker supports a client in the garden; a group of seniors enjoy tea in a sun-drenched backyard. Scenes highlight independence and connection, with gentle close-ups of caring gestures. The atmosphere is bright, welcoming, and empowering.",
+      "color_palette": [
+        "#007F7E",
+        "#2c4c79",
+        "#43C0BE",
+        "#F58220",
+        "#FFF8F0"
+      ],
+      "text_overlay": {
+        "headline": "Quality Care, Your Way",
+        "position": "bottom",
+        "font_style": "bold, large"
+      },
+      "mood_board_keywords": [
+        "authentic",
+        "empowering",
+        "multicultural",
+        "family",
+        "natural light"
+      ],
+      "lighting": "Warm, natural daylight streaming through windows, soft shadows, golden hour tones. No harsh or clinical lighting.",
+      "setting": "Suburban Australian homes: living room with family photos and soft furnishings, leafy backyard with native plants, sunlit kitchen table. All spaces are personal, inviting, and lived-in.",
+      "people": "Paula Duncan (brand ambassador) introduces diverse older Australians (men and women, various ethnic backgrounds, aged 70-85), their adult children, and friendly care workers (30s-50s, multicultural). All wear comfortable, everyday clothing with subtle brand color accents. They interact naturally: chatting, gardening, sharing tea, laughing.",
+      "props": "Teacups, garden tools, family photo frames, cozy cushions, warm throws, native Australian flowers, books, subtle branded mugs or lap blankets.",
+      "storyboard": [
+        {
+          "scene": 1,
+          "duration": "3s",
+          "visual": "Paula Duncan stands in a sunlit living room, smiling warmly at the camera.",
+          "audio": "Paula: 'When Dad needed care, we were terrified he'd lose his independence\u2026'",
+          "text_overlay": ""
+        },
+        {
+          "scene": 2,
+          "duration": "5s",
+          "visual": "Older Australian man (Anglo, early 80s) and his adult daughter (40s, Asian heritage) laugh together on a sofa, sunbeams through window.",
+          "audio": "Paula (V.O.): '\u2026but Trilogy changed everything.'",
+          "text_overlay": ""
+        },
+        {
+          "scene": 3,
+          "duration": "5s",
+          "visual": "Care worker (South Asian woman, 30s) and older Indigenous woman plant herbs in a backyard garden, both smiling.",
+          "audio": "Paula (V.O.): 'Trilogy puts you in charge of top-quality support\u2026'",
+          "text_overlay": ""
+        },
+        {
+          "scene": 4,
+          "duration": "5s",
+          "visual": "Group of diverse seniors (men and women, various backgrounds) enjoy tea and biscuits around a patio table, sunlight filtering through trees.",
+          "audio": "Paula (V.O.): '\u2026tailored to your needs.'",
+          "text_overlay": ""
+        },
+        {
+          "scene": 5,
+          "duration": "7s",
+          "visual": "Close-ups: gentle hand on shoulder, laughter, supportive glance between client and care worker. Subtle brand color accents in props.",
+          "audio": "Uplifting instrumental music underlines the sense of empowerment.",
+          "text_overlay": ""
+        },
+        {
+          "scene": 6,
+          "duration": "5s",
+          "visual": "Brand logo animates onto screen, over a warm family moment in the living room.",
+          "audio": "Paula (V.O.): 'Trilogy. Quality care, your way.'",
+          "text_overlay": "Quality Care, Your Way"
+        }
+      ],
+      "brand_elements": {
+        "logo_placement": "bottom-right corner",
+        "color_usage": "Brand colors appear in soft furnishings, clothing accents, props, and overlays. CTA button uses primary teal (#007F7E) with white text.",
+        "cta_button": "Rounded rectangle, primary teal background (#007F7E), white bold text: 'Learn More', placed above the logo."
+      },
+      "do_not_include": [
+        "hospital beds",
+        "institutional settings",
+        "stock photo models",
+        "passive or vulnerable depictions",
+        "clinical/fluorescent lighting",
+        "wheelchairs as primary focus",
+        "branding that feels cold or corporate"
+      ]
+    },
+    "qa_review": {
+      "overall_verdict": "NEEDS_REVISION",
+      "overall_score": 78,
+      "compliance_check": {
+        "passed": false,
+        "issues": [
+          "Claim about '26% flat fee means more of your funding goes to real care' is not substantiated within the ad and may require clear, verifiable evidence.",
+          "The phrase 'no hidden costs, no exit fees' is strong and must be verifiable; ensure all fee structures are transparent and easily accessible.",
+          "Opening hook ('we were terrified he'd lose his independence') risks creating undue fear; should be softened to avoid exploiting vulnerability."
+        ],
+        "severity": "minor"
+      },
+      "brand_voice_check": {
+        "passed": true,
+        "issues": [],
+        "tone_alignment": 9
+      },
+      "copy_quality_check": {
+        "passed": true,
+        "issues": [
+          "Opening hook could be perceived as fear-based; consider reframing to focus on positive outcomes.",
+          "Savings claim ('more care hours') needs substantiation or a disclaimer."
+        ],
+        "hook_strength": 8,
+        "cta_strength": 9,
+        "clarity": 9
+      },
+      "visual_check": {
+        "passed": true,
+        "issues": [],
+        "appropriateness": 10
+      },
+      "platform_fit_check": {
+        "passed": true,
+        "issues": []
+      },
+      "revision_suggestions": [
+        {
+          "component": "hook",
+          "suggestion": "Reframe opening hook to avoid undue fear; focus on positive transformation rather than initial terror.",
+          "priority": "high"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Add a brief disclaimer or link to substantiation for claims about fee structure and care hours.",
+          "priority": "high"
+        },
+        {
+          "component": "copy",
+          "suggestion": "Ensure all pricing claims are easily verifiable on landing page.",
+          "priority": "medium"
+        }
+      ],
+      "strongest_element": "Visual direction and brand voice: authentic representation of diverse older Australians, warm and empowering tone.",
+      "weakest_element": "Compliance with aged care advertising standards: savings and fee claims need substantiation; opening hook risks undue fear."
+    },
+    "created_at": "2026-03-19T08:19:04.306252"
+  }
+]
