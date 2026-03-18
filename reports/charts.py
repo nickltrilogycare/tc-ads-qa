@@ -1,7 +1,10 @@
 """
 Inline SVG chart generators for the dashboard.
-Market Voice Share treemap, Creative Mix bars, Quality Gap bars.
+Market Voice Share treemap, Creative Mix bars, Quality Gap bars, Word Cloud.
 """
+import math
+import re
+from collections import Counter
 
 
 def market_voice_share_svg(messaging_data: dict, trilogy_share: dict, width: int = 800, height: int = 400) -> str:
@@ -295,6 +298,89 @@ def messaging_gap_heatmap_svg(matrix: dict, width: int = 900, height: int = 500)
         svg += f'  <rect x="{lx}" y="{ly}" width="14" height="14" rx="3" fill="{color}" stroke="#E4E6EB" stroke-width="0.5"/>\n'
         svg += f'  <text x="{lx + 18}" y="{ly + 11}" font-size="11" fill="{muted}">{label}</text>\n'
         lx += 90
+
+    svg += '</svg>'
+    return svg
+
+
+def word_cloud_svg(ads: list[dict], width: int = 700, height: int = 300) -> str:
+    """
+    Generate a word cloud as inline SVG from ad copy text.
+    Extracts words from copy_text/full_text fields, counts frequencies,
+    and renders top 30 words sized proportionally.
+    """
+    STOP_WORDS = {
+        "the", "a", "an", "is", "are", "to", "for", "of", "in", "and",
+        "with", "your", "you", "our", "we", "that", "this", "from", "or",
+        "by", "on", "at", "it", "be", "as", "but", "not", "has", "have",
+        "been", "was", "were", "their", "can", "more", "will", "do", "if",
+        "about", "all", "so", "up", "no", "get", "than", "into", "just",
+        "over", "also", "how", "its",
+    }
+
+    # Extract all text
+    all_text = []
+    for ad in ads:
+        text = (ad.get("copy_text", "") or "") + " " + (ad.get("full_text", "") or "")
+        all_text.append(text)
+
+    combined = " ".join(all_text).lower()
+    # Keep only letters and spaces
+    combined = re.sub(r"[^a-z\s]", " ", combined)
+    words = [w for w in combined.split() if len(w) > 2 and w not in STOP_WORDS]
+
+    if not words:
+        return '<div style="padding:20px;color:#8A8D91;font-size:14px;">No ad copy text available for word cloud.</div>'
+
+    freq = Counter(words).most_common(30)
+    if not freq:
+        return '<div style="padding:20px;color:#8A8D91;font-size:14px;">No words to display.</div>'
+
+    max_count = freq[0][1]
+    min_count = freq[-1][1]
+    count_range = max(max_count - min_count, 1)
+
+    # Blue palette
+    colors = ["#1877F2", "#1565C0", "#1E88E5", "#2196F3", "#42A5F5",
+              "#64B5F6", "#0D47A1", "#1976D2", "#2962FF", "#448AFF"]
+
+    min_font = 12
+    max_font = 40
+
+    svg = f'<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" xmlns="http://www.w3.org/2000/svg">\n'
+    svg += '<style>text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }</style>\n'
+
+    # Simple row-based layout
+    padding_x = 16
+    padding_y = 16
+    x = padding_x
+    y = padding_y
+    line_height = 0
+
+    for i, (word, count) in enumerate(freq):
+        # Scale font size proportionally
+        t = (count - min_count) / count_range
+        font_size = min_font + t * (max_font - min_font)
+        font_weight = "700" if t > 0.5 else "600" if t > 0.2 else "500"
+        color = colors[i % len(colors)]
+
+        # Estimate word width (rough: 0.6 * font_size per character)
+        word_width = len(word) * font_size * 0.6 + 12
+
+        # Wrap to next line if needed
+        if x + word_width > width - padding_x:
+            x = padding_x
+            y += line_height + 8
+            line_height = 0
+
+        if y + font_size > height - padding_y:
+            break  # Out of space
+
+        line_height = max(line_height, font_size + 4)
+        opacity = 0.7 + 0.3 * t
+
+        svg += f'  <text x="{x}" y="{y + font_size}" font-size="{font_size:.0f}" font-weight="{font_weight}" fill="{color}" opacity="{opacity:.2f}">{word}</text>\n'
+        x += word_width
 
     svg += '</svg>'
     return svg
