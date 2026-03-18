@@ -685,6 +685,7 @@ body.dark-mode .search-input {{ background: #1a1d2e; border-color: #2d3148; colo
       <button onclick="toggleMarketVoice()">Market Voice</button>
       <button onclick="toggleGapMatrix()">Gap Matrix</button>
       <button onclick="toggleVolumeTracker()">Volume</button>
+      <button onclick="toggleActionQueue()">Actions</button>
       <button onclick="openDrawer()">Insights</button>
       <button onclick="openBoardsDrawer()">Swipe File</button>
       <button onclick="toggleExecView()" style="background:#1877F2;color:white;border-radius:6px;">CMO Brief</button>
@@ -1040,6 +1041,13 @@ body.dark-mode .search-input {{ background: #1a1d2e; border-color: #2d3148; colo
     except Exception as e:
         html += f"<!-- Volume tracker unavailable: {e} -->\n"
 
+    # ── Action Queue ──
+    try:
+        from reports.action_queue import get_action_queue_html
+        html += get_action_queue_html()
+    except Exception as e:
+        html += f"<!-- Action queue unavailable: {e} -->\n"
+
     # ── Advertiser Sections ──
     for adv_name in advertiser_order:
         adv_ads = [c for c in cards if c["advertiser"] == adv_name]
@@ -1305,6 +1313,14 @@ if (localStorage.getItem('tc_ads_dark') === 'true') {{
 
 function toggleExecView() {{
   document.getElementById('execView')?.classList.toggle('visible');
+}}
+function toggleActionQueue() {{
+  const panels = ['scoreLogic','marketVoice','gapMatrix','volumeTracker','actionQueue','execView'];
+  panels.forEach(id => {{
+    const el = document.getElementById(id);
+    if (el && id !== 'actionQueue') el.classList.remove('visible');
+  }});
+  document.getElementById('actionQueue')?.classList.toggle('visible');
 }}
 function toggleVolumeTracker() {{
   const panels = ['scoreLogic','marketVoice','gapMatrix','volumeTracker','execView'];

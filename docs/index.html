@@ -452,6 +452,7 @@ body.dark-mode .search-input { background: #1a1d2e; border-color: #2d3148; color
       <button onclick="toggleMarketVoice()">Market Voice</button>
       <button onclick="toggleGapMatrix()">Gap Matrix</button>
       <button onclick="toggleVolumeTracker()">Volume</button>
+      <button onclick="toggleActionQueue()">Actions</button>
       <button onclick="openDrawer()">Insights</button>
       <button onclick="openBoardsDrawer()">Swipe File</button>
       <button onclick="toggleExecView()" style="background:#1877F2;color:white;border-radius:6px;">CMO Brief</button>
@@ -1598,6 +1599,39 @@ body.dark-mode .search-input { background: #1a1d2e; border-color: #2d3148; color
 </tr>
     </tbody>
   </table>
+</div>
+
+<div class="score-logic" id="actionQueue" style="margin-top:24px;">
+  <h3>Action Queue — What to Do Next</h3>
+  <p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px;">
+    Prioritized actions based on competitive intelligence, gap analysis, and landing page audit.
+    3 actions identified.
+  </p>
+  
+    <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #E4E6EB;align-items:start;">
+      <span style="background:#E4405F;color:white;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;text-transform:uppercase;white-space:nowrap;margin-top:2px;">high</span>
+      <div style="flex:1;">
+        <div style="font-size:14px;font-weight:600;color:#1C1E21;">Add lead capture form to Trilogy landing pages</div>
+        <div style="font-size:12px;color:#65676B;margin-top:2px;">Bolton Clarke and Dovida both have forms. Trilogy's ad landing pages have no form — potential conversion leak.</div>
+      </div>
+      <span style="font-size:11px;color:#8A8D91;white-space:nowrap;background:#F0F2F5;padding:2px 8px;border-radius:4px;">Digital Team</span>
+    </div>
+    <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #E4E6EB;align-items:start;">
+      <span style="background:#F7B928;color:white;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;text-transform:uppercase;white-space:nowrap;margin-top:2px;">medium</span>
+      <div style="flex:1;">
+        <div style="font-size:14px;font-weight:600;color:#1C1E21;">Increase 'Convenience Speed' messaging (currently 27% share)</div>
+        <div style="font-size:12px;color:#65676B;margin-top:2px;">22 market ads use this angle. Trilogy under-represented.</div>
+      </div>
+      <span style="font-size:11px;color:#8A8D91;white-space:nowrap;background:#F0F2F5;padding:2px 8px;border-radius:4px;">Marketing Strategy</span>
+    </div>
+    <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #E4E6EB;align-items:start;">
+      <span style="background:#1877F2;color:white;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;text-transform:uppercase;white-space:nowrap;margin-top:2px;">low</span>
+      <div style="flex:1;">
+        <div style="font-size:14px;font-weight:600;color:#1C1E21;">Run weekly ad scrape to track competitor changes</div>
+        <div style="font-size:12px;color:#65676B;margin-top:2px;">python3 main.py from tc-ads-qa directory</div>
+      </div>
+      <span style="font-size:11px;color:#8A8D91;white-space:nowrap;background:#F0F2F5;padding:2px 8px;border-radius:4px;">Marketing Coordinator</span>
+    </div>
 </div>
 
 <div class="advertiser-section" data-advertiser="Trilogy Care" data-type="trilogy">
@@ -9019,6 +9053,14 @@ if (localStorage.getItem('tc_ads_dark') === 'true') {
 
 function toggleExecView() {
   document.getElementById('execView')?.classList.toggle('visible');
+}
+function toggleActionQueue() {
+  const panels = ['scoreLogic','marketVoice','gapMatrix','volumeTracker','actionQueue','execView'];
+  panels.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && id !== 'actionQueue') el.classList.remove('visible');
+  });
+  document.getElementById('actionQueue')?.classList.toggle('visible');
 }
 function toggleVolumeTracker() {
   const panels = ['scoreLogic','marketVoice','gapMatrix','volumeTracker','execView'];
