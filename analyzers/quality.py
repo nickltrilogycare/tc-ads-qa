@@ -62,7 +62,8 @@ Return ONLY valid JSON:
   "strengths": ["list of things done well"],
   "competitor_relevance": "how this compares to typical aged care advertising",
   "messaging_angles": ["<one or more from: empowerment_control, family_peace_of_mind, cost_transparency, government_transition, independence_dignity, testimonial_social_proof, service_quality, convenience_speed, self_managed, community_belonging>"],
-  "campaign_concept": "<exactly 5 words describing the core creative concept, e.g. choose your own workers>"
+  "campaign_concept": "<exactly 5 words describing the core creative concept, e.g. choose your own workers>",
+  "tone": "<one of: warm_reassuring, urgent_actionable, professional_clinical, emotional_storytelling, informative_educational, playful_friendly>"
 }}
 """
 

@@ -351,6 +351,18 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
   display: flex; align-items: center; transition: all 0.15s;
 }}
 .view-btn.active {{ background: var(--white); color: var(--text); box-shadow: var(--shadow-sm); }}
+.sort-select {{
+  padding: 6px 28px 6px 12px; border: 1px solid var(--border);
+  border-radius: 20px; font-size: 13px; font-weight: 500;
+  font-family: var(--font); background: var(--white); color: var(--text);
+  cursor: pointer; outline: none; appearance: none;
+  -webkit-appearance: none; -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2365676B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center;
+  transition: border-color 0.15s;
+}}
+.sort-select:hover {{ border-color: var(--text-tertiary); }}
+.sort-select:focus {{ border-color: var(--accent); }}
 
 /* ── Stats Strip ── */
 .stats {{
@@ -699,6 +711,14 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       New This Week
     </div>
 
+    <select class="sort-select" onchange="sortAds(this.value)">
+      <option value="default">Sort: Default</option>
+      <option value="score_desc">Score (High→Low)</option>
+      <option value="score_asc">Score (Low→High)</option>
+      <option value="newest">Newest First</option>
+      <option value="oldest">Oldest First</option>
+    </select>
+
     <div class="view-btns">
       <button class="view-btn active" onclick="setView('grid',this)" title="Grid view">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
@@ -1040,6 +1060,25 @@ function filterAds() {{
     if (filters.freshness !== 'all' && card.dataset.freshness !== filters.freshness) show = false;
     if (q && !card.innerText.toLowerCase().includes(q)) show = false;
     card.classList.toggle('hidden', !show);
+  }});
+}}
+
+function sortAds(value) {{
+  document.querySelectorAll('.ad-grid').forEach(grid => {{
+    const cards = Array.from(grid.querySelectorAll('.ad-card'));
+    if (value === 'default') {{
+      // Restore original order via data-index
+      cards.sort((a, b) => (parseInt(a.dataset.idx) || 0) - (parseInt(b.dataset.idx) || 0));
+    }} else if (value === 'score_desc') {{
+      cards.sort((a, b) => (parseInt(b.dataset.score) || 0) - (parseInt(a.dataset.score) || 0));
+    }} else if (value === 'score_asc') {{
+      cards.sort((a, b) => (parseInt(a.dataset.score) || 0) - (parseInt(b.dataset.score) || 0));
+    }} else if (value === 'newest') {{
+      cards.sort((a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || ''));
+    }} else if (value === 'oldest') {{
+      cards.sort((a, b) => (a.dataset.date || '').localeCompare(b.dataset.date || ''));
+    }}
+    cards.forEach(c => grid.appendChild(c));
   }});
 }}
 
