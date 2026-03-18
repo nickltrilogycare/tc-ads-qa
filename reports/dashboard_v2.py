@@ -8,9 +8,11 @@ import json
 import re
 from datetime import datetime
 from pathlib import Path
+from datetime import timedelta
 from config import REPORTS_DIR
 
 AD_IMAGES_DIR = Path(__file__).parent.parent / "ad_images"
+AD_HISTORY_PATH = Path(__file__).parent.parent / "data" / "ad_history.json"
 
 # Support at Home keyword filter — from research agent analysis
 SAH_PRIMARY = [
@@ -109,6 +111,39 @@ def generate_dashboard_v2(
     filename = f"ads_dashboard_{now:%Y%m%d_%H%M}.html"
     path = REPORTS_DIR / filename
 
+    # Load ad history for freshness badges
+    ad_history = {}
+    if AD_HISTORY_PATH.exists():
+        try:
+            ad_history = json.loads(AD_HISTORY_PATH.read_text())
+        except Exception:
+            pass
+
+    def compute_freshness(library_id: str, start_date: str) -> str:
+        """Return 'new' (0-7 days), 'recent' (8-30), or 'stale' (31+)."""
+        first_seen = None
+        if library_id and library_id in ad_history:
+            fs = ad_history[library_id].get("first_seen", "")
+            if fs:
+                try:
+                    first_seen = datetime.strptime(fs, "%Y-%m-%d")
+                except Exception:
+                    pass
+        if first_seen is None and start_date:
+            try:
+                first_seen = datetime.strptime(start_date, "%Y-%m-%d")
+            except Exception:
+                pass
+        if first_seen is None:
+            return "recent"  # unknown = default to recent (no badge)
+        days = (now - first_seen).days
+        if days <= 7:
+            return "new"
+        elif days <= 30:
+            return "recent"
+        else:
+            return "stale"
+
     # Filter for SAH if requested
     if sah_only:
         filtered = [a for a in all_ads if is_sah_relevant(a)]
@@ -164,12 +199,15 @@ def generate_dashboard_v2(
         elif "kincare" in adv.lower() or "silverchain" in adv.lower(): adv = "KinCare"
         elif "homemade" in adv.lower(): adv = "HomeMade"
 
+        lid = ad.get("library_id", "")
+        freshness = compute_freshness(lid, ad.get("start_date", ""))
+
         cards.append({
             "advertiser": adv,
             "source": ad.get("source", "unknown"),
             "format": ad.get("ad_format", "image"),
             "ad_url": ad.get("ad_url", "#"),
-            "library_id": ad.get("library_id", ""),
+            "library_id": lid,
             "start_date": ad.get("start_date", ""),
             "copy": (ad.get("copy_text") or ad.get("full_text", ""))[:400],
             "cta": ad.get("cta") or analysis.get("cta_identified", ""),
@@ -179,6 +217,7 @@ def generate_dashboard_v2(
             "issues": analysis.get("issues", []),
             "strengths": analysis.get("strengths", []),
             "cats": analysis.get("category_scores", {}),
+            "freshness": freshness,
         })
 
     # Stats
@@ -529,9 +568,71 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
 .score-logic td {{ padding: 8px; border-bottom: 1px solid var(--border-light); }}
 .score-logic .weight {{ font-weight: 700; color: var(--accent); }}
 
+/* ── Freshness Badges ── */
+.freshness-badge {{
+  padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.3px; text-transform: uppercase; margin-left: auto;
+}}
+.badge-new {{ background: #E8F5E9; color: #31A24C; }}
+.badge-stale {{ background: #F0F2F5; color: #8A8D91; }}
+
+/* ── Issues-First Chip (visible on cards scoring <70) ── */
+.card-issue-preview {{
+  padding: 6px 16px 4px; display: flex; align-items: center; gap: 6px;
+}}
+.issue-chip {{
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;
+  background: #FFF0F0; color: var(--red); max-width: 100%;
+}}
+.issue-chip .issue-chip-dot {{
+  width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0;
+}}
+.issue-chip-text {{
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}}
+
+/* ── Gallery View ── */
+.ad-grid.gallery-view {{
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}}
+.ad-grid.gallery-view .ad-card {{
+  border-radius: var(--radius);
+}}
+.ad-grid.gallery-view .card-meta,
+.ad-grid.gallery-view .card-copy,
+.ad-grid.gallery-view .card-footer,
+.ad-grid.gallery-view .card-detail,
+.ad-grid.gallery-view .card-issue-preview {{
+  display: none;
+}}
+.ad-grid.gallery-view .card-creative {{
+  position: relative;
+}}
+.ad-grid.gallery-view .card-creative img {{
+  max-height: 260px; object-fit: cover;
+}}
+.gallery-overlay {{
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  color: white; padding: 24px 10px 8px; font-size: 12px;
+  opacity: 0; transition: opacity 0.2s;
+  pointer-events: none;
+}}
+.gallery-overlay .g-name {{ font-weight: 600; }}
+.gallery-overlay .g-score {{
+  display: inline-block; padding: 1px 6px; border-radius: 8px;
+  font-size: 11px; font-weight: 700; margin-left: 4px;
+}}
+.ad-grid.gallery-view .ad-card:hover .gallery-overlay {{
+  opacity: 1;
+}}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {{
   .ad-grid {{ grid-template-columns: 1fr; }}
+  .ad-grid.gallery-view {{ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }}
   .header-nav {{ display: none; }}
   .stats {{ flex-direction: column; }}
   .drawer {{ width: 100%; right: -100%; }}
@@ -590,12 +691,19 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
       Poor &lt;50
     </div>
 
+    <div class="filter-chip" data-filter="freshness" data-val="new" onclick="toggleFilter(this)" style="border-color:#31A24C;color:#31A24C">
+      New This Week
+    </div>
+
     <div class="view-btns">
       <button class="view-btn active" onclick="setView('grid',this)" title="Grid view">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
       </button>
       <button class="view-btn" onclick="setView('list',this)" title="List view">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg>
+      </button>
+      <button class="view-btn" onclick="setView('gallery',this)" title="Gallery view">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z"/></svg>
       </button>
     </div>
   </div>
@@ -676,7 +784,19 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
             has_img = bool(card["img"])
             fb_url = get_fb_embed_url(card) if card["source"] == "facebook" else card["ad_url"]
 
-            html += f"""    <div class="ad-card" data-platform="{card['source']}" data-format="{card['format']}" data-score="{score}" data-advertiser="{card['advertiser']}">
+            freshness = card.get("freshness", "recent")
+            freshness_badge = ""
+            if freshness == "new":
+                freshness_badge = '<span class="freshness-badge badge-new">NEW</span>'
+            elif freshness == "stale":
+                freshness_badge = '<span class="freshness-badge badge-stale">STALE</span>'
+
+            # Gallery overlay
+            g_score_bg = sc if score >= 0 else "var(--text-tertiary)"
+            g_score_html = f'<span class="g-score" style="background:{g_score_bg}">{score}</span>' if score >= 0 else ""
+            gallery_overlay = f'<div class="gallery-overlay"><span class="g-name">{card["advertiser"]}</span>{g_score_html}</div>'
+
+            html += f"""    <div class="ad-card" data-platform="{card['source']}" data-format="{card['format']}" data-score="{score}" data-advertiser="{card['advertiser']}" data-freshness="{freshness}">
       <div class="card-meta">
         <div class="platform">
           {'<svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>' if card["source"] == "facebook" else '<svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>'}
@@ -686,12 +806,14 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
           <div class="sub">{'Sponsored · ' if card['source'] == 'facebook' else ''}{card['start_date'] or card['source'].title()}</div>
         </div>
         {f'<span class="score-pill" style="background:{sc}">{score}</span>' if score >= 0 else ''}
+        {freshness_badge}
       </div>
       <div class="card-creative" onclick="window.open('{fb_url}','_blank')">
         {f'<img src="{card["img"]}" alt="Ad creative" loading="lazy">' if has_img else '<div class="no-preview">No preview available · Click to view original</div>'}
         <span class="format-pill">{card['format'].upper()}</span>
         {f'<div class="play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>' if card['format'] == 'video' else ''}
         {f'<span class="versions">{card["versions"]} versions</span>' if card["versions"] > 1 else ''}
+        {gallery_overlay}
       </div>
       <div class="card-copy">
         <p>{card["copy"][:250] if card["copy"] else "<em style=color:var(--text-tertiary)>No copy extracted</em>"}</p>
@@ -701,7 +823,17 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
           {f'<span class="tag tag-id">ID: {card["library_id"]}</span>' if card["library_id"] else ''}
         </div>
       </div>
-      <div class="card-detail">
+"""
+            # Issues-first preview for cards scoring below 70
+            issues = card.get("issues", [])
+            if score >= 0 and score < 70 and issues:
+                top_issue = issues[0].get("issue", "")[:80]
+                html += f"""      <div class="card-issue-preview">
+        <span class="issue-chip"><span class="issue-chip-dot"></span><span class="issue-chip-text">{top_issue}</span></span>
+      </div>
+"""
+
+            html += """      <div class="card-detail">
 """
             # Score bars
             cats = card.get("cats", {})
@@ -760,7 +892,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
 <script>
 let currentTab = 'all';
 let currentView = 'grid';
-let filters = {{ platform: 'all', format: 'all', score: 'all' }};
+let filters = {{ platform: 'all', format: 'all', score: 'all', freshness: 'all' }};
 
 function setTab(tab, btn) {{
   currentTab = tab;
@@ -796,6 +928,7 @@ function filterAds() {{
     if (filters.platform !== 'all' && card.dataset.platform !== filters.platform) show = false;
     if (filters.format !== 'all' && card.dataset.format !== filters.format) show = false;
     if (filters.score === 'poor' && parseInt(card.dataset.score) >= 50) show = false;
+    if (filters.freshness !== 'all' && card.dataset.freshness !== filters.freshness) show = false;
     if (q && !card.innerText.toLowerCase().includes(q)) show = false;
     card.classList.toggle('hidden', !show);
   }});
@@ -807,6 +940,7 @@ function setView(mode, btn) {{
   btn.classList.add('active');
   document.querySelectorAll('.ad-grid').forEach(g => {{
     g.classList.toggle('list-view', mode === 'list');
+    g.classList.toggle('gallery-view', mode === 'gallery');
   }});
 }}
 
