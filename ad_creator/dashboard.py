@@ -121,9 +121,14 @@ body {{ font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); 
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>TC Ad Creator — Review Dashboard</h1>
-  <p>{now:%d %B %Y} · {len(data)} campaigns generated · Review and approve before production</p>
+<div class="header" style="display:flex;align-items:center;gap:16px;">
+  <div style="flex:1;">
+    <h1>TC Ad Creator — Review Dashboard</h1>
+    <p>{now:%d %B %Y} · {len(data)} campaigns generated · Review and approve before production</p>
+  </div>
+  <a href="index.html" style="padding:8px 16px;background:rgba(255,255,255,0.2);color:white;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+    ← Back to Intelligence
+  </a>
 </div>
 """
 

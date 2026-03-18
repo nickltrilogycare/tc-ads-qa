@@ -720,6 +720,10 @@ body.dark-mode .search-input {{ background: #1a1d2e; border-color: #2d3148; colo
       <button onclick="openDrawer()">Insights</button>
       <button onclick="openBoardsDrawer()">Swipe File</button>
       <button onclick="toggleExecView()" style="background:#1877F2;color:white;border-radius:6px;">CMO Brief</button>
+      <a href="create.html" style="padding:8px 16px;background:#007F7E;color:white;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        Create Ads
+      </a>
     </div>
     <span class="header-meta">{now:%d %B %Y} · Support at Home</span>
     <button onclick="toggleDarkMode()" style="width:32px;height:32px;border:1px solid var(--border);border-radius:6px;background:var(--white);cursor:pointer;font-size:16px;" title="Toggle dark mode" id="darkModeBtn">🌙</button>
