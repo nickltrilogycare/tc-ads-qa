@@ -810,3 +810,59 @@ def get_lightbox_html() -> str:
 })();
 </script>
 """
+
+
+def get_keyboard_shortcuts_html() -> str:
+    """Keyboard shortcuts for power users."""
+    return """
+<!-- Keyboard Shortcuts -->
+<style>
+.shortcuts-help {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  z-index: 600; justify-content: center; align-items: center;
+}
+.shortcuts-help.open { display: flex; }
+.shortcuts-panel {
+  background: white; border-radius: 12px; padding: 24px; max-width: 400px;
+  width: 90%;
+}
+.shortcuts-panel h3 { font-size: 16px; margin-bottom: 16px; }
+.shortcut-row {
+  display: flex; justify-content: space-between; padding: 6px 0;
+  font-size: 14px; border-bottom: 1px solid #F0F2F5;
+}
+.shortcut-key {
+  background: #F0F2F5; padding: 2px 8px; border-radius: 4px;
+  font-family: monospace; font-size: 12px; font-weight: 600;
+}
+</style>
+<div class="shortcuts-help" id="shortcutsHelp" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="shortcuts-panel">
+    <h3>Keyboard Shortcuts</h3>
+    <div class="shortcut-row"><span>Search</span><span class="shortcut-key">/</span></div>
+    <div class="shortcut-row"><span>Gallery view</span><span class="shortcut-key">G</span></div>
+    <div class="shortcut-row"><span>Grid view</span><span class="shortcut-key">R</span></div>
+    <div class="shortcut-row"><span>List view</span><span class="shortcut-key">L</span></div>
+    <div class="shortcut-row"><span>CMO Brief</span><span class="shortcut-key">B</span></div>
+    <div class="shortcut-row"><span>Insights</span><span class="shortcut-key">I</span></div>
+    <div class="shortcut-row"><span>Swipe File</span><span class="shortcut-key">S</span></div>
+    <div class="shortcut-row"><span>Close popups</span><span class="shortcut-key">Esc</span></div>
+    <div class="shortcut-row"><span>Show shortcuts</span><span class="shortcut-key">?</span></div>
+  </div>
+</div>
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+  switch(e.key) {
+    case '/': e.preventDefault(); document.querySelector('.search-input')?.focus(); break;
+    case 'g': case 'G': document.querySelector('.view-btn:nth-child(3)')?.click(); break;
+    case 'r': case 'R': document.querySelector('.view-btn:nth-child(1)')?.click(); break;
+    case 'l': case 'L': document.querySelector('.view-btn:nth-child(2)')?.click(); break;
+    case 'b': case 'B': toggleExecView?.(); break;
+    case 'i': case 'I': openDrawer?.(); break;
+    case 's': case 'S': openBoardsDrawer?.(); break;
+    case '?': document.getElementById('shortcutsHelp')?.classList.toggle('open'); break;
+  }
+});
+</script>
+"""
