@@ -1038,6 +1038,23 @@ function toggleDetail(card) {{
   card.classList.toggle('expanded');
 }}
 
+// Lazy load images using IntersectionObserver for performance
+if ('IntersectionObserver' in window) {{
+  const imgObserver = new IntersectionObserver((entries) => {{
+    entries.forEach(entry => {{
+      if (entry.isIntersecting) {{
+        const img = entry.target;
+        if (img.dataset.src) {{
+          img.src = img.dataset.src;
+          delete img.dataset.src;
+        }}
+        imgObserver.unobserve(img);
+      }}
+    }});
+  }}, {{ rootMargin: '200px' }});
+  document.querySelectorAll('.card-creative img[loading="lazy"]').forEach(img => imgObserver.observe(img));
+}}
+
 function openDrawer() {{
   document.getElementById('drawerOverlay').classList.add('open');
   document.getElementById('drawer').classList.add('open');
