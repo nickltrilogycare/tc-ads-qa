@@ -40,9 +40,27 @@ SAH_EXCLUDE = [
 ]
 
 
+SAH_KNOWN_ADVERTISERS = [
+    "trilogy", "bolton", "hammond", "dovida", "kincare", "homemade",
+    "just better", "prestige", "feros", "australian unity", "anglicare",
+    "baptist", "uniting", "catholic", "benetas", "southern cross",
+    "right at home", "nurse next door", "pearl home", "bluecare",
+    "mercy", "helping hand", "rsl", "senior helpers", "estia",
+    "irt", "whiddon", "careabout", "careseekers", "opal", "goodwin",
+    "five good", "mable", "calvary", "regis",
+]
+
+
 def is_sah_relevant(ad: dict) -> bool:
     """Check if an ad is relevant to Support at Home using tiered keyword matching."""
     text = (ad.get("copy_text", "") + " " + ad.get("full_text", "")).lower()
+    adv = ad.get("advertiser", "").lower()
+
+    # Google ads from known SAH providers are always relevant
+    # (Google scraper captures minimal text but these are SAH advertisers)
+    if ad.get("source") == "google":
+        if any(known in adv for known in SAH_KNOWN_ADVERTISERS):
+            return True
 
     # Exclude residential/NDIS unless also mentioning home care
     if any(ex in text for ex in SAH_EXCLUDE):
