@@ -714,3 +714,99 @@ def get_human_review_html() -> str:
 })();
 </script>
 """
+
+
+def get_lightbox_html() -> str:
+    """Return HTML/CSS/JS for a full-screen image lightbox with ad details."""
+    return """
+<!-- Lightbox — Full-screen ad preview -->
+<style>
+.lightbox-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+  z-index: 500; backdrop-filter: blur(8px);
+  justify-content: center; align-items: center; padding: 40px;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-content {
+  background: white; border-radius: 12px; max-width: 900px; width: 100%;
+  max-height: 90vh; overflow-y: auto; display: flex;
+}
+.lightbox-image {
+  flex: 1; min-width: 400px; background: #F0F2F5;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px 0 0 12px; overflow: hidden;
+}
+.lightbox-image img { max-width: 100%; max-height: 80vh; object-fit: contain; }
+.lightbox-details {
+  width: 320px; padding: 24px; border-left: 1px solid #E4E6EB;
+  overflow-y: auto;
+}
+.lightbox-details h3 { font-size: 16px; margin-bottom: 8px; }
+.lightbox-details .meta { font-size: 13px; color: #65676B; margin-bottom: 16px; }
+.lightbox-details .copy { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+.lightbox-details .actions { display: flex; gap: 8px; margin-top: 16px; }
+.lightbox-details .actions a, .lightbox-details .actions button {
+  padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600;
+  text-decoration: none; cursor: pointer; border: 1px solid #DADDE1;
+  background: white; color: #1C1E21;
+}
+.lightbox-details .actions .primary { background: #1877F2; color: white; border-color: #1877F2; }
+.lightbox-close {
+  position: fixed; top: 16px; right: 16px; z-index: 501;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); border: none; color: white;
+  font-size: 24px; cursor: pointer; display: none;
+  align-items: center; justify-content: center;
+}
+.lightbox-overlay.open ~ .lightbox-close { display: flex; }
+@media (max-width: 768px) {
+  .lightbox-content { flex-direction: column; }
+  .lightbox-image { min-width: auto; border-radius: 12px 12px 0 0; }
+  .lightbox-details { width: auto; }
+}
+</style>
+
+<div class="lightbox-overlay" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-content">
+    <div class="lightbox-image" id="lbImage"></div>
+    <div class="lightbox-details" id="lbDetails"></div>
+  </div>
+</div>
+<button class="lightbox-close" id="lbClose" onclick="closeLightbox()">×</button>
+
+<script>
+(function() {
+  window.openLightbox = function(card) {
+    const img = card.querySelector('.card-creative img');
+    const name = card.querySelector('.card-meta .name')?.textContent || '';
+    const sub = card.querySelector('.card-meta .sub')?.textContent || '';
+    const copy = card.querySelector('.card-copy p')?.textContent || '';
+    const score = card.querySelector('.score-pill')?.textContent || '';
+    const url = card.querySelector('.card-creative')?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1] || '#';
+    const tags = card.querySelector('.card-copy .tags')?.innerHTML || '';
+
+    const imgHtml = img ? `<img src="${img.src}" alt="Ad">` : '<div style="padding:60px;color:#8A8D91;">No preview</div>';
+    document.getElementById('lbImage').innerHTML = imgHtml;
+    document.getElementById('lbDetails').innerHTML = `
+      <h3>${name}</h3>
+      <div class="meta">${sub}${score ? ' · Score: <strong>' + score + '</strong>' : ''}</div>
+      <div class="copy">${copy}</div>
+      <div style="margin:8px 0;">${tags}</div>
+      <div class="actions">
+        <a href="${url}" target="_blank" class="primary">View Original →</a>
+      </div>
+    `;
+    document.getElementById('lightbox').classList.add('open');
+  };
+
+  window.closeLightbox = function() {
+    document.getElementById('lightbox').classList.remove('open');
+  };
+
+  // ESC key closes lightbox
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+"""

@@ -893,7 +893,7 @@ body {{ font-family: var(--font); background: var(--bg); color: var(--text);
         {f'<span class="score-pill" style="background:{sc}">{score}</span>' if score >= 0 else ''}
         {freshness_badge}
       </div>
-      <div class="card-creative" onclick="window.open('{fb_url}','_blank')">
+      <div class="card-creative" onclick="event.stopPropagation();openLightbox(this.closest('.ad-card'))">
         {f'<img src="{card["img"]}" alt="Ad creative" loading="lazy">' if has_img else '<div class="no-preview">No preview available · Click to view original</div>'}
         <span class="format-pill">{card['format'].upper()}</span>
         {f'<div class="play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>' if card['format'] == 'video' else ''}
@@ -1091,6 +1091,7 @@ function toggleGapMatrix() {{
             "avg_score": avg,
         })
         html += get_human_review_html()
+        html += get_lightbox_html()
     except Exception as e:
         html += f"<!-- Addons failed: {{e}} -->"
 
