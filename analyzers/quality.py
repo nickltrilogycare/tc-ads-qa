@@ -60,7 +60,9 @@ Return ONLY valid JSON:
     {{"severity": "critical|high|medium|low", "issue": "description", "recommendation": "fix"}}
   ],
   "strengths": ["list of things done well"],
-  "competitor_relevance": "how this compares to typical aged care advertising"
+  "competitor_relevance": "how this compares to typical aged care advertising",
+  "messaging_angles": ["<one or more from: empowerment_control, family_peace_of_mind, cost_transparency, government_transition, independence_dignity, testimonial_social_proof, service_quality, convenience_speed, self_managed, community_belonging>"],
+  "campaign_concept": "<exactly 5 words describing the core creative concept, e.g. choose your own workers>"
 }}
 """
 
